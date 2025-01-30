@@ -2,3 +2,13 @@
 // ---------------------------------
 
 @import "vendor/normalize";
+
+// Commom
+@import "common/mixins.scss";
+@import "common/fonts.scss";
+@import "common/variables.scss";
+@import "common/visually-hidden.scss";
+@import "common/overlay.scss";
+@import "common/global.scss";
+
+// Blocks
