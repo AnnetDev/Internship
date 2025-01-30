@@ -17,16 +17,79 @@
       <use href="/__spritemap#sprite-user"></use>
     </svg> -->
   <!-- примеры требуемых атрибутов data-test="*" -->
-  <div data-test="hero">hero</div>
-  <div data-test="about">about</div>
-  <div data-test="programs">programs</div>
-  <div data-test="grant">grant</div>
-  <div data-test="news">news</div>
-  <div data-test="FAQ">FAQ</div>
-  <div data-test="reviews">reviews</div>
-  <div data-test="contacts">contacts</div>
-  <div data-test="form">form</div>
-  <div data-test="footer">footer</div>
+  <section class="hero" data-test="hero">
+    <!-- <section class="hero__main">
+      <h1 class="hero__title">Глобальный профессиональный
+        опыт обучения за рубежом</h1>
+    </section> -->
+
+    <section class="hero__header">
+      <div class="container">
+        <h2 class="visually-hidden">Навигация сайта</h2>
+        <div class="hero__header-logo">
+          <svg class="hero__header-logo-icon" width="30" height="30" alt="Логотип компании">
+            <use href="/__spritemap#sprite-logo"></use>
+          </svg>
+        </div>
+        <div class="hero__header-wrapper">
+          <div class="hero__menu-wrapper">
+            <h2 class="hero__header-heading">Меню</h2>
+            <button class="hero__header-toggle js-toggle-button" type="button">
+              <span class="hero__header-toggle-icon"></span>
+              <span class="visually-hidden">Открыть меню</span>
+            </button>
+          </div>
+          <nav class="hero__header-nav" aria-label="Главная навигация сайта">
+            <ul class="hero__header-list">
+              <li class="hero__header-item">
+                <a class="hero__header-link" href="#">О проекте</a>
+              </li>
+              <li class="hero__header-item">
+                <a class="hero__header-link hero__header-link-programs" href="#">Программы</a>
+                <ul class="hero__header-sublist">
+                  <li class="hero__header-subitem"><a class="hero__header-subitem hero__header-link" href="#">Стажировки</a></li>
+                  <li class="hero__header-subitem"><a class="hero__header-subitem hero__header-link" href="#">Волонтёрство</a></li>
+                  <li class="hero__header-subitem"><a class="hero__header-subitem hero__header-link" href="#">Учёба</a></li>
+                  <li class="hero__header-subitem"><a class="hero__header-subitem hero__header-link" href="#">Религия</a></li>
+                </ul>
+              </li>
+              <li class="hero__header-item">
+                <a class="hero__header-link" href="#">Как поехать</a>
+              </li>
+              <li class="hero__header-item">
+                <a class="hero__header-link" href="#">Отзывы</a>
+              </li>
+              <li class="hero__header-item">
+                <a class="hero__header-link hero__header-link-news" href="#">Новости</a>
+                <ul class="hero__header-sublist">
+                  <li class="hero__header-subitem"><a class="hero__header-subitem hero__header-link" href="#">Общее</a></li>
+                  <li class="hero__header-subitem"><a class="hero__header-subitem hero__header-link" href="#">Волонтёрство</a></li>
+                  <li class="hero__header-subitem"><a class="hero__header-subitem hero__header-link" href="#">Стажировки</a></li>
+                  <li class="hero__header-subitem"><a class="hero__header-subitem hero__header-link" href="#">Карьера</a></li>
+                  <li class="hero__header-subitem"><a class="hero__header-subitem hero__header-link" href="#">Путешествия</a></li>
+                </ul>
+              </li>
+              <li class="hero__header-item">
+                <a class="hero__header-link" href="#">Контакты</a>
+              </li>
+            </ul>
+          </nav>
+
+        </div>
+      </div>
+    </section>
+  </section>
+
+
+  <!-- <section data-test="about">about</section> -->
+  <!-- <section data-test="programs">programs</section> -->
+  <!-- <section data-test="grant">grant</section> -->
+  <!-- <section data-test="news">news</section> -->
+  <!-- <section data-test="FAQ">FAQ</section> -->
+  <!-- <section data-test="reviews">reviews</section> -->
+  <!-- <section data-test="contacts">contacts</section> -->
+  <!-- <section data-test="form">form</section> -->
+  <!-- <section data-test="footer">footer</section> -->
   <script type="module" src="js/main.js"></script>
 </body>
 

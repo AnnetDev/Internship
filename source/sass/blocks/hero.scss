@@ -1,0 +1,230 @@
+.hero {
+  position: relative;
+  background-color: #95a7b9;
+  width: 500px;
+  height: 500px;
+  margin: 0 auto;
+}
+
+.hero__header {
+  position: absolute;
+  content: "";
+  margin: 0;
+  padding: 0;
+  width: 320px;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.hero__header .container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.hero__header-logo {
+  position: absolute;
+  content: "";
+  top: 2px;
+  left: 15px;
+  width: 52px;
+  height: 52px;
+  background-color: $primary-white;
+  display: flex;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  z-index: -1;
+}
+
+.hero__header-toggle {
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  width: 46px;
+  height: 46px;
+  background-color: $primary-blue;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  position: relative;
+  transition: transform 0.3s ease;
+
+  &--opened {
+    background-color: $primary-white;
+  }
+
+  &::before {
+    position: absolute;
+    content: "";
+    width: 18px;
+    height: 1px;
+    background-color: $primary-white;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 19px;
+    transition: all 0.3s ease;
+  }
+
+  &::after {
+    position: absolute;
+    content: "";
+    width: 18px;
+    height: 1px;
+    background-color: $primary-white;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 19px;
+    transition: all 0.3s ease;
+  }
+
+  &--opened::before {
+    background-color: $primary-blue;
+    transform: translateY(4px) translateX(-50%) rotate(45deg);
+  }
+
+  &--opened::after {
+    background-color: $primary-blue;
+    transform: translateY(-3px) translateX(-50%) rotate(-45deg);
+  }
+}
+
+.hero__header-toggle-icon {
+  margin: 0;
+  padding: 0;
+  display: block;
+  position: absolute;
+  content: "";
+  width: 18px;
+  height: 1px;
+  background-color: $primary-white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s ease;
+
+  &--opened {
+    display: none;
+    transition: display 0.3s ease;
+  }
+}
+
+.hero__header-heading {
+  margin: 0;
+  padding: 0;
+  display: block;
+  font-size: 14px;
+  line-height: 14px;
+  letter-spacing: 0.28px;
+  text-align: center;
+  color: $primary-blue;
+  text-transform: uppercase;
+
+  &--opened {
+    color: $primary-white;
+  }
+}
+
+.hero__menu-wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  padding: 4px 5px 4px 21px;
+  background-color: $primary-white;
+  border-radius: 30px;
+  border: solid 1px $primary-blue;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+  width: 136px;
+  z-index: 1;
+  position: relative;
+
+  &--opened {
+    background-color: $primary-blue;
+    width: 290px;
+    z-index: 1;
+  }
+}
+
+.hero__header-nav {
+  display: none;
+
+  &--opened {
+    display: block;
+    position: absolute;
+    content: "";
+    top: calc(100% + 4px);
+    margin: 0;
+    padding: 35px 25px;
+    background-color: $primary-blue;
+    border-radius: 30px;
+    width: 290px;
+    transition: all 0.3s ease;
+  }
+}
+
+.hero__header-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-flow: column wrap;
+  gap: 28px;
+}
+
+.hero__header-item {
+  margin: 0;
+  padding: 0;
+  width: fit-content;
+}
+
+.hero__header-link {
+  display: block;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  color: $primary-white;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0.02em;
+  text-align: left;
+  width: fit-content;
+
+  &-programs,
+  &-news {
+    position: relative;
+  }
+
+  &-programs::after,
+  &-news::after {
+    position: absolute;
+    content: "";
+    mask: url("/__spritemap#sprite-arrow-down-view") no-repeat center;
+    background-color: $primary-white;
+    width: 12px;
+    height: 12px;
+    top: 0;
+    left: calc(100% + 10px);
+  }
+}
+
+.hero__header-sublist {
+  list-style: none;
+  margin: 0;
+  padding: 20px 0 0 16px;
+  display: flex;
+  flex-flow: column wrap;
+  gap: 16px;
+}
+
+.hero__header-subitem.hero__header-link {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+  text-align: left;
+  text-transform: none;
+}
