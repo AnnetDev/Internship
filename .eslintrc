@@ -1,0 +1,11 @@
+root: true
+
+parserOptions:
+  ecmaVersion: 2023
+  sourceType: 'module'
+
+env:
+  es6: true
+  browser: true
+
+extends: "htmlacademy/vanilla"

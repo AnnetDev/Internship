@@ -1,0 +1,10 @@
+ls:
+  source:
+    .dir: kebab-case # applies for the current directory and all their subdirectories
+    .js: kebab-case
+    .css: kebab-case
+    .scss: kebab-case
+    .html: kebab-case
+ignore:
+  - source/js/vendor
+  - source/sass/vendor
