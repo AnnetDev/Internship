@@ -11,17 +11,123 @@
 </head>
 
 <body class="page-body">
-  <!-- пример использования спрайта -->
-  <!-- <img src="/__spritemap#sprite-logo-view" alt="Это спрайт">
-    <svg>
-      <use href="/__spritemap#sprite-user"></use>
-    </svg> -->
-  <!-- примеры требуемых атрибутов data-test="*" -->
   <section class="hero" data-test="hero">
-    <!-- <section class="hero__main">
-      <h1 class="hero__title">Глобальный профессиональный
+    <section class="hero__main">
+      <h1 class="hero__title visually-hidden">Проект "Стажировка": профессиональный
         опыт обучения за рубежом</h1>
-    </section> -->
+
+      <div class="hero__swiper swiper">
+        <div class="hero__swiper-wrapper swiper-wrapper">
+          <div class="hero__swiper-slide swiper-slide">
+            <picture>
+              <source type="image/webp" media="(min-width: 1440px)"
+                srcset="img/hero/slide1-desktop@1x.webp 1x, img/hero/slide1-desktop@2x.webp 2x" width="1440"
+                height="800">
+              <source type="image/webp" media="(min-width: 768px)"
+                srcset="img/hero/slide1-tablet@1x.webp 1x, img/hero/slide1-tablet@2x.webp 2x" width="768" height="1024">
+              <source type="image/webp" srcset="img/hero/slide1-mobile@1x.webp 1x, img/hero/slide1-mobile@2x.webp 2x"
+                width="320" height="568">
+
+              <source type="image/jpg" media="(min-width: 1440px)"
+                srcset="img/hero/slide1-desktop@1x.jpg 1x, img/hero/slide1-desktop@2x.jpg 2x" width="1440" height="800">
+              <source type="image/jpg" media="(min-width: 768px)"
+                srcset="img/hero/slide1-tablet@1x.jpg 1x, img/hero/slide1-tablet@2x.jpg 2x" width="768" height="1024">
+              <img class="hero__swiper-image" src="img/hero/slide1-mobile@1x.jpg" srcset="img/hero/slide1-mobile@2x.jpg"
+                width="320" height="568" alt="Горы Кавказа">
+            </picture>
+            <div class="container">
+              <div class="hero__slide-title-wrapper">
+                <h2 class="hero__slide-title">Глобальный профессиональный
+                  опыт обучения за рубежом</h2>
+              </div>
+              <div class="hero__slider-inner-wrapper">
+                <div class="hero__slide-description-wrapper">
+                  <p>Погрузитесь в академическую
+                    программу, проходя практику
+                    в разных городах, ощущая
+                    настоящий студенческий стиль
+                    жизни!</p>
+                </div>
+              </div>
+              <div class="hero__slide-link-wrapper">
+                <a class="hero__slide-link" href="#">Подробнее</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero__swiper-slide swiper-slide">
+            <picture>
+              <source type="image/webp" media="(min-width: 1440px)"
+                srcset="img/hero/slide2-desktop@1x.webp 1x, img/hero/slide2-desktop@2x.webp 2x" width="1440"
+                height="800">
+              <source type="image/webp" media="(min-width: 768px)"
+                srcset="img/hero/slide2-tablet@1x.webp 1x, img/hero/slide2-tablet@2x.webp 2x" width="768" height="1024">
+              <source type="image/webp" srcset="img/hero/slide2-mobile@1x.webp 1x, img/hero/slide2-mobile@2x.webp 2x"
+                width="320" height="568">
+
+              <source type="image/jpg" media="(min-width: 1440px)"
+                srcset="img/hero/slide2-desktop@1x.jpg 1x, img/hero/slide2-desktop@2x.jpg 2x" width="1440" height="800">
+              <source type="image/jpg" media="(min-width: 768px)"
+                srcset="img/hero/slide2-tablet@1x.jpg 1x, img/hero/slide2-tablet@2x.jpg 2x" width="768" height="1024">
+              <img class="hero__swiper-image" src="img/hero/slide2-mobile@1x.jpg" srcset="img/hero/slide2-mobile@2x.jpg"
+                width="320" height="568" alt="Горы Кавказа">
+            </picture>
+            <div class="container">
+              <div class="hero__slide-title-wrapper">
+                <h2 class="hero__slide-title">Программы стажировок
+                  в крупнейших компаниях мира</h2>
+              </div>
+              <div class="hero__slider-inner-wrapper">
+                <div class="hero__slide-description-wrapper">
+                  <p>Получите незаменимый опыт работы в ведущих мировых компаниях и государственных организациях.</p>
+                </div>
+              </div>
+              <div class="hero__slide-link-wrapper">
+                <a class="hero__slide-link" href="#">Подробнее</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero__swiper-slide swiper-slide">
+            <picture>
+              <source type="image/webp" media="(min-width: 1440px)"
+                srcset="img/hero/slide3-desktop@1x.webp 1x, img/hero/slide3-desktop@2x.webp 2x" width="1440"
+                height="800">
+              <source type="image/webp" media="(min-width: 768px)"
+                srcset="img/hero/slide3-tablet@1x.webp 1x, img/hero/slide3-tablet@2x.webp 2x" width="768" height="1024">
+              <source type="image/webp" srcset="img/hero/slide3-mobile@1x.webp 1x, img/hero/slide3-mobile@2x.webp 2x"
+                width="320" height="568">
+
+              <source type="image/jpg" media="(min-width: 1440px)"
+                srcset="img/hero/slide3-desktop@1x.jpg 1x, img/hero/slide3-desktop@2x.jpg 2x" width="1440" height="800">
+              <source type="image/jpg" media="(min-width: 768px)"
+                srcset="img/hero/slide3-tablet@1x.jpg 1x, img/hero/slide3-tablet@2x.jpg 2x" width="768" height="1024">
+              <img class="hero__swiper-image" src="img/hero/slide3-mobile@1x.jpg" srcset="img/hero/slide3-mobile@2x.jpg"
+                width="320" height="568" alt="Горы Кавказа">
+            </picture>
+            <div class="container">
+              <div class="hero__slide-title-wrapper">
+                <h2 class="hero__slide-title">Волонтёрские программы –
+                  внесите свой вклад в общество</h2>
+              </div>
+              <div class="hero__slider-inner-wrapper">
+                <div class="hero__slide-description-wrapper">
+                  <p>Возможности для преподавания, органического сельского хозяйства, устойчивого образа жизни и другое.
+                  </p>
+                </div>
+              </div>
+              <div class="hero__slide-link-wrapper">
+                <a class="hero__slide-link" href="#">Подробнее</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="hero__swiper-pagination swiper-pagination"></div>
+
+      </div>
+
+    </section>
 
     <section class="hero__header">
       <div class="container">
@@ -47,10 +153,14 @@
               <li class="hero__header-item">
                 <a class="hero__header-link hero__header-link-programs" href="#">Программы</a>
                 <ul class="hero__header-sublist">
-                  <li class="hero__header-subitem"><a class="hero__header-subitem hero__header-link" href="#">Стажировки</a></li>
-                  <li class="hero__header-subitem"><a class="hero__header-subitem hero__header-link" href="#">Волонтёрство</a></li>
-                  <li class="hero__header-subitem"><a class="hero__header-subitem hero__header-link" href="#">Учёба</a></li>
-                  <li class="hero__header-subitem"><a class="hero__header-subitem hero__header-link" href="#">Религия</a></li>
+                  <li class="hero__header-subitem"><a class="hero__header-subitem hero__header-link"
+                      href="#">Стажировки</a></li>
+                  <li class="hero__header-subitem"><a class="hero__header-subitem hero__header-link"
+                      href="#">Волонтёрство</a></li>
+                  <li class="hero__header-subitem"><a class="hero__header-subitem hero__header-link" href="#">Учёба</a>
+                  </li>
+                  <li class="hero__header-subitem"><a class="hero__header-subitem hero__header-link"
+                      href="#">Религия</a></li>
                 </ul>
               </li>
               <li class="hero__header-item">
@@ -62,11 +172,16 @@
               <li class="hero__header-item">
                 <a class="hero__header-link hero__header-link-news" href="#">Новости</a>
                 <ul class="hero__header-sublist">
-                  <li class="hero__header-subitem"><a class="hero__header-subitem hero__header-link" href="#">Общее</a></li>
-                  <li class="hero__header-subitem"><a class="hero__header-subitem hero__header-link" href="#">Волонтёрство</a></li>
-                  <li class="hero__header-subitem"><a class="hero__header-subitem hero__header-link" href="#">Стажировки</a></li>
-                  <li class="hero__header-subitem"><a class="hero__header-subitem hero__header-link" href="#">Карьера</a></li>
-                  <li class="hero__header-subitem"><a class="hero__header-subitem hero__header-link" href="#">Путешествия</a></li>
+                  <li class="hero__header-subitem"><a class="hero__header-subitem hero__header-link" href="#">Общее</a>
+                  </li>
+                  <li class="hero__header-subitem"><a class="hero__header-subitem hero__header-link"
+                      href="#">Волонтёрство</a></li>
+                  <li class="hero__header-subitem"><a class="hero__header-subitem hero__header-link"
+                      href="#">Стажировки</a></li>
+                  <li class="hero__header-subitem"><a class="hero__header-subitem hero__header-link"
+                      href="#">Карьера</a></li>
+                  <li class="hero__header-subitem"><a class="hero__header-subitem hero__header-link"
+                      href="#">Путешествия</a></li>
                 </ul>
               </li>
               <li class="hero__header-item">

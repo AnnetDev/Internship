@@ -4,5 +4,7 @@
 // import 'swiper/css';
 
 import { toggleMenu } from './blocks/burger-menu';
+import { initializeHeroSwiper } from './blocks/swiper-hero';
 
 toggleMenu();
+initializeHeroSwiper();

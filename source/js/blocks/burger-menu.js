@@ -13,6 +13,15 @@ export const toggleMenu = () => {
     const sublistNews = menuLinkNews.nextElementSibling;
 
     // Открытие/закрытие главного меню
+    menu.addEventListener('click', (event) => {
+      event.stopPropagation();
+      navigation.classList.toggle('hero__header-nav--opened');
+      menuToggle.classList.toggle('hero__header-toggle--opened');
+      toggleIcon.classList.toggle('hero__header-toggle-icon--opened');
+      menu.classList.toggle('hero__menu-wrapper--opened');
+      heading.classList.toggle('hero__header-heading--opened');
+    });
+
     menuToggle.addEventListener('click', (event) => {
       event.stopPropagation();
       navigation.classList.toggle('hero__header-nav--opened');
@@ -33,14 +42,14 @@ export const toggleMenu = () => {
       }
     });
 
-    // Открытие подменю "Программы"
+    // Открытие подменю 'Программы'
     menuLinkPrograms.addEventListener('click', (event) => {
       event.stopPropagation();
       sublistPrograms.classList.toggle('hero__header-sublist--opened');
       menuLinkPrograms.classList.toggle('hero__header-link-programs--opened');
     });
 
-    // Открытие подменю "Новости"
+    // Открытие подменю 'Новости'
     menuLinkNews.addEventListener('click', (event) => {
       event.stopPropagation();
       sublistNews.classList.toggle('hero__header-sublist--opened');
