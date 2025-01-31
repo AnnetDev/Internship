@@ -6,6 +6,7 @@
   margin: 0 auto;
 }
 
+// РАЗОБРАТЬСЯ С ПРОЗРАЧНОСТЬЮ ТЕКСТА
 .hero__header {
   position: absolute;
   content: "";
@@ -15,6 +16,14 @@
   top: 0;
   left: 50%;
   transform: translateX(-50%);
+
+  @media (min-width: $tablet-width) {
+    width: 768px;
+  }
+
+  @media (min-width: $desktop-width) {
+    width: 1440px;
+  }
 }
 
 .hero__header .container {
@@ -145,23 +154,33 @@
     background-color: $primary-blue;
     width: 290px;
     z-index: 1;
+
+    @media (min-width: $tablet-width) {
+      width: 286x;
+    }
   }
 }
 
 .hero__header-nav {
-  display: none;
+  position: absolute;
+  top: calc(100% + 4px);
+  width: 290px;
+  margin: 0;
+  padding: 0;
+  background-color: $primary-blue;
+  border-radius: 30px;
+
+  opacity: 0;
+  transform: translateY(-10px);
+  max-height: 0;
+  overflow: hidden;
+  transition: transform 0.3s ease, opacity 0.3s ease, max-height 0.3s ease;
 
   &--opened {
-    display: block;
-    position: absolute;
-    content: "";
-    top: calc(100% + 4px);
-    margin: 0;
+    opacity: 1;
+    transform: translateY(0);
+    max-height: max-content;
     padding: 35px 25px;
-    background-color: $primary-blue;
-    border-radius: 30px;
-    width: 290px;
-    transition: all 0.3s ease;
   }
 }
 
@@ -193,14 +212,15 @@
   letter-spacing: 0.02em;
   text-align: left;
   width: fit-content;
+}
 
-  &-programs,
-  &-news {
-    position: relative;
-  }
+.hero__header-link-programs,
+.hero__header-link-news {
+  position: relative;
+  transition: color 0.3s ease;
 
-  &-programs::after,
-  &-news::after {
+  &::after,
+  &::after {
     position: absolute;
     content: "";
     mask: url("/__spritemap#sprite-arrow-down-view") no-repeat center;
@@ -209,16 +229,32 @@
     height: 12px;
     top: 0;
     left: calc(100% + 10px);
+    transition: transform 0.3s ease;
+  }
+
+  &--opened::after,
+  &--opened::after {
+    transform: rotate(-180deg);
   }
 }
 
 .hero__header-sublist {
-  list-style: none;
-  margin: 0;
-  padding: 20px 0 0 16px;
-  display: flex;
-  flex-flow: column wrap;
-  gap: 16px;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transform: translateY(-10px); // Начальное положение выше
+  transition: transform 0.3s ease, opacity 0.3s ease, max-height 0.3s ease;
+
+  &--opened {
+    max-height: max-content;
+    opacity: 1;
+    list-style: none;
+    margin: 0;
+    padding: 20px 0 0 16px;
+    display: flex;
+    flex-flow: column wrap;
+    gap: 16px;
+    transform: translateY(0);  }
 }
 
 .hero__header-subitem.hero__header-link {
