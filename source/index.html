@@ -248,13 +248,14 @@
         </li>
       </ul>
     </div>
+
     <div class="about__popup popup">
       <button class="popup__close" type="button">
         <span class="visually-hidden">Закрыть попап</span>
       </button>
       <h2 class="popup__title">Напишите нам</h2>
       <p class="popup__description">Оставьте ваши контакты, если у вас остались вопросы – мы на них ответим!</p>
-      <form class="popup__form" action="https://echo.htmlacademy.ru">
+      <form class="popup__form" action="https://echo.htmlacademy.ru" method="post">
         <fieldset class="popup__fieldset">
           <legend class="visually-hidden">Отправить заявку на для консультацию</legend>
 
@@ -282,10 +283,13 @@
             <option value="perm">Пермь</option>
             <option value="volgograd">Волгоград</option>
           </select>
-          <div class="popup__group">
-            <input class="popup__checkbox" type="checkbox" required name="popup-checkbox" id="popup-checkbox">
-            <label class="popup__label" for="popup-checkbox">Я согласен на обработку моих персональных данных</label>
-          </div>
+
+          <label class="popup__checkbox">
+            <input class="popup__checkbox-input" type="checkbox" required name="popup-checkbox">
+            <span class="popup__checkbox-mark"></span>
+            <p class="popup__label-text">Я согласен на обработку моих персональных данных</p>
+          </label>
+
           <button class="button popup__button" type="submit">Отправить</button>
         </fieldset>
       </form>
