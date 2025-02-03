@@ -1,0 +1,48 @@
+.button {
+  display: flex;
+  margin: 0;
+  padding: 16px 21px;
+  height: 44px;
+  border: solid 1px $primary-blue;
+  border-radius: 30px;
+  background-color: transparent;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 12px;
+  letter-spacing: 0.2px;
+  text-align: center;
+  color: $primary-blue;
+  position: relative;
+  align-items: center;
+
+  &::after {
+    position: absolute;
+    content: "";
+    width: 34px;
+    height: 34px;
+    background-color: $primary-blue;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 5px;
+  }
+
+  &::before {
+    position: absolute;
+    content: "";
+    width: 8px;
+    height: 8px;
+    mask: url("/__spritemap#sprite-arrow-view") no-repeat center; //кривая стрелочка
+    background-color: $primary-white;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 18px;
+    z-index: 2;
+  }
+
+  @media (min-width: $tablet-width) {
+    height: 56px;
+  }
+}

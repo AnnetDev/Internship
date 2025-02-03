@@ -48,9 +48,9 @@
                     настоящий студенческий стиль
                     жизни!</p>
                 </div>
-              </div>
-              <div class="hero__slide-link-wrapper">
-                <a class="hero__slide-link" href="#">Подробнее</a>
+                <div class="hero__slide-link-wrapper">
+                  <a class="hero__slide-link button" href="#">Подробнее</a>
+                </div>
               </div>
             </div>
           </div>
@@ -81,9 +81,9 @@
                 <div class="hero__slide-description-wrapper">
                   <p>Получите незаменимый опыт работы в ведущих мировых компаниях и государственных организациях.</p>
                 </div>
-              </div>
-              <div class="hero__slide-link-wrapper">
-                <a class="hero__slide-link" href="#">Подробнее</a>
+                <div class="hero__slide-link-wrapper">
+                  <a class="hero__slide-link button" href="#">Подробнее</a>
+                </div>
               </div>
             </div>
           </div>
@@ -115,15 +115,18 @@
                   <p>Возможности для преподавания, органического сельского хозяйства, устойчивого образа жизни и другое.
                   </p>
                 </div>
+                <div class="hero__slide-link-wrapper">
+                  <a class="hero__slide-link button" href="#">Подробнее</a>
+                </div>
               </div>
-              <div class="hero__slide-link-wrapper">
-                <a class="hero__slide-link" href="#">Подробнее</a>
-              </div>
+
             </div>
           </div>
 
         </div>
-        <div class="hero__swiper-pagination swiper-pagination"></div>
+        <div class="hero__swiper-pagination swiper-pagination">
+          <div class="circle-shape"></div>
+        </div>
 
       </div>
 
@@ -185,7 +188,7 @@
                 </ul>
               </li>
               <li class="hero__header-item">
-                <a class="hero__header-link" href="#">Контакты</a>
+                <a class="hero__header-link " href="#">Контакты</a>
               </li>
             </ul>
           </nav>
@@ -196,7 +199,99 @@
   </section>
 
 
-  <!-- <section data-test="about">about</section> -->
+  <section class="about" data-test="about">
+    <div class="container">
+      <div class="about__title-wrapper">
+        <h2 class="about__title">О проекте «Стажировка»</h2>
+        <p>«Стажировка» — совместный проект
+          правительств и волонтёрских бригад.</p>
+      </div>
+      <div class="about__goal-wrapper">
+        <h3>Наша цель</h3>
+        <p>Наша деятельность направлена
+          на повышение квалификации молодых
+          специалистов на ранних и средних
+          стадиях карьеры, предоставляя
+          им инструменты для решения сложных
+          проблем, с которыми сталкиваются в мире.
+          Цель центра — наделить этих людей
+          способностью инициировать значимые
+          изменения.</p>
+        <a class="about__link button" href="#">подробнее о проекте</a>
+      </div>
+      <ul class="about__list">
+        <li class="about__list-item">
+          <h3>Более 250 программ</h3>
+          <p>учебных и рабочих, разной
+            длительностью от 3 месяцев
+            до 1 года</p>
+        </li>
+        <li class="about__list-item">
+          <h3>Более 3000 участников</h3>
+          <p>уже успешно прошли
+            программу
+            от «Стажировка»
+            и остались в разных
+            странах</p>
+        </li>
+        <li class="about__list-item">
+          <h3>участники из 60 стран</h3>
+          <p>студенты со всего мира приезжают на программу
+            «Стажировки» от 3 месяцев до 1 года</p>
+        </li>
+        <li class="about__list-item">
+          <h3>от 4 200 $
+            до 8 400 $</h3>
+          <p>грант всем участникам
+            для комфортного прохождения
+            программы</p>
+        </li>
+      </ul>
+    </div>
+    <div class="about__popup popup">
+      <button class="popup__close" type="button">
+        <span class="visually-hidden">Закрыть попап</span>
+      </button>
+      <h2 class="popup__title">Напишите нам</h2>
+      <p class="popup__description">Оставьте ваши контакты, если у вас остались вопросы – мы на них ответим!</p>
+      <form class="popup__form" action="https://echo.htmlacademy.ru">
+        <fieldset class="popup__fieldset">
+          <legend class="visually-hidden">Отправить заявку на для консультацию</legend>
+
+          <label class="popup__label" for="input-name">Имя</label>
+          <input class="popup__input popup__input-name" type="text" name="name" id="input-name" required>
+
+          <label class="popup__label" for="input-phone">Телефон</label>
+          <input class="popup__input popup__input-phone" type="tel" name="phone" id="input-phone" required>
+
+          <label class="popup__label" for="select-input">Выберите город</label>
+          <select class="popup__input popup__select" name="select-input" id="select-input">
+            <option value=""></option>
+            <option value="moscow">Москва</option>
+            <option value="saint-petersburg">Санкт-Петербург</option>
+            <option value="novosibirsk">Новосибирск</option>
+            <option value="yekaterinburg">Екатеринбург</option>
+            <option value="kazan">Казань</option>
+            <option value="nizhny-novgorod">Нижний Новгород</option>
+            <option value="chelyabinsk">Челябинск</option>
+            <option value="samara">Самара</option>
+            <option value="rostov-on-don">Ростов-на-Дону</option>
+            <option value="ufa">Уфа</option>
+            <option value="krasnoyarsk">Красноярск</option>
+            <option value="voronezh">Воронеж</option>
+            <option value="perm">Пермь</option>
+            <option value="volgograd">Волгоград</option>
+          </select>
+          <div class="popup__group">
+            <input class="popup__checkbox" type="checkbox" required name="popup-checkbox" id="popup-checkbox">
+            <label class="popup__label" for="popup-checkbox">Я согласен на обработку моих персональных данных</label>
+          </div>
+          <button class="button popup__button" type="submit">Отправить</button>
+        </fieldset>
+      </form>
+
+    </div>
+  </section>
   <!-- <section data-test="programs">programs</section> -->
   <!-- <section data-test="grant">grant</section> -->
   <!-- <section data-test="news">news</section> -->
