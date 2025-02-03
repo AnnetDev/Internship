@@ -11,6 +11,7 @@
 </head>
 
 <body class="page-body">
+  <main>
   <section class="hero" data-test="hero">
     <section class="hero__main">
       <h1 class="hero__title visually-hidden">Проект "Стажировка": профессиональный
@@ -265,24 +266,28 @@
           <label class="popup__label" for="input-phone">Телефон</label>
           <input class="popup__input popup__input-phone" type="tel" name="phone" id="input-phone" required>
 
-          <label class="popup__label" for="select-input">Выберите город</label>
-          <select class="popup__input popup__select" name="select-input" id="select-input">
-            <option value=""></option>
-            <option value="moscow">Москва</option>
-            <option value="saint-petersburg">Санкт-Петербург</option>
-            <option value="novosibirsk">Новосибирск</option>
-            <option value="yekaterinburg">Екатеринбург</option>
-            <option value="kazan">Казань</option>
-            <option value="nizhny-novgorod">Нижний Новгород</option>
-            <option value="chelyabinsk">Челябинск</option>
-            <option value="samara">Самара</option>
-            <option value="rostov-on-don">Ростов-на-Дону</option>
-            <option value="ufa">Уфа</option>
-            <option value="krasnoyarsk">Красноярск</option>
-            <option value="voronezh">Воронеж</option>
-            <option value="perm">Пермь</option>
-            <option value="volgograd">Волгоград</option>
-          </select>
+          <label class="popup__label" for="dropdown-input">Выберите город</label>
+          <div class="popup__input dropdown" name="dropdown-input" id="dropdown-input">
+            <button class="dropdown__button" aria-haspopup="listbox" aria-expanded="false" type="button">
+              <span class="visually-hidden">Выберите город</span></button>
+            <ul class="dropdown__list" role="listbox">
+              <li class="dropdown__item" role="option" data-value=""></li>
+              <li class="dropdown__item" role="option" data-value="moscow">Москва</li>
+              <li class="dropdown__item" role="option" data-value="saint-petersburg">Санкт-Петербург</li>
+              <li class="dropdown__item" role="option" data-value="novosibirsk">Новосибирск</li>
+              <li class="dropdown__item" role="option" data-value="yekaterinburg">Екатеринбург</li>
+              <li class="dropdown__item" role="option" data-value="kazan">Казань</li>
+              <li class="dropdown__item" role="option" data-value="nizhny-novgorod">Нижний Новгород</li>
+              <li class="dropdown__item" role="option" data-value="chelyabinsk">Челябинск</li>
+              <li class="dropdown__item" role="option" data-value="samara">Самара</li>
+              <li class="dropdown__item" role="option" data-value="rostov-on-don">Ростов-на-Дону</li>
+              <li class="dropdown__item" role="option" data-value="ufa">Уфа</li>
+              <li class="dropdown__item" role="option" data-value="krasnoyarsk">Красноярск</li>
+              <li class="dropdown__item" role="option" data-value="voronezh">Воронеж</li>
+              <li class="dropdown__item" role="option" data-value="perm">Пермь</li>
+              <li class="dropdown__item" role="option" data-value="volgograd">Волгоград</li>
+            </ul>
+          </div>
 
           <label class="popup__checkbox">
             <input class="popup__checkbox-input" type="checkbox" required name="popup-checkbox">
@@ -304,6 +309,7 @@
   <!-- <section data-test="contacts">contacts</section> -->
   <!-- <section data-test="form">form</section> -->
   <!-- <section data-test="footer">footer</section> -->
+</main>
   <script type="module" src="js/main.js"></script>
 </body>
 

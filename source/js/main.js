@@ -5,11 +5,12 @@
 
 import { toggleMenu } from './blocks/burger-menu';
 import { initializeHeroSwiper } from './blocks/swiper-hero';
-import { togglePopup, popupValidator } from './blocks/popup';
+import { togglePopup, popupValidator, toggleDropdown } from './blocks/popup';
 
 
 toggleMenu();
 initializeHeroSwiper();
 togglePopup();
 popupValidator();
+toggleDropdown();
 

@@ -1,0 +1,61 @@
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown__button {
+  position: absolute;
+  content: "";
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  top: 50%;
+  transform: translateY(-50%);
+  mask: url("/__spritemap#sprite-dropdown-view") no-repeat center;
+  background-color: #484848;
+  right: 20px;
+  width: 14px;
+  height: 7px;
+}
+
+.dropdown__list {
+  display: none;
+
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  background-color: $primary-white;
+  border: solid 1px #484848;
+  border-radius: 8px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  max-height: max-content;
+  overflow-y: auto;
+  z-index: 2;
+  transition: all 0.3s ease;
+  animation: fadeOut 0.2s ease-out forwards;
+
+  @keyframes fadeOut { //можно ли применять?
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+.dropdown__item {
+  padding: 10px;
+  cursor: pointer;
+}
+
+// .dropdown__item:hover {
+//   background: #f0f0f0;
+// }
+
+.dropdown.open .dropdown__list {
+  display: block;
+}

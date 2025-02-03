@@ -1,6 +1,30 @@
 .popup {
   display: none;
+// display: block;
+// position: absolute;
+//     top: 23px;
+//     left: 50%;
+//     transform: translate(-50%);
+//     width: 290px;
+//     height: max-content;
+//     background-color: $primary-white;
+//     display: flex;
+//     flex-flow: column wrap;
+//     align-content: center;
+//     align-items: center;
+//     z-index: 2;
+//     border-radius: 16px;
+//     padding: 20px 15px 40px;
 
+    @media (min-width: $tablet-width) {
+      top: 204px;
+      width: 510px;
+      padding: 30px 80px 60px;
+    }
+
+    @media (min-width: $desktop-width) {
+      top: 90px;
+    }
   &--opened {
     position: absolute;
     top: 23px;
@@ -13,7 +37,7 @@
     flex-flow: column wrap;
     align-content: center;
     align-items: center;
-    z-index: 2;
+    z-index: 3;
     border-radius: 16px;
     padding: 20px 15px 40px;
 

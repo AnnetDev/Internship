@@ -41,23 +41,57 @@ export const togglePopup = () => {
     const popupOpener = document.querySelector('.about__link');
     const popup = document.querySelector('.popup');
     const popupCloser = document.querySelector('.popup__close');
+    const body = document.querySelector('.page-body');
 
     popupOpener.addEventListener('click', (event) => {
       event.stopPropagation();
       popup.classList.toggle('popup--opened');
+      body.classList.toggle('overlay-active');
+
     });
 
     popupCloser.addEventListener('click', (event) => {
       event.stopPropagation();
       popup.classList.remove('popup--opened');
+      body.classList.remove('overlay-active');
+
     });
 
     document.addEventListener('click', (event) => {
       if (!popup.contains(event.target)) {
         popup.classList.remove('popup--opened');
+        body.classList.remove('overlay-active');
       }
     });
+  });
+};
 
+export const toggleDropdown = () => {
+  document.addEventListener('DOMContentLoaded', () => {
+    const dropdown = document.querySelector('.dropdown');
+    const button = dropdown.querySelector('.dropdown__button');
+    // const list = dropdown.querySelector('.dropdown__list');
+    const items = dropdown.querySelectorAll('.dropdown__item');
+
+    button.addEventListener('click', () => {
+      dropdown.classList.toggle('open');
+      button.setAttribute('aria-expanded', dropdown.classList.contains('open'));
+    });
+
+    items.forEach((item) => {
+      item.addEventListener('click', () => {
+        button.textContent = item.textContent;
+        dropdown.classList.remove('open');
+        button.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!dropdown.contains(e.target)) {
+        dropdown.classList.remove('open');
+        button.setAttribute('aria-expanded', 'false');
+      }
+    });
   });
 
 };
