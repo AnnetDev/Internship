@@ -9,16 +9,16 @@
 //картинка на всю ширину, даже больше 1440
 
 .hero__main {
-  width: 320px;
+  width: 100%;
   margin: 0 auto;
 
-  @media (min-width: $tablet-width) {
-    width: 768px;
-  }
+  // @media (min-width: $tablet-width) {
+  //   width: 768px;
+  // }
 
-  @media (min-width: $desktop-width) {
-    width: 1440px;
-  }
+  // @media (min-width: $desktop-width) {
+  //   width: 1440px;
+  // }
 }
 
 .hero__swiper {
@@ -59,7 +59,17 @@
   margin: 0;
   padding: 0;
   z-index: -1;
+  width: 100%;
+  height: 568px;
+  object-fit: cover;
+  object-position: center;
   // width: 100vw;
+  @media (min-width: $tablet-width) {
+    height: 1024px;
+  }
+  @media (min-width: $desktop-width) {
+    height: 800px;
+  }
 }
 
 .hero__swiper-slide {
@@ -83,15 +93,19 @@
   display: flex;
   flex-flow: column wrap;
   justify-content: flex-end;
+  width: 320px;
   min-height: 568px;
+  margin: 0 auto;
 
   @media (min-width: $tablet-width) {
     padding-top: 30px;
     padding-bottom: 60px;
+    width: 768px;
     min-height: 1024px;
   }
 
   @media (min-width: $desktop-width) {
+    width: 1440px;
     padding-top: 60px;
     padding-bottom: 60px;
     min-height: 800px;
@@ -114,7 +128,11 @@
   justify-content: center;
   align-items: center;
   padding: 6px;
+  // margin: 0 auto;
+  // align-self: center;
   transition: bottom 0.3s ease;
+  left: calc(50% - (290px / 2));
+  // transform: translateX(-50%);
 
   &::after {
     position: absolute;
@@ -124,6 +142,14 @@
     background-image: url("/__spritemap#sprite-connecter-view");
     right: -20px;
     bottom: 0;
+  }
+
+  @media (min-width: $tablet-width) {
+    left: calc(50% - (678px / 2));
+  }
+
+  @media (min-width: $desktop-width) {
+    left: calc(50% - (1240px / 2));
   }
 }
 
@@ -255,7 +281,6 @@
   font-weight: 400;
   line-height: 20px;
   text-align: left;
-
 }
 
 .hero__slide-link-wrapper {
@@ -272,7 +297,6 @@
     border-bottom-right-radius: 30px;
     padding: 0 40px 10px 0;
     width: 238px;
-
   }
 
   &::after {
@@ -312,7 +336,6 @@
   // color: $primary-blue;
   // position: relative;
   // align-items: center;
-
 
   // &::after {
   //   position: absolute;
@@ -462,7 +485,6 @@
   left: 50%;
   transform: translate(-50%, -50%);
   transition: all 0.3s ease;
-
 
   &--opened {
     display: none;

@@ -17,12 +17,12 @@ function updatePaginationPosition(swiper) {
   if (titleWrapper && innerWrapper && heroContainer && pagination && container) {
     const computedStyle = window.getComputedStyle(heroContainer);
     const heroContainerPaddingBottom = parseInt(computedStyle.paddingBottom, 10) || 0;
-    const containerPaddingLeft = parseInt(computedStyle.paddingLeft, 10) || 0;
+    // const containerPaddingLeft = parseInt(computedStyle.paddingLeft, 10) || 0;
 
 
     const totalHeight = titleWrapper.offsetHeight + innerWrapper.offsetHeight + heroContainerPaddingBottom;
     pagination.style.bottom = `${totalHeight}px`;
-    pagination.style.left = `${containerPaddingLeft}px`;
+    // pagination.style.left = `${containerPaddingLeft}px`;
   }
 }
 
