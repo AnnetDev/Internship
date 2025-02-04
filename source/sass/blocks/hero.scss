@@ -63,7 +63,6 @@
   height: 568px;
   object-fit: cover;
   object-position: center;
-  // width: 100vw;
   @media (min-width: $tablet-width) {
     height: 1024px;
   }
@@ -133,6 +132,16 @@
   transition: bottom 0.3s ease;
   left: calc(50% - (290px / 2));
   // transform: translateX(-50%);
+  animation: fadeOut 0.3s ease-out forwards;
+
+  @keyframes fadeOut { //можно ли применять?
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 
   &::after {
     position: absolute;
