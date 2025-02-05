@@ -86,6 +86,17 @@
   margin: 0 auto;
   padding: 0;
   border-radius: 19px; //16
+  max-width: 290px;
+  height: auto;
+
+  @media (min-width: $tablet-width) {
+    max-width: 678px;
+  }
+
+  @media (min-width: $desktop-width) {
+    max-width: 498px;
+  }
+
 }
 
 .grant__title {
