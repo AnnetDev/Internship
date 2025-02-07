@@ -8,6 +8,7 @@ import { initializeHeroSwiper } from './blocks/swiper-hero';
 import { togglePopup, popupValidator, toggleDropdown } from './blocks/popup';
 import { initializeProgramsSwiper } from './blocks/swiper-programs';
 import { toggleAccordion } from './blocks/faq';
+import { initializeReviewsSwiper } from './blocks/swiper-reviews';
 
 
 toggleMenu();
@@ -17,3 +18,4 @@ popupValidator();
 toggleDropdown();
 initializeProgramsSwiper();
 toggleAccordion();
+initializeReviewsSwiper();

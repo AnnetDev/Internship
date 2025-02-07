@@ -626,6 +626,9 @@
     left: calc(100% + 10px);
     transition: transform 0.3s ease;
   }
+  &--opened {
+    opacity: 1;
+  }
 
   &--opened::after,
   &--opened::after {

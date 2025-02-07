@@ -1,7 +1,6 @@
-.programs {
+.reviews {
   display: flex;
   flex-flow: column wrap;
-  // align-items: center;
   background-color: #f0efe9;
   position: relative;
   padding: 50px 0;
@@ -11,7 +10,7 @@
   }
 }
 
-.programs__heading {
+.reviews__heading {
   display: flex;
   align-self: center;
   margin: 0 0 30px;
@@ -21,7 +20,7 @@
   text-align: left;
   color: $primary-blue;
   width: 320px;
-  padding: 0 15px;
+  padding: 0 15px; //?
 
   @media (min-width: $tablet-width) {
     font-size: 34px;
@@ -39,10 +38,12 @@
   }
 }
 
-.swiper.programs__swiper {
+.swiper.reviews__swiper {
   width: 290px;
   // padding: 0 0 0 15px;
   margin-bottom: 30px;
+  height: auto;
+
 
   @media (min-width: $tablet-width) {
     width: 768px;
@@ -56,105 +57,156 @@
   }
 }
 
-// .swiper-wrapper.programs__swiper-wrapper {
-//   @media (min-width: $desktop-width) {
-//     width: 1340px;
-//   }
-// }
-
-
-.programs__swiper-slide {
+.swiper-slide.reviews__swiper-slide {
   position: relative;
   max-width: 290px;
-  min-height: 400px;
+  min-height: 472px;
+  border: solid 2px $primary-blue;
+  border-radius: 16px;
   height: auto;
 
-
   @media (min-width: $tablet-width) {
-    min-height: 420px;
-    max-width: 324px;
+    min-height: 417px;
+    max-width: 560px;
+    height: auto;
+
   }
 
   @media (min-width: $desktop-width) {
-    max-width: 392px;
+    min-height: 483px;
+    max-width: 604px;
   }
 }
 
-.programs__swiper-innner-container {
+.reviews__swiper-innner-container {
   display: flex;
   flex-flow: column wrap;
   width: 100%;
   min-height: 400px;
   height: 100%;
-  padding: 18px 10px;
-  justify-content: flex-end;
+  padding: 32px 17px;
+  justify-content: flex-start;
 
   @media (min-width: $tablet-width) {
     min-height: 420px;
-    padding: 20px 10px;
+    padding: 52px;
   }
 
   @media (min-width: $desktop-width) {
-    padding: 20px 17px;
+    padding: 52px;
   }
 }
 
-.progarms__swiper-image {
+.reviews__author-wrapper {
+  display: flex;
+  flex-flow: column wrap;
+  gap: 15px;
+  margin: 0 0 25px;
+
+  @media (min-width: $tablet-width) {
+    flex-flow: row wrap;
+    gap: unset;
+    justify-content: space-between;
+    margin: 0 0 30px;
+    align-items: center;
+  }
+}
+
+.reviews__author-name-wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 10px;
+  align-items: center;
+  @media (min-width: $tablet-width) {
+    gap: 15px;
+  }
+}
+
+.reviews__image {
   display: block;
   margin: 0;
   padding: 0;
-  border-radius: 12px;
-  // position: absolute;
-  // width: 100%;
-  // height: 100%;
-  position: absolute;
-  content: "";
+  border-radius: 50%;
+}
+
+.reviews__author-name {
+  display: flex;
+  flex-flow: row wrap;
+  width: 75px;
   margin: 0;
   padding: 0;
-  z-index: -1;
-  width: 100%;
-  height: 400px;
-  object-fit: cover;
-  object-position: center;
-  // width: 100vw;
-  @media (min-width: $tablet-width) {
-    height: 420px;
-  }
-  @media (min-width: $desktop-width) {
-    // height: 800px;
-  }
-}
-
-.programs__title-wrapper {
-  background-color: $primary-white;
-  padding: 18px 6px 6px 18px;
-  width: 146px;
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
-  position: relative;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  text-align: left;
+  color: $primary-blue;
 
   @media (min-width: $tablet-width) {
-    width: 173px;
+font-size: 20px;
+line-height: 24px;
   }
 
   @media (min-width: $desktop-width) {
-    width: 194px;
-  }
-
-  &::after {
-    position: absolute;
-    content: "";
-    width: 18px;
-    height: 18px;
-    background-image: url("/__spritemap#sprite-connecter-view");
-    right: -18px;
-    bottom: 0;
-  }
+    font-size: 18px;
+      }
 }
 
-.programs__title {
-  display: block;
+.reviews__description {
+  display: flex;
   margin: 0;
+  padding: 0;
+  flex-flow: column wrap;
+  gap: 8px;
+
+  @media (min-width: $tablet-width) {
+    gap: 11px;
+  }
+}
+
+.reviews__details {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 25px;
+}
+
+.reviews__program-title,
+.reviews__date-title {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 12px;
+  letter-spacing: 0.12px;
+  text-align: left;
+  color: $primary-blue;
+  text-transform: uppercase;
+}
+
+.reviews__program-name,
+.reviews__date {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14px;
+  text-align: left;
+  @media (min-width: $tablet-width) {
+    font-size: 14px;
+    line-height: 20px;
+
+  }
+  @media (min-width: $desktop-width) {
+    font-size: 14px;
+    line-height: 18px;
+
+  }
+}
+
+.reviews__title {
+  display: inline-block;
+  margin: 0 0 20px;
   padding: 0;
   font-size: 16px;
   font-weight: 400;
@@ -164,110 +216,38 @@
 
   @media (min-width: $tablet-width) {
     font-size: 20px;
-    line-height: 14px;
+    line-height: 24px;
+    margin: 0 0 25px;
   }
 
   @media (min-width: $desktop-width) {
     font-size: 24px;
-    line-height: 17px;
+    line-height: 24px;
+    margin: 0 0 26px;
   }
 }
 
-.programs__description-wrapper {
-  background-color: $primary-white;
-  padding: 12px 18px 15px 18px;
-  width: 270px;
-  border-bottom-left-radius: 12px;
-  border-top-right-radius: 12px;
-  border-bottom-right-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  @media (min-width: $tablet-width) {
-    width: 284px;
-  }
-
-  @media (min-width: $desktop-width) {
-    width: 321px;
-  }
-}
-
-.programs__description-wrapper p {
-  display: block;
+.reviews__swiper-innner-container p {
+  display: inline-block;
   margin: 0;
   padding: 0;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 400;
-  line-height: 14px;
+  line-height: 20px;
   text-align: left;
-  color: #484848;
-  width: 190px;
-  height: max-content;
 
   @media (min-width: $tablet-width) {
-    width: 210px;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 20px;
   }
 
-  @media (min-width: $desktop-width) {
-    width: 240px;
-    font-size: 14px;
-    line-height: 18px;
-  }
-}
-
-.programs__slide-link {
-  display: block;
-  margin: 0;
-  padding: 0;
-  width: 30px;
-  height: 30px;
-  border: none;
-
-  &::after {
-    right: 0;
-  }
-
-  &::before {
-    right: 12px;
-    // top: 50%;
-    // transform: translate(-50% -50%);
-  }
-}
-
-.programs__link-wrapper {
-  display: flex;
-  align-self: center;
-  width: 320px;
-  padding: 0 15px;
-
   @media (min-width: $tablet-width) {
-    position: absolute;
-    content: "";
-    margin: 0;
-    padding: 0;
-    right: calc(50% - ((768px - 45px * 2) / 2));
-    justify-content: flex-end;
-  }
-
-  @media (min-width: $desktop-width) {
-    margin: 0;
-    padding: 0;
-    right: calc(50% - ((1440px - 100px * 2) / 2));
+    font-size: 16px;
+    line-height: 26px;
   }
 }
 
-.programs__link {
-  width: 205px;
-
-  @media (min-width: $tablet-width) {
-    width: 234px;
-  }
-}
-
-.programs__swiper-buttons {
+.reviews__swiper-buttons {
   width: 54px;
   // height: 24px;
   display: flex;
@@ -291,7 +271,7 @@
   }
 }
 
-.programs__swiper-button {
+.reviews__swiper-button {
   display: block;
   margin: 0;
   padding: 0;
@@ -305,7 +285,7 @@
   // border: red solid 1px;
 }
 
-.programs__swiper-button.swiper-button-next::after {
+.reviews__swiper-button.swiper-button-next::after {
   position: absolute;
   content: "";
   mask: url("/__spritemap#sprite-swiper-button-view") no-repeat center; //кривая стрелочка
@@ -317,7 +297,7 @@
   transform: translate(-50%, -50%);
 }
 
-.programs__swiper-button.swiper-button-prev::after {
+.reviews__swiper-button.swiper-button-prev::after {
   position: absolute;
   content: "";
   mask: url("/__spritemap#sprite-swiper-button-view") no-repeat center; //кривая стрелочка
@@ -329,13 +309,13 @@
   transform: translate(-50%, -50%) rotate(180deg);
 }
 
-.swiper-scrollbar {
+.swiper-scrollbar .reviews__swiper-scrollbar {
   display: none;
 
   @media (min-width: $tablet-width) {
     display: flex;
     position: absolute;
-    content:"";
+    content: "";
     bottom: 50px;
     left: calc(50% - ((768px - 45px * 2) / 2));
     width: 562px;
@@ -347,7 +327,7 @@
   @media (min-width: $desktop-width) {
     display: flex;
     position: absolute;
-    content:"";
+    content: "";
 
     bottom: 60px;
     left: calc(50% - ((1440px - 100px * 2) / 2));

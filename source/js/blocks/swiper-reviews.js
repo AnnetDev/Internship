@@ -2,8 +2,8 @@ import Swiper from 'swiper';
 import { Navigation, Pagination, Scrollbar } from 'swiper/modules';
 import 'swiper/scss';
 
-export function initializeProgramsSwiper() {
-  const swiperContainer = document.querySelector('.programs__swiper');
+export function initializeReviewsSwiper() {
+  const swiperContainer = document.querySelector('.reviews__swiper');
   const swiperWrapper = swiperContainer.querySelector('.swiper-wrapper');
 
   function removeClonedSlides() {
@@ -15,8 +15,8 @@ export function initializeProgramsSwiper() {
 
     if (window.innerWidth >= 1440) {
       const slides = swiperWrapper.querySelectorAll('.swiper-slide');
-      if (slides.length >= 3) {
-        for (let i = 0; i < 3; i++) {
+      if (slides.length >= 2) {
+        for (let i = 0; i < 2; i++) {
           const clone = slides[i].cloneNode(true);
           clone.classList.add('swiper-slide--cloned');
           swiperWrapper.appendChild(clone);
@@ -27,13 +27,13 @@ export function initializeProgramsSwiper() {
 
   cloneSlides();
 
-  const swiperInstance = new Swiper('.programs__swiper', {
+  const swiperInstance = new Swiper('.reviews__swiper', {
     modules: [Navigation, Pagination, Scrollbar],
     loop: false,
     normalizeSliderIndex: true,
     navigation: {
-      nextEl: '.programs__swiper-button.swiper-button-next',
-      prevEl: '.programs__swiper-button.swiper-button-prev',
+      nextEl: '.reviews__swiper-button.swiper-button-next',
+      prevEl: '.reviews__swiper-button.swiper-button-prev',
     },
     scrollbar: {
       el: '.swiper-scrollbar',
@@ -50,13 +50,13 @@ export function initializeProgramsSwiper() {
         allowTouchMove: true,
       },
       768: {
-        slidesPerView: 2.15,
+        slidesPerView: 1.3,
         spaceBetween: 30,
         grabCursor: true,
         allowTouchMove: true,
       },
       1440: {
-        slidesPerView: 3,
+        slidesPerView: 2,
         spaceBetween: 32,
         allowTouchMove: false,
         grabCursor: false,
@@ -71,9 +71,9 @@ export function initializeProgramsSwiper() {
 
   window.addEventListener('resize', handleResize);
 
-  const prevButton = document.querySelector('.programs__swiper-button.swiper-button-prev');
-  const nextButton = document.querySelector('.programs__swiper-button.swiper-button-next');
-  const linkButton = document.querySelector('.programs__slide-link');
+  const prevButton = document.querySelector('.reviews__swiper-button.swiper-button-prev');
+  const nextButton = document.querySelector('.reviews__swiper-button.swiper-button-next');
+  const linkButton = document.querySelector('.reviews__slide-link');
 
   if (prevButton && nextButton && linkButton) {
     prevButton.setAttribute('tabindex', '0');
