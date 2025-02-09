@@ -30,13 +30,13 @@
                 <source type="image/webp" srcset="img/hero/slide1-mobile@1x.webp 1x, img/hero/slide1-mobile@2x.webp 2x"
                   width="320" height="568">
 
-                <source type="image/jpg" media="(min-width: 1440px)"
+                <source type="image/jpg" media="(min-width: 769px)"
                   srcset="img/hero/slide1-desktop@1x.jpg 1x, img/hero/slide1-desktop@2x.jpg 2x" width="1440"
                   height="800">
-                <source type="image/jpg" media="(min-width: 768px)"
+                <source type="image/jpg" media="(min-width: 321px)"
                   srcset="img/hero/slide1-tablet@1x.jpg 1x, img/hero/slide1-tablet@2x.jpg 2x" width="768" height="1024">
                 <img class="hero__swiper-image" src="img/hero/slide1-mobile@1x.jpg"
-                  srcset="img/hero/slide1-mobile@2x.jpg" width="320" height="568" alt="Горы Кавказа">
+                  srcset="img/hero/slide1-mobile@2x.jpg" width="320" height="568">
               </picture>
               <div class="container">
                 <div class="hero__slide-title-wrapper">
@@ -75,7 +75,7 @@
                 <source type="image/jpg" media="(min-width: 768px)"
                   srcset="img/hero/slide2-tablet@1x.jpg 1x, img/hero/slide2-tablet@2x.jpg 2x" width="768" height="1024">
                 <img class="hero__swiper-image" src="img/hero/slide2-mobile@1x.jpg"
-                  srcset="img/hero/slide2-mobile@2x.jpg" width="320" height="568" alt="Горы Кавказа">
+                  srcset="img/hero/slide2-mobile@2x.jpg" width="320" height="568">
               </picture>
               <div class="container">
                 <div class="hero__slide-title-wrapper">
@@ -110,7 +110,7 @@
                 <source type="image/jpg" media="(min-width: 768px)"
                   srcset="img/hero/slide3-tablet@1x.jpg 1x, img/hero/slide3-tablet@2x.jpg 2x" width="768" height="1024">
                 <img class="hero__swiper-image" src="img/hero/slide3-mobile@1x.jpg"
-                  srcset="img/hero/slide3-mobile@2x.jpg" width="320" height="568" alt="Горы Кавказа">
+                  srcset="img/hero/slide3-mobile@2x.jpg" width="320" height="568">
               </picture>
               <div class="container">
                 <div class="hero__slide-title-wrapper">
@@ -684,7 +684,52 @@
       <div class="swiper-scrollbar reviews__swiper-scrollbar"></div>
 
     </section>
-    <!-- <section data-test="contacts">contacts</section> -->
+    <section class="contacts" data-test="contacts">
+      <div class="container">
+        <h2 class="contacts__heading">Контакты</h2>
+        <div class="contacts__details">
+          <dl class="contacts__description">
+            <dt class="contacts__description-title">Центральный офис</dt>
+            <dd class="contacts__description-value contacts__description-value--address">г. Новосибирск, ул. Щетинкина 68,
+              культурный центр</dd>
+          </dl>
+          <dl class="contacts__description">
+            <dt class="contacts__description-title">Телефон</dt>
+            <dd class="contacts__description-value">
+              <span class="visually-hidden">Телефон компании</span>
+              <a class="contacts__description-link" href="+796387687676">+7 963 876 876 76</a>
+            </dd>
+          </dl>
+          <dl class="contacts__description">
+            <dt class="contacts__description-title">Email</dt>
+            <dd class="contacts__description-value">
+              <span class="visually-hidden">Email компании</span>
+              <a class="contacts__description-link" href="mailto:Info@stazh.ru">Info@stazh.ru</a>
+            </dd>
+          </dl>
+        </div>
+        <div class="contacts__image-wrapper">
+          <picture>
+            <source type="image/webp" media="(min-width: 1440px)"
+              srcset="img/contacts/map-desktop@1x.webp 1x, img/contacts/map-desktop@2x.webp 2x" width="1240"
+              height="486">
+            <source type="image/webp" media="(min-width: 768px)"
+              srcset="img/contacts/map-tablet@1x.webp 1x, img/contacts/map-tablet@2x.webp 2x" width="678" height="500">
+            <source type="image/webp" srcset="img/contacts/map-mobile@1x.webp 1x, img/contacts/map-mobile@2x.webp 2x"
+              width="290" height="240">
+
+            <source type="image/jpg" media="(min-width: 1440px)"
+              srcset="img/contacts/map-desktop@1x.jpg 1x, img/contacts/map-desktop@2x.jpg 2x" width="1240" height="486">
+            <source type="image/jpg" media="(min-width: 768px)"
+              srcset="img/contacts/map-tablet@1x.jpg 1x, img/contacts/map-tablet@2x.jpg 2x" width="678" height="500">
+            <img class="contacts__image" src="img/contacts/map-mobile@1x.jpg" srcset="img/contacts/map-mobile@2x.jpg"
+              width="290" height="240" alt="Центральный офис: г. Новосибирск, ул. Щетинкина 68,
+            культурный центр">
+
+          </picture>
+        </div>
+      </div>
+    </section>
     <!-- <section data-test="form">form</section> -->
     <!-- <section data-test="footer">footer</section> -->
   </main>

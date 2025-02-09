@@ -1,0 +1,175 @@
+.contacts {
+  background-color: $primary-blue;
+  padding: 70px 0;
+  color: $primary-white;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+
+  @media (min-width: $desktop-width) {
+    padding: 100px 0;
+  }
+
+  @media (min-width: $desktop-width) {
+    padding: 120px 0;
+  }
+}
+
+.contacts .container {
+  width: 320px;
+  align-self: center;
+  display: flex;
+  flex-flow: column wrap;
+
+  @media (min-width: $tablet-width) {
+    width: 768px;
+  }
+
+  @media (min-width: $desktop-width) {
+    width: 1440px;
+    flex-flow: row wrap;
+    justify-content: space-between;
+  }
+}
+
+.contacts__heading {
+  display: block;
+  font-family: $project-font;
+  margin: 0 0 35px;
+  padding: 0;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: left;
+
+  @media (min-width: $tablet-width) {
+    font-size: 34px;
+    line-height: 50px;
+    margin: 0 0 30px;
+  }
+
+  @media (min-width: $desktop-width) {
+    font-size: 50px;
+    margin: 0;
+  }
+}
+
+.contacts__details {
+  display: flex;
+  flex-flow: column wrap;
+  gap: 20px;
+  padding: 0 0 30px;
+
+  @media (min-width: $tablet-width) {
+    flex-flow: row wrap;
+    gap: unset;
+    justify-content: space-between;
+  }
+
+  @media (min-width: $desktop-width) {
+    padding: 0 0 40px;
+min-width: 604px;
+  }
+}
+
+.contacts__description {
+  display: flex;
+  flex-flow: column wrap;
+  width: fit-content;
+  margin: 0;
+  padding: 0;
+  gap: 15px;
+
+  @media (min-width: $tablet-width) {
+    gap: 24px;
+  }
+}
+
+.contacts__description-title {
+  margin: 0;
+  padding: 0;
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 12px;
+  text-align: left;
+  text-transform: uppercase;
+  opacity: 80%;
+}
+
+.contacts__description-value,
+.contacts__description-link {
+  margin: 0;
+  padding: 0;
+  display: block;
+  text-decoration: none;
+  color: $primary-white;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: left;
+}
+
+.contacts__description-value--address {
+  @media (min-width: $desktop-width) {
+  max-width: 263px;
+}
+}
+
+.contacts__description-link {
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    opacity: 70%;
+  }
+
+  &:focus,
+  &:focus-visible,
+  &:focus-within {
+    outline: none;
+    text-decoration: underline;
+    color: #484848;
+  }
+
+  &:active {
+    text-decoration: underline;
+    color: $primary-white;
+  }
+}
+
+.contacts__image-wrapper {
+  margin: 32px 0 0;
+  padding: 0;
+  display: block;
+  position: relative;
+
+  &::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 2px;
+    background-color: $primary-white;
+    opacity: 20%;
+    top: -30px;
+    left: -50%;
+    transform: translateX(50%);
+    z-index: 5;
+
+    @media (min-width: $desktop-width) {
+      top: -40px;
+    }
+  }
+
+  @media (min-width: $desktop-width) {
+    margin: 42px 0 0;
+  }
+}
+
+.contacts__image {
+  margin: 0;
+  padding: 0;
+  display: block;
+  background-color: $primary-blue;
+  border-radius: 16px;
+}

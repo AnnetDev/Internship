@@ -62,13 +62,11 @@
 //   }
 // }
 
-
 .programs__swiper-slide {
   position: relative;
   max-width: 290px;
   min-height: 400px;
   height: auto;
-
 
   @media (min-width: $tablet-width) {
     min-height: 420px;
@@ -302,8 +300,24 @@
   background-color: transparent;
   position: relative;
   cursor: pointer;
-  // border: red solid 1px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    opacity: 70%;
+  }
+
+  &:focus,
+  &:focus-visible,
+  &:focus-within {
+    outline: none;
+    background-color: $primary-white;
+  }
+
+  &:active {
+    opacity: 70%;
+  }
 }
+
 
 .programs__swiper-button.swiper-button-next::after {
   position: absolute;
@@ -329,13 +343,25 @@
   transform: translate(-50%, -50%) rotate(180deg);
 }
 
+.programs__swiper-button.swiper-button-next:active::after,
+.programs__swiper-button.swiper-button-prev:active::after {
+  outline: none;
+  opacity: 70%;
+}
+
+.programs__swiper-button.swiper-button-next:disabled:after,
+.programs__swiper-button.swiper-button-prev:disabled:after {
+  background-color: #a9afb7;
+  pointer-events:none;
+}
+
 .swiper-scrollbar {
   display: none;
 
   @media (min-width: $tablet-width) {
     display: flex;
     position: absolute;
-    content:"";
+    content: "";
     bottom: 50px;
     left: calc(50% - ((768px - 45px * 2) / 2));
     width: 562px;
@@ -347,7 +373,7 @@
   @media (min-width: $desktop-width) {
     display: flex;
     position: absolute;
-    content:"";
+    content: "";
 
     bottom: 60px;
     left: calc(50% - ((1440px - 100px * 2) / 2));

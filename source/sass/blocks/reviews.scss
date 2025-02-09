@@ -44,7 +44,6 @@
   margin-bottom: 30px;
   height: auto;
 
-
   @media (min-width: $tablet-width) {
     width: 768px;
     padding: 0 0 0 45px;
@@ -69,7 +68,6 @@
     min-height: 417px;
     max-width: 560px;
     height: auto;
-
   }
 
   @media (min-width: $desktop-width) {
@@ -142,13 +140,13 @@
   color: $primary-blue;
 
   @media (min-width: $tablet-width) {
-font-size: 20px;
-line-height: 24px;
+    font-size: 20px;
+    line-height: 24px;
   }
 
   @media (min-width: $desktop-width) {
     font-size: 18px;
-      }
+  }
 }
 
 .reviews__description {
@@ -195,12 +193,10 @@ line-height: 24px;
   @media (min-width: $tablet-width) {
     font-size: 14px;
     line-height: 20px;
-
   }
   @media (min-width: $desktop-width) {
     font-size: 14px;
     line-height: 18px;
-
   }
 }
 
@@ -282,7 +278,21 @@ line-height: 24px;
   background-color: transparent;
   position: relative;
   cursor: pointer;
-  // border: red solid 1px;
+
+  &:hover {
+    opacity: 70%;
+  }
+
+  &:focus,
+  &:focus-visible,
+  &:focus-within {
+    outline: none;
+    background-color: $primary-white;
+  }
+
+  &:active {
+    opacity: 70%;
+  }
 }
 
 .reviews__swiper-button.swiper-button-next::after {
@@ -307,6 +317,18 @@ line-height: 24px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) rotate(180deg);
+}
+
+.reviews__swiper-button.swiper-button-next:active:after,
+.reviews__swiper-button.swiper-button-prev:active:after {
+  outline: none;
+  opacity: 70%;
+}
+
+.reviews__swiper-button.swiper-button-next:disabled:after,
+.reviews__swiper-button.swiper-button-prev:disabled:after {
+  background-color: #a9afb7;
+  pointer-events: none;
 }
 
 .swiper-scrollbar .reviews__swiper-scrollbar {
