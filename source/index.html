@@ -36,7 +36,7 @@
                 <source type="image/jpg" media="(min-width: 321px)"
                   srcset="img/hero/slide1-tablet@1x.jpg 1x, img/hero/slide1-tablet@2x.jpg 2x" width="768" height="1024">
                 <img class="hero__swiper-image" src="img/hero/slide1-mobile@1x.jpg"
-                  srcset="img/hero/slide1-mobile@2x.jpg" width="320" height="568">
+                  srcset="img/hero/slide1-mobile@2x.jpg" width="320" height="568" alt="Студентка на стажировке за рубежом">
               </picture>
               <div class="container">
                 <div class="hero__slide-title-wrapper">
@@ -75,7 +75,7 @@
                 <source type="image/jpg" media="(min-width: 768px)"
                   srcset="img/hero/slide2-tablet@1x.jpg 1x, img/hero/slide2-tablet@2x.jpg 2x" width="768" height="1024">
                 <img class="hero__swiper-image" src="img/hero/slide2-mobile@1x.jpg"
-                  srcset="img/hero/slide2-mobile@2x.jpg" width="320" height="568">
+                  srcset="img/hero/slide2-mobile@2x.jpg" width="320" height="568" alt="Группа студентов на стажировке за рубежом">
               </picture>
               <div class="container">
                 <div class="hero__slide-title-wrapper">
@@ -110,7 +110,7 @@
                 <source type="image/jpg" media="(min-width: 768px)"
                   srcset="img/hero/slide3-tablet@1x.jpg 1x, img/hero/slide3-tablet@2x.jpg 2x" width="768" height="1024">
                 <img class="hero__swiper-image" src="img/hero/slide3-mobile@1x.jpg"
-                  srcset="img/hero/slide3-mobile@2x.jpg" width="320" height="568">
+                  srcset="img/hero/slide3-mobile@2x.jpg" width="320" height="568" alt="Группа студентов на стажировке за рубежом">
               </picture>
               <div class="container">
                 <div class="hero__slide-title-wrapper">
@@ -209,7 +209,7 @@
     </section>
 
 
-    <section class="about" data-test="about">
+    <section class="about" data-test="about" id="about">
       <div class="container">
         <div class="about__title-wrapper">
           <h2 class="about__title">О проекте «Стажировка»</h2>
@@ -311,7 +311,7 @@
       </div>
     </section>
 
-    <section class="programs" data-test="programs">
+    <section class="programs" data-test="programs" id="programs">
       <h2 class="programs__heading">Программы</h2>
 
       <div class="swiper programs__swiper">
@@ -335,7 +335,7 @@
                 srcset="img/programs/programs-1-tablet@1x.jpg 1x, img/programs/programs-1-tablet@2x.jpg 2x" width="324"
                 height="420">
               <img class="progarms__swiper-image" src="img/programs/programs-1-mobile@1x.jpg"
-                srcset="img/programs/programs-1-mobile@2x.jpg 2x" width="290" height="400" alt="Горы Кавказа">
+                srcset="img/programs/programs-1-mobile@2x.jpg 2x" width="290" height="400" alt="Группа студентов на стажировке за рубежом">
             </picture>
             <div class="programs__swiper-innner-container">
               <div class="programs__title-wrapper">
@@ -371,7 +371,7 @@
                 srcset="img/programs/programs-2-tablet@1x.jpg 1x, img/programs/programs-2-tablet@2x.jpg 2x" width="324"
                 height="420">
               <img class="progarms__swiper-image" src="img/programs/programs-2-mobile@1x.jpg"
-                srcset="img/programs/programs-2-mobile@2x.jpg 2x" width="290" height="400" alt="Горы Кавказа">
+                srcset="img/programs/programs-2-mobile@2x.jpg 2x" width="290" height="400" alt="Студент на стажировке за рубежом">
             </picture>
             <div class="programs__swiper-innner-container">
               <div class="programs__title-wrapper">
@@ -445,7 +445,7 @@
       </div>
     </section>
 
-    <section class="grant" data-test="grant">
+    <section class="grant" data-test="grant" id="grant">
       <div class="container grant__container">
         <div class="grant__wrapper">
           <h2 class="grant__heading">Как поехать</h2>
@@ -494,9 +494,9 @@
       </div>
     </section>
 
-    <!-- <section data-test="news">news</section> -->
+    <!-- <section class="news" data-test="news" id=news>news</section> -->
 
-    <section class="faq" data-test="FAQ">
+    <section class="faq" data-test="FAQ" id="faq">
       <div class="container">
         <h2 class="faq__heading">Вопросы и ответы</h2>
         <ul class="faq__list">
@@ -577,7 +577,7 @@
     </section>
 
 
-    <section class="reviews" data-test="reviews">
+    <section class="reviews" data-test="reviews" id="reviews">
       <h2 class="reviews__heading">Отзывы</h2>
 
       <div class="swiper reviews__swiper">
@@ -684,13 +684,14 @@
       <div class="swiper-scrollbar reviews__swiper-scrollbar"></div>
 
     </section>
-    <section class="contacts" data-test="contacts">
+    <section class="contacts" data-test="contacts" id="contacts">
       <div class="container">
         <h2 class="contacts__heading">Контакты</h2>
         <div class="contacts__details">
           <dl class="contacts__description">
             <dt class="contacts__description-title">Центральный офис</dt>
-            <dd class="contacts__description-value contacts__description-value--address">г. Новосибирск, ул. Щетинкина 68,
+            <dd class="contacts__description-value contacts__description-value--address">г. Новосибирск, ул. Щетинкина
+              68,
               культурный центр</dd>
           </dl>
           <dl class="contacts__description">
@@ -730,8 +731,62 @@
         </div>
       </div>
     </section>
-    <!-- <section data-test="form">form</section> -->
-    <!-- <section data-test="footer">footer</section> -->
+    <!-- <section class="form" data-test="form">form</section> -->
+    <section class="footer" data-test="footer">
+      <div class="container">
+        <h2 class="visually-hidden">Подвал сайта</h2>
+
+        <div class="footer__navigation-wrapper">
+          <svg class="footer__logo-icon" width="30" height="30" alt="Логотип компании">
+            <use href="/__spritemap#sprite-logo"></use>
+          </svg>
+          <nav class="footer__nav">
+            <ul class="footer__nav-list">
+              <li class="footer__nav-list-item">
+                <a class="footer__nav-list-link" href="#about">О проекте</a>
+              </li>
+              <li class="footer__nav-list-item">
+                <a class="footer__nav-list-link" href="#programs">Программы</a>
+              </li>
+              <li class="footer__nav-list-item">
+                <a class="footer__nav-list-link" href="#grant">Как поехать</a>
+              </li>
+              <li class="footer__nav-list-item">
+                <a class="footer__nav-list-link" href="#reviews">Отзывы</a>
+              </li>
+              <li class="footer__nav-list-item">
+                <a class="footer__nav-list-link" href="#news">Новости</a>
+              </li>
+              <li class="footer__nav-list-item">
+                <a class="footer__nav-list-link" href="#contacts">Контакты</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="footer__links-wrapper">
+          <a class="footer__privacy" href="#" target="_blank" rel="noreferrer noopener">Политика конфиденциальности</a>
+          <span class="footer__copyrights">Стажировка © 2023 Все права защищены</span>
+          <ul class="footer__social">
+            <li class="footer__social-item">
+              <a class="footer__social-link" href="https://htmlacademy.ru/" target="_blank" rel="noreferrer noopener">
+                <span class="visually-hidden">ссылка на Вконтакте</span>
+              </a>
+            </li>
+            <li class="footer__social-item">
+              <a class="footer__social-link" href="https://htmlacademy.ru/" target="_blank" rel="noreferrer noopener">
+                <span class="visually-hidden">ссылка на Одноклассники</span>
+              </a>
+            </li>
+            <li class="footer__social-item">
+              <a class="footer__social-link" href="https://htmlacademy.ru/" target="_blank" rel="noreferrer noopener">
+                <span class="visually-hidden">ссылка на Реддит</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
   </main>
   <script type="module" src="js/main.js"></script>
 </body>
