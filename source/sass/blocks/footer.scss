@@ -40,7 +40,7 @@
   flex-flow: column wrap;
   align-items: center;
   gap: 20px;
-  margin: 0 0 20px;
+  margin: 0 0 22px;
 
   @media (min-width: $tablet-width) {
     flex-flow: row wrap;
@@ -67,7 +67,7 @@
   flex-flow: row wrap;
   margin: 0;
   padding: 0;
-  gap: 30px;
+  gap: 20px 30px;
   justify-content: center;
 
   @media (min-width: $tablet-width) {
@@ -152,15 +152,17 @@
 
 .footer__privacy {
   display: flex;
-  margin: 0 0 10px;
+  margin: 0 0 12px;
   padding: 0;
   color: #484848;
   font-size: 12px;
   font-weight: 400;
   line-height: 14px;
   text-align: center;
+  text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease;
+  border-bottom: solid 1px #484848;
 
   @media (min-width: $tablet-width) {
     line-height: 12px;
@@ -173,19 +175,23 @@
 
   &:hover {
     color: $primary-blue;
+    border-bottom: solid 1px $primary-blue;
     opacity: 70%;
+
   }
 
   &:focus,
   &:focus-visible,
   &:focus-within {
     color: $primary-blue;
-    opacity: 100%;
     outline: none;
+    border-bottom: solid 1px $primary-blue;
+    opacity: 100%;
   }
 
   &:active {
     color: $active-blue;
+    border-bottom: solid 1px $active-blue;
     opacity: 100%;
     outline: none;
   }
