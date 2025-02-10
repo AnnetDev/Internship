@@ -709,4 +709,13 @@ padding: 16px 30px;
   line-height: 16px;
   text-align: left;
   text-transform: none;
+
+  &:hover,
+  &:focus,
+  &:focus-visible,
+  &:focus-within,
+  &:active {
+    opacity: 90%;
+    outline: none;
+  }
 }
