@@ -36,7 +36,8 @@
                 <source type="image/jpg" media="(min-width: 321px)"
                   srcset="img/hero/slide1-tablet@1x.jpg 1x, img/hero/slide1-tablet@2x.jpg 2x" width="768" height="1024">
                 <img class="hero__swiper-image" src="img/hero/slide1-mobile@1x.jpg"
-                  srcset="img/hero/slide1-mobile@2x.jpg" width="320" height="568" alt="Студентка на стажировке за рубежом">
+                  srcset="img/hero/slide1-mobile@2x.jpg" width="320" height="568"
+                  alt="Студентка на стажировке за рубежом">
               </picture>
               <div class="container">
                 <div class="hero__slide-title-wrapper">
@@ -75,7 +76,8 @@
                 <source type="image/jpg" media="(min-width: 768px)"
                   srcset="img/hero/slide2-tablet@1x.jpg 1x, img/hero/slide2-tablet@2x.jpg 2x" width="768" height="1024">
                 <img class="hero__swiper-image" src="img/hero/slide2-mobile@1x.jpg"
-                  srcset="img/hero/slide2-mobile@2x.jpg" width="320" height="568" alt="Группа студентов на стажировке за рубежом">
+                  srcset="img/hero/slide2-mobile@2x.jpg" width="320" height="568"
+                  alt="Группа студентов на стажировке за рубежом">
               </picture>
               <div class="container">
                 <div class="hero__slide-title-wrapper">
@@ -110,7 +112,8 @@
                 <source type="image/jpg" media="(min-width: 768px)"
                   srcset="img/hero/slide3-tablet@1x.jpg 1x, img/hero/slide3-tablet@2x.jpg 2x" width="768" height="1024">
                 <img class="hero__swiper-image" src="img/hero/slide3-mobile@1x.jpg"
-                  srcset="img/hero/slide3-mobile@2x.jpg" width="320" height="568" alt="Группа студентов на стажировке за рубежом">
+                  srcset="img/hero/slide3-mobile@2x.jpg" width="320" height="568"
+                  alt="Группа студентов на стажировке за рубежом">
               </picture>
               <div class="container">
                 <div class="hero__slide-title-wrapper">
@@ -335,7 +338,8 @@
                 srcset="img/programs/programs-1-tablet@1x.jpg 1x, img/programs/programs-1-tablet@2x.jpg 2x" width="324"
                 height="420">
               <img class="progarms__swiper-image" src="img/programs/programs-1-mobile@1x.jpg"
-                srcset="img/programs/programs-1-mobile@2x.jpg 2x" width="290" height="400" alt="Группа студентов на стажировке за рубежом">
+                srcset="img/programs/programs-1-mobile@2x.jpg 2x" width="290" height="400"
+                alt="Группа студентов на стажировке за рубежом">
             </picture>
             <div class="programs__swiper-innner-container">
               <div class="programs__title-wrapper">
@@ -371,7 +375,8 @@
                 srcset="img/programs/programs-2-tablet@1x.jpg 1x, img/programs/programs-2-tablet@2x.jpg 2x" width="324"
                 height="420">
               <img class="progarms__swiper-image" src="img/programs/programs-2-mobile@1x.jpg"
-                srcset="img/programs/programs-2-mobile@2x.jpg 2x" width="290" height="400" alt="Студент на стажировке за рубежом">
+                srcset="img/programs/programs-2-mobile@2x.jpg 2x" width="290" height="400"
+                alt="Студент на стажировке за рубежом">
             </picture>
             <div class="programs__swiper-innner-container">
               <div class="programs__title-wrapper">
@@ -731,7 +736,60 @@
         </div>
       </div>
     </section>
-    <!-- <section class="form" data-test="form">form</section> -->
+
+    <section class="form" data-test="form">
+      <div class="container">
+        <form class="form__page-form" action="https://echo.htmlacademy.ru" method="post">
+          <h2 class="form__title">Напишите нам</h2>
+          <p class="form__description">Оставьте ваши контакты, если у вас
+            остались вопросы — мы на них ответим!</p>
+          <fieldset class="form__page-fieldset">
+            <legend class="visually-hidden">Отправить заявку на для консультацию</legend>
+
+            <label class="form__page-label" for="form-name">Имя</label>
+            <input class="form__page-input form__page-input-name" type="text" name="name" id="form-name" required>
+
+            <label class="form__page-label" for="form-phone">Телефон</label>
+            <input class="form__page-input form__page-input-phone" type="tel" name="phone" id="form-phone" required>
+
+            <label class="form__page-label" for="form-text">Ваше сообщение</label>
+            <textarea class="form__page-input form__page-input-textarea" type="text" name="form-text" id="form-text"></textarea>
+
+            <label class="form__page-label" for="form-dropdown">Выберите город</label>
+            <div class="form__page-input dropdown" name="form-dropdown" id="form-dropdown">
+              <button class="form__page-dropdown-button dropdown__button" aria-haspopup="listbox" aria-expanded="false" type="button">
+                <span class="visually-hidden">Выберите город</span></button>
+              <ul class="dropdown__list" role="listbox">
+                <li class="dropdown__item form__page-dropdown-item" role="option" data-value="-"></li>
+                <li class="dropdown__item form__page-dropdown-item" role="option" data-value="moscow">Москва</li>
+                <li class="dropdown__item form__page-dropdown-item" role="option" data-value="saint-petersburg">Санкт-Петербург</li>
+                <li class="dropdown__item form__page-dropdown-item" role="option" data-value="novosibirsk">Новосибирск</li>
+                <li class="dropdown__item form__page-dropdown-item" role="option" data-value="yekaterinburg">Екатеринбург</li>
+                <li class="dropdown__item form__page-dropdown-item" role="option" data-value="kazan">Казань</li>
+                <li class="dropdown__item form__page-dropdown-item" role="option" data-value="nizhny-novgorod">Нижний Новгород</li>
+                <li class="dropdown__item form__page-dropdown-item" role="option" data-value="chelyabinsk">Челябинск</li>
+                <li class="dropdown__item form__page-dropdown-item" role="option" data-value="samara">Самара</li>
+                <li class="dropdown__item form__page-dropdown-item" role="option" data-value="rostov-on-don">Ростов-на-Дону</li>
+                <li class="dropdown__item form__page-dropdown-item" role="option" data-value="ufa">Уфа</li>
+                <li class="dropdown__item form__page-dropdown-item" role="option" data-value="krasnoyarsk">Красноярск</li>
+                <li class="dropdown__item form__page-dropdown-item" role="option" data-value="voronezh">Воронеж</li>
+                <li class="dropdown__item form__page-dropdown-item" role="option" data-value="perm">Пермь</li>
+                <li class="dropdown__item form__page-dropdown-item" role="option" data-value="volgograd">Волгоград</li>
+              </ul>
+            </div>
+
+            <label class="form__page-checkbox popup__checkbox">
+              <input class="form__page-checkbox-input popup__checkbox-input" type="checkbox" required name="popup-checkbox">
+              <span class="form__page-checkbox-mark popup__checkbox-mark"></span>
+              <p class="form__page-checkbox-text popup__label-text">Я согласен на обработку моих персональных данных</p>
+            </label>
+
+            <button class="button form__page-button" type="submit">Отправить</button>
+          </fieldset>
+        </form>
+      </div>
+    </section>
+
     <section class="footer" data-test="footer">
       <div class="container">
         <h2 class="visually-hidden">Подвал сайта</h2>
@@ -766,22 +824,26 @@
 
         <div class="footer__links-wrapper">
           <div class="footer__legacy">
-          <a class="footer__privacy" href="#" target="_blank" rel="noreferrer noopener">Политика конфиденциальности</a>
-          <span class="footer__copyrights">Стажировка © 2023 Все права защищены</span>
-        </div>
+            <a class="footer__privacy" href="#" target="_blank" rel="noreferrer noopener">Политика
+              конфиденциальности</a>
+            <span class="footer__copyrights">Стажировка © 2023 Все права защищены</span>
+          </div>
           <ul class="footer__social">
             <li class="footer__social-item">
-              <a class="footer__social-link footer__social-link--vk" href="https://htmlacademy.ru/" target="_blank" rel="noreferrer noopener">
+              <a class="footer__social-link footer__social-link--vk" href="https://htmlacademy.ru/" target="_blank"
+                rel="noreferrer noopener">
                 <span class="visually-hidden">ссылка на Вконтакте</span>
               </a>
             </li>
             <li class="footer__social-item">
-              <a class="footer__social-link footer__social-link--ok" href="https://htmlacademy.ru/" target="_blank" rel="noreferrer noopener">
+              <a class="footer__social-link footer__social-link--ok" href="https://htmlacademy.ru/" target="_blank"
+                rel="noreferrer noopener">
                 <span class="visually-hidden">ссылка на Одноклассники</span>
               </a>
             </li>
             <li class="footer__social-item">
-              <a class="footer__social-link footer__social-link--reddit" href="https://htmlacademy.ru/" target="_blank" rel="noreferrer noopener">
+              <a class="footer__social-link footer__social-link--reddit" href="https://htmlacademy.ru/" target="_blank"
+                rel="noreferrer noopener">
                 <span class="visually-hidden">ссылка на Реддит</span>
               </a>
             </li>
