@@ -114,7 +114,7 @@
 .hero__swiper-pagination {
   position: absolute;
   content: "";
-  min-width: 90px;
+  min-width: 80px;
   width: max-content;
   min-height: 28px;
   // height: 100px; //попробовать увеличить размер чтобы при изменении слайда пагинация плавно смещалась
@@ -149,12 +149,20 @@
     width: 20px;
     height: 20px;
     background-image: url("/__spritemap#sprite-connecter-view");
-    right: -20px;
-    bottom: 0;
+    right: -15px;
+    bottom: -1px;
+    @media (min-width: $tablet-width) {
+      right: -20px;
+    }
   }
 
   @media (min-width: $tablet-width) {
     left: calc(50% - (678px / 2));
+    min-height: 40px;
+    min-width: 100px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+
   }
 
   @media (min-width: $desktop-width) {
@@ -213,11 +221,13 @@
   @media (min-width: $tablet-width) {
     border-top-right-radius: 30px;
     border-bottom-right-radius: 30px;
-    padding: 30px 40px 24px 40px;
+    padding: 31px 40px 23px 40px;
+        width: 659px;
   }
 
   @media (min-width: $desktop-width) {
     padding: 40px 50px 30px 50px;
+    width: 968px;
   }
 
   &::after {
@@ -229,6 +239,9 @@
     transform: rotate(90deg);
     right: 16px;
     bottom: -9px;
+    @media (min-width: $tablet-width) {
+      display: none;
+    }
   }
 }
 
@@ -278,7 +291,9 @@
   }
 
   @media (min-width: $desktop-width) {
-    width: 446px;
+    width: 496px;
+    padding: 0 55px 35px 50px;
+
   }
 }
 
@@ -290,6 +305,11 @@
   font-weight: 400;
   line-height: 20px;
   text-align: left;
+
+  @media (min-width: $desktop-width) {
+    line-height: 26px;
+
+  }
 }
 
 .hero__slide-link-wrapper {
@@ -298,14 +318,20 @@
   border-bottom-right-radius: 14px;
   border-bottom-left-radius: 14px;
   padding: 10px 15px;
-  width: 194px;
+  width: 185px;
   position: relative;
 
   @media (min-width: $tablet-width) {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 30px;
-    padding: 0 40px 10px 0;
-    width: 238px;
+    padding: 0 40px 10px 30px;
+    // width: 238px;
+    width: 268px;
+  }
+  @media (min-width: $desktop-width) {
+    width: 279px;
+    padding: 11px 40px 10px 30px;
+
   }
 
   &::after {
@@ -346,17 +372,25 @@
   // position: relative;
   // align-items: center;
 
-  // &::after {
+  @media (min-width: $tablet-width) {
+
+  &::after {
   //   position: absolute;
   //   content: "";
-  //   width: 34px;
-  //   height: 34px;
-  //   background-color: $primary-blue;
+    width: 46px;
+    height: 46px;
+    background-color: $primary-blue;
   //   border-radius: 50%;
   //   top: 50%;
   //   transform: translateY(-50%);
-  //   right: 5px;
-  // }
+    right: 4px;
+  }
+
+    &::before {
+    right: 23px;
+  }
+
+}
 
   // &::before {
   //   position: absolute;
@@ -373,8 +407,19 @@
 
   @media (min-width: $tablet-width) {
     height: 56px;
+font-size: 14px;
+font-weight: 500;
+line-height: 14px;
+letter-spacing: 0.28px;
+text-align: center;
+padding: 16px 30px;
   }
-}
+
+  @media (min-width: $desktop-width) {
+    width: 199px;
+  };
+  }
+
 
 // РАЗОБРАТЬСЯ С ПРОЗРАЧНОСТЬЮ ТЕКСТА
 .hero__header {
@@ -395,7 +440,7 @@
 
   @media (min-width: $desktop-width) {
     width: 1440px;
-    top: 60px;
+    // top: 60px;
   }
 }
 
@@ -449,7 +494,7 @@
   &::before {
     position: absolute;
     content: "";
-    width: 18px;
+    width: 15px;
     height: 1px;
     background-color: $primary-white;
     left: 50%;
@@ -461,7 +506,7 @@
   &::after {
     position: absolute;
     content: "";
-    width: 18px;
+    width: 15px;
     height: 1px;
     background-color: $primary-white;
     left: 50%;
@@ -487,7 +532,7 @@
   display: block;
   position: absolute;
   content: "";
-  width: 18px;
+  width: 15px;
   height: 1px;
   background-color: $primary-white;
   top: 50%;
@@ -521,7 +566,7 @@
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
-  padding: 4px 5px 4px 21px;
+  padding: 4px 5px 2px 20px;
   background-color: $primary-white;
   border-radius: 30px;
   border: solid 1px $primary-blue;
@@ -535,10 +580,11 @@
     background-color: $primary-blue;
     width: 290px;
     z-index: 1;
+  }
 
-    @media (min-width: $tablet-width) {
-      width: 286x;
-    }
+  @media (min-width: $tablet-width) {
+    width: 286x;
+    padding: 4px 4px 4px 20px;
   }
 }
 
