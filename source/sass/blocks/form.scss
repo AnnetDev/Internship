@@ -276,4 +276,57 @@
   &::before {
     background-color: $primary-blue;
   }
+
+  &:hover {
+    background-color: $primary-white;
+    color: $primary-blue;
+  }
+
+  &:hover::after {
+    background-color: $primary-blue;
+  }
+
+  &:hover::before {
+    background-color: $primary-white;
+    transform: translateY(-50%) rotate(45deg);
+  }
+
+  &:active {
+    color: #6f99d4;
+  }
+
+  &:active::after {
+    background-color: $primary-blue;
+  }
+
+  &:active::before {
+    background-color: $primary-white;
+    opacity: 70%;
+    transform: translateY(-50%) rotate(45deg);
+  }
+
+
+  &:focus,
+  &:focus-visible,
+  &:focus-within {
+    border: solid 1px $primary-white;
+    background-color: transparent;
+    color: $primary-white;
+    outline: none;
+  }
+
+  &:focus::after,
+  &:focus-visible::after,
+  &:focus-within::after {
+    background-color: $primary-white;
+    outline: none;
+  }
+
+  &:focus::before,
+  &:focus-visible::before,
+  &:focus-within::before {
+    outline: none;
+    background-color: $primary-blue;
+    transform: translateY(-50%) rotate(45deg);
+  }
 }
