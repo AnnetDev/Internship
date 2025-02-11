@@ -216,7 +216,16 @@
 background-color: transparent;
 border: solid 1px #6f99d4;
 color: #f0efe9;
-;
+width: 260px;
+
+@media (min-width: $tablet-width) {
+  width: 362px;
+  }
+
+  @media (min-width: $tablet-width) {
+    width: 350px;
+  }
+
 
 &:after {
   background-color: $primary-white;
@@ -238,6 +247,15 @@ color: #f0efe9;
 
 .form__page-dropdown-list {
   border: solid 1px $primary-white;
+  width: 260px;
+
+  @media (min-width: $tablet-width) {
+    width: 362px;
+    }
+
+    @media (min-width: $tablet-width) {
+      width: 350px;
+    }
 
 }
 
@@ -297,6 +315,17 @@ color: #f0efe9;
   color: $primary-white;
   justify-content: center;
   padding: 16px 58px 16px 21px; //fix
+
+  width: 260px;
+
+  @media (min-width: $tablet-width) {
+    width: 362px;
+    }
+
+    @media (min-width: $tablet-width) {
+      width: 350px;
+    }
+
 
   &::after {
     background-color: $primary-white;
