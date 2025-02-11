@@ -3,38 +3,74 @@ export function popupValidator() {
   if (!form) {
     throw new Error('Форма не найдена на странице.');
   }
-  const name = document.querySelector('input[name="name"]');
-  const phone = document.querySelector('input[name="phone"]');
+  const nameField = document.querySelector('input[name="name"]');
+  const phoneField = document.querySelector('input[name="phone"]');
+
+  nameField.addEventListener('input', () => {
+    const nameValue = nameField.value.trim();
+    const validCharacters = /^[A-Za-zА-ЯЁа-яё\s]+$/.test(nameValue);
+    const hasEnoughLetters = nameValue.replace(/\s/g, '').length >= 2;
+
+    if (validCharacters && hasEnoughLetters) {
+      nameField.setCustomValidity('');
+    } else {
+      nameField.setCustomValidity('Имя должно содержать не менее 2 букв и только буквы и пробелы');
+    }
+  });
+
+  // Обработчик ввода для поля "Телефон"
+  phoneField.addEventListener('input', () => {
+    let value = phoneField.value;
+    // Удаляем буквы (латиница и кириллица)
+    value = value.replace(/[A-Za-zА-Яа-яЁё]/g, '');
+    // Если значение не начинается с "+7", принудительно добавляем его
+    if (!value.startsWith('+7')) {
+      value = `+7${value.replace(/^\+/, '')}`;
+    }
+    phoneField.value = value;
+
+    const digits = value.replace(/\D/g, '');
+    if (value.startsWith('+7') && digits.length === 11) {
+      phoneField.setCustomValidity('');
+    } else {
+      phoneField.setCustomValidity('Введите корректный номер телефона в формате +7XXXXXXXXXX');
+    }
+  });
 
   form.addEventListener('submit', (event) => {
     let isValid = true;
 
-    // Сбрасываем предыдущие ошибки
-    name.setCustomValidity('');
-    phone.setCustomValidity('');
+    nameField.setCustomValidity('');
+    phoneField.setCustomValidity('');
 
-    // const nameFormat = /^[a-zA-Zа-яА-ЯёЁ\s]+$/;
-    // if (!nameFormat.test(name.value.trim())) {
-    //   name.setCustomValidity('Допускаются только буквы и пробелы');
-    //   isValid = false;
-    // }
+    const nameValue = nameField.value.trim();
+    const phoneValue = phoneField.value.trim();
 
-    const phoneValue = phone.value.trim();
-    if (!/^\+?\d{1,3}[\s-]?(\(\d{3}\)[\s-]?|\d{3}[\s-]?)?\d{3}[\s-]?\d{2,4}[\s-]?\d{0,4}$/.test(phoneValue) || phoneValue.match(/\D/)) {
-      phone.setCustomValidity('Введите корректный номер телефона');
+    if (!/^[A-Za-zА-ЯЁа-яё\s]+$/.test(nameValue)) {
+      nameField.setCustomValidity('Имя может содержать только буквы и пробелы');
+      isValid = false;
+    }
+    if (nameValue.replace(/\s/g, '').length < 2) {
+      nameField.setCustomValidity('Имя должно содержать не менее 2 букв');
       isValid = false;
     }
 
-    // Отображаем сообщение об ошибке
-    name.reportValidity();
-    phone.reportValidity();
+    const digits = phoneValue.replace(/\D/g, '');
+    if (!phoneValue.startsWith('+7') || digits.length !== 11) {
+      phoneField.setCustomValidity('Введите корректный номер телефона в формате +7XXXXXXXXXX');
+      isValid = false;
+    }
 
+    // Если есть ошибки, предотвращаем отправку
     if (!isValid) {
+      // Вызываем reportValidity(), чтобы отобразить сообщение об ошибке
+      nameField.reportValidity();
+      phoneField.reportValidity();
       event.preventDefault();
     }
   });
 }
-
+//сброс полей?
 
 export const togglePopup = () => {
   document.addEventListener('DOMContentLoaded', () => {
@@ -42,6 +78,7 @@ export const togglePopup = () => {
     const popup = document.querySelector('.popup');
     const popupCloser = document.querySelector('.popup__close');
     const body = document.querySelector('.page-body');
+    const form = popup.querySelector('.popup__form');
 
     popupOpener.addEventListener('click', (event) => {
       event.stopPropagation();
@@ -54,6 +91,7 @@ export const togglePopup = () => {
       event.stopPropagation();
       popup.classList.remove('popup--opened');
       body.classList.remove('overlay-active');
+      form.reset();
 
     });
 
@@ -61,6 +99,7 @@ export const togglePopup = () => {
       if (!popup.contains(event.target)) {
         popup.classList.remove('popup--opened');
         body.classList.remove('overlay-active');
+        form.reset();
       }
     });
   });

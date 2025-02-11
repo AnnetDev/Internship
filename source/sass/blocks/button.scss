@@ -103,20 +103,24 @@
     transform: translateY(-50%) rotate(45deg);
   }
 
-  &[aria-disabled="true"] {
+  &[aria-disabled="true"],
+  &:disabled {
     border: solid 1px #a9afb7;
     background-color: transparent;
     color: #a9afb7;
     pointer-events: none;
   }
 
-  &[aria-disabled="true"]::after {
+  &[aria-disabled="true"]::after,
+  &:disabled::after {
     background-color: #a9afb7;
     pointer-events: none;
   }
 
-  &[aria-disabled="true"]::before {
+  &[aria-disabled="true"]::before,
+  &:disabled::before {
     opacity: 60%;
     pointer-events: none;
   }
+
 }
