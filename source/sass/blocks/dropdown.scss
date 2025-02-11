@@ -4,25 +4,53 @@
 }
 
 .dropdown__button {
-  position: absolute;
-  content: "";
+  position: relative;
+  display: flex;
+  margin: 0 0 20px;
+  align-items: center;
   border: none;
   padding: 10px;
   cursor: pointer;
-  top: 50%;
-  transform: translateY(-50%);
-  mask: url("/__spritemap#sprite-dropdown-view") no-repeat center;
-  background-color: #484848;
-  right: 20px;
-  width: 14px;
-  height: 7px;
+  width: 350px;
+  height: 50px;
+  padding: 8px;
+  background-color: transparent;
+  border: solid 1px #c8c8c8;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 14px;
+  text-align: left;
+  color: #484848;
+
+  &::after {
+    position: absolute;
+    content: "";
+    top: 50%;
+    transform: translateY(-50%);
+    mask: url("/__spritemap#sprite-dropdown-view") no-repeat center;
+    background-color: #484848;
+    right: 20px;
+    width: 16px;
+    height: 16px;
+    transition: all 0.3s ease;
+  }
+}
+
+.dropdown__button.open {
+  border: solid 1px #484848;
+
+  &::after {
+    transform: rotate(180deg) translateY(50%);
+  }
 }
 
 .dropdown__list {
   display: none;
 
   position: absolute;
-  top: calc(100% + 4px);
+  top: calc(100% - 13px);
   left: 0;
   background-color: $primary-white;
   border: solid 1px #484848;
@@ -37,7 +65,8 @@
   transition: all 0.3s ease;
   animation: fadeOut 0.2s ease-out forwards;
 
-  @keyframes fadeOut { //можно ли применять?
+  @keyframes fadeOut {
+    //можно ли применять?
     from {
       opacity: 0;
     }
@@ -48,8 +77,29 @@
 }
 
 .dropdown__item {
-  padding: 10px;
+  margin: 0;
+  padding: 17px 20px;
   cursor: pointer;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 14px;
+  text-align: left;
+  color: #484848;
+  background-color: transparent;
+  transition: all 0.3s ease;
+
+  &:hover {
+    color: $primary-blue;
+  }
+
+  &:active,
+  &:focus,
+  &:focus-visible,
+  &:focus-within {
+    outline: none;
+    background-color: $primary-blue;
+color: $primary-white;
+  }
 }
 
 // .dropdown__item:hover {

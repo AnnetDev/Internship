@@ -109,17 +109,31 @@ export const toggleDropdown = () => {
   document.addEventListener('DOMContentLoaded', () => {
     const dropdown = document.querySelector('.dropdown');
     const button = dropdown.querySelector('.dropdown__button');
-    // const list = dropdown.querySelector('.dropdown__list');
     const items = dropdown.querySelectorAll('.dropdown__item');
+    // Получаем скрытый input по id
+    const hiddenCityInput = document.getElementById('city-input');
 
-    button.addEventListener('click', () => {
+    button.innerHTML = '<span class="visually-hidden">Выберите город</span>';
+
+    button.addEventListener('click', (event) => {
+      event.stopPropagation();
       dropdown.classList.toggle('open');
       button.setAttribute('aria-expanded', dropdown.classList.contains('open'));
     });
 
     items.forEach((item) => {
-      item.addEventListener('click', () => {
-        button.textContent = item.textContent;
+      item.addEventListener('click', (event) => {
+        event.stopPropagation();
+        const value = item.getAttribute('data-value');
+        if (!value) {
+          // Если выбрана первая опция или значение отсутствует, отображаем placeholder и очищаем скрытое поле
+          button.innerHTML = '<span class="visually-hidden">Выберите город</span>';
+          hiddenCityInput.value = '';
+        } else {
+          // Отображаем текст выбранного города и сохраняем значение в скрытом поле
+          button.textContent = item.textContent;
+          hiddenCityInput.value = value;
+        }
         dropdown.classList.remove('open');
         button.setAttribute('aria-expanded', 'false');
       });
@@ -132,5 +146,5 @@ export const toggleDropdown = () => {
       }
     });
   });
-
 };
+

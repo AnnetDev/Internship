@@ -279,9 +279,10 @@
             <input class="popup__input popup__input-phone" type="tel" name="phone" id="input-phone" required>
 
             <label class="popup__label" for="dropdown-input">Выберите город</label>
-            <div class="popup__input dropdown" name="dropdown-input" id="dropdown-input">
+            <div class="popup__dropdown dropdown" name="dropdown-input" id="dropdown-input">
               <button class="dropdown__button" aria-haspopup="listbox" aria-expanded="false" type="button">
-                <span class="visually-hidden">Выберите город</span></button>
+                <span class="visually-hidden">Выберите город</span>
+              </button>
               <ul class="dropdown__list" role="listbox">
                 <li class="dropdown__item" role="option" data-value="-"></li>
                 <li class="dropdown__item" role="option" data-value="moscow">Москва</li>
@@ -300,6 +301,7 @@
                 <li class="dropdown__item" role="option" data-value="volgograd">Волгоград</li>
               </ul>
             </div>
+            <input type="hidden" name="city" id="city-input" value="-">
 
             <label class="popup__checkbox">
               <input class="popup__checkbox-input" type="checkbox" required name="popup-checkbox">
@@ -753,25 +755,34 @@
             <input class="form__page-input form__page-input-phone" type="tel" name="phone" id="form-phone" required>
 
             <label class="form__page-label" for="form-text">Ваше сообщение</label>
-            <textarea class="form__page-input form__page-input-textarea" type="text" name="form-text" id="form-text"></textarea>
+            <textarea class="form__page-input form__page-input-textarea" type="text" name="form-text"
+              id="form-text"></textarea>
 
             <label class="form__page-label" for="form-dropdown">Выберите город</label>
             <div class="form__page-input dropdown" name="form-dropdown" id="form-dropdown">
-              <button class="form__page-dropdown-button dropdown__button" aria-haspopup="listbox" aria-expanded="false" type="button">
+              <button class="form__page-dropdown-button dropdown__button" aria-haspopup="listbox" aria-expanded="false"
+                type="button">
                 <span class="visually-hidden">Выберите город</span></button>
               <ul class="dropdown__list" role="listbox">
                 <li class="dropdown__item form__page-dropdown-item" role="option" data-value="-"></li>
                 <li class="dropdown__item form__page-dropdown-item" role="option" data-value="moscow">Москва</li>
-                <li class="dropdown__item form__page-dropdown-item" role="option" data-value="saint-petersburg">Санкт-Петербург</li>
-                <li class="dropdown__item form__page-dropdown-item" role="option" data-value="novosibirsk">Новосибирск</li>
-                <li class="dropdown__item form__page-dropdown-item" role="option" data-value="yekaterinburg">Екатеринбург</li>
+                <li class="dropdown__item form__page-dropdown-item" role="option" data-value="saint-petersburg">
+                  Санкт-Петербург</li>
+                <li class="dropdown__item form__page-dropdown-item" role="option" data-value="novosibirsk">Новосибирск
+                </li>
+                <li class="dropdown__item form__page-dropdown-item" role="option" data-value="yekaterinburg">
+                  Екатеринбург</li>
                 <li class="dropdown__item form__page-dropdown-item" role="option" data-value="kazan">Казань</li>
-                <li class="dropdown__item form__page-dropdown-item" role="option" data-value="nizhny-novgorod">Нижний Новгород</li>
-                <li class="dropdown__item form__page-dropdown-item" role="option" data-value="chelyabinsk">Челябинск</li>
+                <li class="dropdown__item form__page-dropdown-item" role="option" data-value="nizhny-novgorod">Нижний
+                  Новгород</li>
+                <li class="dropdown__item form__page-dropdown-item" role="option" data-value="chelyabinsk">Челябинск
+                </li>
                 <li class="dropdown__item form__page-dropdown-item" role="option" data-value="samara">Самара</li>
-                <li class="dropdown__item form__page-dropdown-item" role="option" data-value="rostov-on-don">Ростов-на-Дону</li>
+                <li class="dropdown__item form__page-dropdown-item" role="option" data-value="rostov-on-don">
+                  Ростов-на-Дону</li>
                 <li class="dropdown__item form__page-dropdown-item" role="option" data-value="ufa">Уфа</li>
-                <li class="dropdown__item form__page-dropdown-item" role="option" data-value="krasnoyarsk">Красноярск</li>
+                <li class="dropdown__item form__page-dropdown-item" role="option" data-value="krasnoyarsk">Красноярск
+                </li>
                 <li class="dropdown__item form__page-dropdown-item" role="option" data-value="voronezh">Воронеж</li>
                 <li class="dropdown__item form__page-dropdown-item" role="option" data-value="perm">Пермь</li>
                 <li class="dropdown__item form__page-dropdown-item" role="option" data-value="volgograd">Волгоград</li>
@@ -779,7 +790,8 @@
             </div>
 
             <label class="form__page-checkbox popup__checkbox">
-              <input class="form__page-checkbox-input popup__checkbox-input" type="checkbox" required name="popup-checkbox">
+              <input class="form__page-checkbox-input popup__checkbox-input" type="checkbox" required
+                name="popup-checkbox">
               <span class="form__page-checkbox-mark popup__checkbox-mark"></span>
               <p class="form__page-checkbox-text popup__label-text">Я согласен на обработку моих персональных данных</p>
             </label>
