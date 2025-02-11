@@ -107,9 +107,12 @@ export const togglePopup = () => {
 
 export const toggleDropdown = () => {
   document.addEventListener('DOMContentLoaded', () => {
+    const form = document.querySelector('.popup__form');
     const dropdown = document.querySelector('.dropdown');
     const button = dropdown.querySelector('.dropdown__button');
     const items = dropdown.querySelectorAll('.dropdown__item');
+    const label = form.querySelector('.popup__label-dropdown');
+
     // Получаем скрытый input по id
     const hiddenCityInput = document.getElementById('city-input');
 
@@ -118,6 +121,8 @@ export const toggleDropdown = () => {
     button.addEventListener('click', (event) => {
       event.stopPropagation();
       dropdown.classList.toggle('open');
+      button.classList.toggle('open');
+      label.classList.toggle('open');
       button.setAttribute('aria-expanded', dropdown.classList.contains('open'));
     });
 

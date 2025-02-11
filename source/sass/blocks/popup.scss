@@ -169,6 +169,10 @@
   }
 }
 
+.popup__label-dropdown.open {
+  opacity: 100%;
+}
+
 .popup__input {
   display: block;
   margin: 0 0 15px;

@@ -278,7 +278,7 @@
             <label class="popup__label" for="input-phone">Телефон</label>
             <input class="popup__input popup__input-phone" type="tel" name="phone" id="input-phone" required>
 
-            <label class="popup__label" for="dropdown-input">Выберите город</label>
+            <label class="popup__label popup__label-dropdown" for="dropdown-input">Выберите город</label>
             <div class="popup__dropdown dropdown" name="dropdown-input" id="dropdown-input">
               <button class="dropdown__button" aria-haspopup="listbox" aria-expanded="false" type="button">
                 <span class="visually-hidden">Выберите город</span>
@@ -749,21 +749,23 @@
             <legend class="visually-hidden">Отправить заявку на для консультацию</legend>
 
             <label class="form__page-label" for="form-name">Имя</label>
-            <input class="form__page-input form__page-input-name" type="text" name="name" id="form-name" required>
+            <input class="form__page-input form__page-input-name" type="text" name="form-name" id="form-name" required>
 
             <label class="form__page-label" for="form-phone">Телефон</label>
-            <input class="form__page-input form__page-input-phone" type="tel" name="phone" id="form-phone" required>
+            <input class="form__page-input form__page-input-phone" type="tel" name="form-phone" id="form-phone"
+              required>
 
             <label class="form__page-label" for="form-text">Ваше сообщение</label>
-            <textarea class="form__page-input form__page-input-textarea" type="text" name="form-text"
-              id="form-text"></textarea>
+            <textarea class="form__page-input form__page-input-textarea" type="text" name="form-text" id="form-text"
+              required></textarea>
 
-            <label class="form__page-label" for="form-dropdown">Выберите город</label>
-            <div class="form__page-input dropdown" name="form-dropdown" id="form-dropdown">
+            <label class="form__page-label form__page-label-dropdown" for="form-dropdown">Выберите город</label>
+            <div class="form__page-dropdown dropdown" name="form-dropdown" id="form-dropdown">
               <button class="form__page-dropdown-button dropdown__button" aria-haspopup="listbox" aria-expanded="false"
                 type="button">
-                <span class="visually-hidden">Выберите город</span></button>
-              <ul class="dropdown__list" role="listbox">
+                <span class="visually-hidden">Выберите город</span>
+              </button>
+              <ul class="dropdown__list form__page-dropdown-list" role="listbox">
                 <li class="dropdown__item form__page-dropdown-item" role="option" data-value="-"></li>
                 <li class="dropdown__item form__page-dropdown-item" role="option" data-value="moscow">Москва</li>
                 <li class="dropdown__item form__page-dropdown-item" role="option" data-value="saint-petersburg">
@@ -788,6 +790,8 @@
                 <li class="dropdown__item form__page-dropdown-item" role="option" data-value="volgograd">Волгоград</li>
               </ul>
             </div>
+            <input type="hidden" name="form-city" id="form-city-input" value="-">
+
 
             <label class="form__page-checkbox popup__checkbox">
               <input class="form__page-checkbox-input popup__checkbox-input" type="checkbox" required

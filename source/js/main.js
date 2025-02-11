@@ -9,6 +9,8 @@ import { togglePopup, popupValidator, toggleDropdown } from './blocks/popup';
 import { initializeProgramsSwiper } from './blocks/swiper-programs';
 import { toggleAccordion } from './blocks/faq';
 import { initializeReviewsSwiper } from './blocks/swiper-reviews';
+import { formValidator } from './blocks/form';
+import { toggleFormDropdown } from './blocks/form';
 
 
 toggleMenu();
@@ -19,3 +21,5 @@ toggleDropdown();
 initializeProgramsSwiper();
 toggleAccordion();
 initializeReviewsSwiper();
+formValidator();
+toggleFormDropdown();
