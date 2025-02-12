@@ -1,0 +1,134 @@
+.news {
+  background-color: #f0efe9;
+  color: $primary-blue;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+}
+
+.news .container {
+  width: 320px;
+  align-self: center;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+  @media (min-width: $tablet-width) {
+    width: 768px;
+  }
+
+  @media (min-width: $desktop-width) {
+    width: 1440px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+}
+
+.news__heading {
+  display: block;
+  margin: 0 0 24px;
+  padding: 0;
+  font-family: $project-font;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: center;
+
+  @media (min-width: $tablet-width) {
+    font-size: 34px;
+    line-height: 50px;
+    margin: 0 0 30px;
+  }
+
+  @media (min-width: $desktop-width) {
+    font-size: 50px;
+    margin: 0 0 40px;
+  }
+}
+
+.news__tab-nav {
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 12px;
+  width: 305px;
+  overflow-x: auto;
+  // white-space: nowrap;
+  scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
+
+  @media (min-width: $tablet-width) {
+    width: 674px;
+    flex-wrap: wrap;
+    overflow-x: unset;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  @media (min-width: $desktop-width) {
+    width: 1240px;
+    gap: 30px;
+  }
+}
+
+.news__tab-nav::-webkit-scrollbar {
+  height: 2px;
+}
+
+.news__tab-button.button {
+  display: block;
+  margin: 0;
+  border: solid 2px transparent;
+  border-radius: 20px;
+
+  padding: 12px 14px;
+  cursor: pointer;
+  opacity: 60%;
+
+  @media (min-width: $tablet-width) {
+    padding: 16px 20px;
+    font-size: 14px;
+    line-height: 14px;
+    letter-spacing: 0.28px;
+  }
+
+  @media (min-width: $desktop-width) {
+    //problems with paddings
+  }
+
+  &::after,
+  &::before {
+    display: none;
+  }
+
+
+
+  &:focus,
+  &:focus-visible,
+  &:focus-within {
+    background-color: $primary-white;
+    color: $primary-blue;
+    border: solid 2px $primary-white;
+    opacity: 100%;
+  }
+
+  &:hover,
+  &:active {
+    background-color: transparent;
+    border: solid 2px transparent;
+    color: $primary-blue;
+    opacity: 100%;
+  }
+  // &:disabled {
+  //   all: unset;
+  // }
+}
+
+.news__tab-button--active.button {
+  border: solid 2px $primary-blue;
+  border-radius: 20px;
+  opacity: 100%;
+}
