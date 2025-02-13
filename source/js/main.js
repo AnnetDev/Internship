@@ -11,8 +11,8 @@ import { toggleAccordion } from './blocks/faq';
 import { initializeReviewsSwiper } from './blocks/swiper-reviews';
 import { formValidator } from './blocks/form';
 import { toggleFormDropdown } from './blocks/form';
+// import { initializeNewsSwiperMobile, initializeNewsSwiperTabletDesktop } from './blocks/swiper-news';
 import { initializeNewsSwiper } from './blocks/swiper-news';
-
 
 toggleMenu();
 initializeHeroSwiper();
@@ -25,3 +25,17 @@ initializeReviewsSwiper();
 formValidator();
 toggleFormDropdown();
 initializeNewsSwiper();
+// initializeNewsSwiperMobile();
+// initializeNewsSwiperTabletDesktop
+
+// window.addEventListener('resize', () => {
+
+//   if (window.innerWidth < 768) {
+//     initializeNewsSwiperMobile();
+//   } else {
+//     initializeNewsSwiperTabletDesktop();
+//   }
+// }
+// );
+
+//проблема с слайдером новости
