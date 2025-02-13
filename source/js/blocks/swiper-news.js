@@ -4,12 +4,39 @@ import 'swiper/scss';
 import 'swiper/scss/grid';
 
 export function initializeNewsSwiper() {
+  const swiperContainer = document.querySelector('.news__swiper.swiper');
+  const swiperWrapper = swiperContainer.querySelector('.news__swiper-wrapper.swiper-wrapper');
+
+  function removeClonedSlides() {
+    swiperWrapper.querySelectorAll('.news__swiper-slide--cloned').forEach((clone) => clone.remove());
+  }
+
+  function cloneSlides() {
+    removeClonedSlides();
+
+    if (window.innerWidth >= 30) {
+      const slides = swiperWrapper.querySelectorAll('.news__swiper-slide.swiper-slide');
+      if (slides.length >= 4) {
+        for (let i = 0; i < 3; i++) {
+          const clone = slides[i].cloneNode(true);
+          clone.classList.add('news__swiper-slide--cloned');
+          swiperWrapper.appendChild(clone);
+        }
+      }
+    }
+  }
+
+  cloneSlides(); //настроить клонирование
+
   const newsSwiper = new Swiper('.news__swiper', {
     modules: [Navigation, Pagination, Grid],
     direction: 'horizontal',
     pagination: {
       el: '.news__swiper-pagination.swiper-pagination',
       clickable: true,
+      renderBullet: function (index, className) {
+        return '<span class="' + className + '">' + (index + 1) + "</span>";
+      },
     },
     navigation: {
       nextEl: '.news__swiper-button.swiper-button-next',
