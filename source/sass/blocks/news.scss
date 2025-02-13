@@ -155,21 +155,21 @@
   // padding: 0;
   // margin: 0 0 0 -15px;
   // min-height: 590px;
-  // height: 590px;
+  height: 590px;
 
-  // @media (min-width: $tablet-width) {
-  //   width: 678px;
+  @media (min-width: $tablet-width) {
+    width: 678px;
   //   margin: 0;
   //   min-height: 730px;
-  //   height: 730px;
+    height: 730px;
 
-  // }
+  }
 
-  // @media (min-width: $desktop-width) {
-  //   width: 1240px;
-  //   height: 400px;
+  @media (min-width: $desktop-width) {
+    width: 1240px;
+    height: 400px;
   //   min-height: 400px;
-  // }
+  }
 }
 
 // .news__swiper-wrapper.swiper-wrapper {
@@ -185,7 +185,7 @@
 
 // }
 
-// .news__swiper-slide.swiper-slide {
+.news__swiper-slide.swiper-slide {
 //   width: 290px;
 //   height: max-content;
 //   display: flex;
@@ -195,14 +195,37 @@
 //   // justify-content: flex-end;
 
 
-//   @media (min-width: $tablet-width) {
+  @media (min-width: $tablet-width) {
 //     width: 324px;
 //     height: 350px;
-//   }
+// order: unset;
+  }
 
 //   // @media (min-width: $desktop-width) {
 //   //   width: 324px;
 //   // }
+}
+
+// .news__swiper-slide--interview.swiper-slide {
+//   order: 1;
+// }
+// .news__swiper-slide--travels.swiper-slide {
+//   order: 2;
+// }
+// .news__swiper-slide--volunteer.swiper-slide {
+//   order: 3;
+// }
+// .news__swiper-slide--career.swiper-slide {
+//   order: 4;
+// }
+
+// .news__swiper-slide--interview.swiper-slide,
+// .news__swiper-slide--travels.swiper-slide,
+// .news__swiper-slide--volunteer.swiper-slide,
+// .news__swiper-slide--career.swiper-slide {
+// @media (min-width: $tablet-width) {
+//   order: unset;
+// }
 // }
 
 .news__swiper-slide-container {
