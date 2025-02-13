@@ -3,22 +3,22 @@ import { Navigation, Pagination, Scrollbar } from 'swiper/modules';
 import 'swiper/scss';
 
 export function initializeProgramsSwiper() {
-  const swiperContainer = document.querySelector('.programs__swiper');
-  const swiperWrapper = swiperContainer.querySelector('.swiper-wrapper');
+  const swiperContainer = document.querySelector('.programs__swiper.swiper');
+  const swiperWrapper = swiperContainer.querySelector('.programs__swiper-wrapper.swiper-wrapper');
 
   function removeClonedSlides() {
-    swiperWrapper.querySelectorAll('.swiper-slide--cloned').forEach((clone) => clone.remove());
+    swiperWrapper.querySelectorAll('.programs__swiper-slide--cloned').forEach((clone) => clone.remove());
   }
 
   function cloneSlides() {
     removeClonedSlides();
 
     if (window.innerWidth >= 1440) {
-      const slides = swiperWrapper.querySelectorAll('.swiper-slide');
+      const slides = swiperWrapper.querySelectorAll('.programs__swiper-slide.swiper-slide');
       if (slides.length >= 3) {
         for (let i = 0; i < 3; i++) {
           const clone = slides[i].cloneNode(true);
-          clone.classList.add('swiper-slide--cloned');
+          clone.classList.add('programs__swiper-slide--cloned');
           swiperWrapper.appendChild(clone);
         }
       }
@@ -27,7 +27,7 @@ export function initializeProgramsSwiper() {
 
   cloneSlides();
 
-  const swiperInstance = new Swiper('.programs__swiper', {
+  const swiperInstance = new Swiper('.programs__swiper.swiper', {
     modules: [Navigation, Pagination, Scrollbar],
     loop: false,
     normalizeSliderIndex: true,
@@ -36,7 +36,7 @@ export function initializeProgramsSwiper() {
       prevEl: '.programs__swiper-button.swiper-button-prev',
     },
     scrollbar: {
-      el: '.swiper-scrollbar',
+      el: '.programs__swiper-scrollbar.swiper-scrollbar',
       hide: false,
       draggable: true,
       grabCursor: true,

@@ -331,7 +331,7 @@
   pointer-events: none;
 }
 
-.swiper-scrollbar .reviews__swiper-scrollbar {
+.swiper-scrollbar.reviews__swiper-scrollbar {
   display: none;
 
   @media (min-width: $tablet-width) {
@@ -358,9 +358,9 @@
   }
 }
 
-.swiper-scrollbar-drag {
+.swiper-scrollbar.reviews__swiper-scrollbar .swiper-scrollbar-drag {
   display: block;
   background: $primary-blue;
   height: 100%;
-  cursor: grab;
+    cursor: grab;
 }

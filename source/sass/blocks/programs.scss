@@ -62,7 +62,7 @@
 //   }
 // }
 
-.programs__swiper-slide {
+.programs__swiper-slide.swiper-slide {
   position: relative;
   max-width: 290px;
   min-height: 400px;
@@ -355,6 +355,7 @@
   pointer-events:none;
 }
 
+.swiper-scrollbar.programs__swiper-scrollbar,
 .swiper-scrollbar {
   display: none;
 
@@ -382,7 +383,7 @@
   }
 }
 
-.swiper-scrollbar-drag {
+.swiper-scrollbar.programs__swiper-scrollbar .swiper-scrollbar-drag {
   display: block;
   background: $primary-blue;
   height: 100%;

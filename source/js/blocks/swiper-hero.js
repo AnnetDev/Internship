@@ -27,7 +27,7 @@ function updatePaginationPosition(swiper) {
 }
 
 function updateActivePaginationBullet(swiper) {
-  const bullets = document.querySelectorAll('.swiper-pagination-bullet');
+  const bullets = document.querySelectorAll('.hero__swiper-pagination .swiper-pagination-bullet');
   if (!bullets.length) {
     return;
   }
@@ -42,7 +42,7 @@ function updateActivePaginationBullet(swiper) {
 }
 
 export function initializeHeroSwiper() {
-  const heroSwiperContainer = document.querySelector('.hero__swiper');
+  const heroSwiperContainer = document.querySelector('.hero__swiper.swiper');
   if (!heroSwiperContainer) {
     return;
   }
@@ -63,7 +63,7 @@ export function initializeHeroSwiper() {
       focusableElements: 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
     },
     pagination: {
-      el: '.hero__swiper-pagination',
+      el: '.hero__swiper-pagination.swiper-pagination',
       clickable: true,
       renderBullet: (index, className) =>
         `<div class="${className}" tabindex="0" role="button" aria-label="Перейти к слайду ${index + 1}"></div>`,
@@ -103,10 +103,10 @@ export function initializeHeroSwiper() {
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Tab') {
       const focusedElement = document.activeElement;
-      const swiperElement = document.querySelector('.hero__swiper');
+      const swiperElement = document.querySelector('.hero__swiper.swiper');
 
       if (focusedElement && swiperElement) {
-        const slide = focusedElement.closest('.swiper-slide');
+        const slide = focusedElement.closest('.hero__swiper-slide.swiper-slide');
 
         if (slide) {
           const slideIndex = Array.from(slide.parentElement.children).indexOf(slide);
