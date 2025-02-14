@@ -19,7 +19,7 @@
 
   @media (min-width: $desktop-width) {
     width: 1440px;
-    padding-top: 60px;
+    padding-top: 70px;
     padding-bottom: 60px;
     flex-flow: row wrap;
     gap: 60px 40px;
@@ -28,13 +28,13 @@
 
 .about__title {
   display: block;
-  margin: 0 0 15px;
+  margin: 0 0 15px 1px;
   padding: 0;
   font-size: 20px;
   font-weight: 400;
   line-height: 20px;
   text-align: left;
-  color: $active-blue;
+  color: $primary-blue;
 
   @media (min-width: $tablet-width) {
     font-size: 34px;
@@ -64,6 +64,7 @@
   font-weight: 400;
   line-height: 22px;
   text-align: left;
+  color: #484848;
 
   @media (min-width: $tablet-width) {
     font-size: 20px;
@@ -91,13 +92,13 @@
 
 .about__goal-wrapper h3 {
   display: block;
-  margin: 0 0 20px;
+  margin: 0 0 19px;
   padding: 0;
   font-size: 18px;
   font-weight: 400;
   line-height: 22px;
   text-align: left;
-  color: $active-blue;
+  color: $primary-blue;
 
   @media (min-width: $tablet-width) {
     font-size: 28px;
@@ -113,13 +114,14 @@
 
 .about__goal-wrapper p {
   display: block;
-  margin: 0 0 30px;
+  margin: 0 0 31px;
   padding: 0;
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
   text-align: left;
   width: 100%;
+  color:#484848;
 
   @media (min-width: $tablet-width) {
     margin: 0 0 40px;
@@ -137,7 +139,7 @@
 .about__link {
   display: flex;
   margin: 0;
-  // padding: 16px 21px;
+  padding: 18px 20px 16px 20px;
   // align-items: center;
   // border: solid 1px $primary-blue;
   // border-radius: 30px;
@@ -154,33 +156,42 @@
   width: 223px;
   // cursor: pointer;
 
-  // &::after {
-  //   position: absolute;
-  //   content: "";
-  //   width: 34px;
-  //   height: 34px;
-  //   background-color: $primary-blue;
-  //   border-radius: 50%;
-  //   top: 50%;
-  //   transform: translateY(-50%);
-  //   right: 5px;
-  // }
+  &::after {
+    //   position: absolute;
+    //   content: "";
+    //   width: 34px;
+    //   height: 34px;
+    //   background-color: $primary-blue;
+    //   border-radius: 50%;
+    //   top: 50%;
+    //   transform: translateY(-50%);
+    right: 4px;
 
-  // &::before {
-  //   position: absolute;
-  //   content: "";
-  //   width: 8px;
-  //   height: 8px;
-  //   mask: url("/__spritemap#sprite-arrow-view") no-repeat center; //кривая стрелочка
-  //   background-color: $primary-white;
-  //   top: 50%;
-  //   transform: translateY(-50%);
-  //   right: 18px;
-  //   z-index: 2;
-  // }
+    @media (min-width: $tablet-width) {
+      width: 46px;
+      height: 46px;
+    }
+  }
+
+  &::before {
+    //   position: absolute;
+    //   content: "";
+    //   width: 8px;
+    //   height: 8px;
+    //   mask: url("/__spritemap#sprite-arrow-view") no-repeat center; //кривая стрелочка
+    //   background-color: $primary-white;
+    //   top: 50%;
+    //   transform: translateY(-50%);
+    right: 17px;
+    //   z-index: 2;
+    @media (min-width: $tablet-width) {
+      right: 23px;
+    }
+  }
 
   @media (min-width: $tablet-width) {
     padding: 21px 31px;
+    height: 56px;
     width: 279px;
     font-size: 14px;
     font-weight: 500;
@@ -214,10 +225,10 @@
 .about__list-item {
   display: block;
   margin: 0;
-  padding: 15px 21px;
+  padding: 15px 20px;
   position: relative;
-  color: $primary-white;
-  border: solid 1px $primary-white;
+  color: #f0efe9;
+  border: solid 1px #f0efe9;
   border-radius: 16px;
   display: flex;
   flex-flow: column wrap;
@@ -230,7 +241,7 @@
     height: 42px;
     background-color: $primary-blue;
     top: -21px;
-    left:-21px;
+    left: -21px;
   }
 
   &::after {
@@ -241,18 +252,22 @@
     mask: url("/__spritemap#sprite-star-1-view") no-repeat center; //кривая стрелочка
     background-color: $primary-white;
     z-index: 2;
-    top: -14px;
+    top: -13px;
     left: -9px;
   }
 
   @media (min-width: $tablet-width) {
-    width: 253px;
+    width: 253px;  gap: 14px;
+
+    padding: 16px 20px 15px 20px;
   }
 
   @media (min-width: $desktop-width) {
     width: 484px;
+    padding: 30px 40px;
     flex-flow: row wrap;
-    gap: 30px;
+    gap: 0;
+    justify-content: space-between;
     align-items: center;
   }
 }
@@ -264,9 +279,10 @@
   font-size: 16px;
   font-weight: 400;
   line-height: 20px;
-  letter-spacing: 0.16px;
+  letter-spacing: 0.18px;
   text-align: left;
   text-transform: uppercase;
+  color: $primary-white;
 
   @media (min-width: $tablet-width) {
     font-size: 20px;
@@ -279,6 +295,7 @@
     line-height: 30px;
     letter-spacing: 0.26px;
     text-align: left;
+    max-width: 201px;
   }
 }
 
@@ -295,5 +312,8 @@
     font-size: 16px;
     font-weight: 300;
     line-height: 20px;
+  }
+  @media (min-width: $desktop-width) {
+    max-width: 201px;
   }
 }
