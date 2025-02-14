@@ -1,7 +1,7 @@
 import Swiper from 'swiper';
 import { Navigation, Pagination, Scrollbar } from 'swiper/modules';
 import 'swiper/scss';
-
+//проверить клонирование
 export function initializeProgramsSwiper() {
   const swiperContainer = document.querySelector('.programs__swiper.swiper');
   const swiperWrapper = swiperContainer.querySelector('.programs__swiper-wrapper.swiper-wrapper');
@@ -13,10 +13,21 @@ export function initializeProgramsSwiper() {
   function cloneSlides() {
     removeClonedSlides();
 
+    if (window.innerWidth >= 768) {
+      const slides = swiperWrapper.querySelectorAll('.programs__swiper-slide.swiper-slide');
+      if (slides.length >= 3) {
+        for (let i = 0; i < 1; i++) {
+          const clone = slides[i].cloneNode(true);
+          clone.classList.add('programs__swiper-slide--cloned');
+          swiperWrapper.appendChild(clone);
+        }
+      }
+    }
+
     if (window.innerWidth >= 1440) {
       const slides = swiperWrapper.querySelectorAll('.programs__swiper-slide.swiper-slide');
       if (slides.length >= 3) {
-        for (let i = 0; i < 3; i++) {
+        for (let i = 0; i < 4; i++) {
           const clone = slides[i].cloneNode(true);
           clone.classList.add('programs__swiper-slide--cloned');
           swiperWrapper.appendChild(clone);

@@ -4,17 +4,21 @@
   // align-items: center;
   background-color: #f0efe9;
   position: relative;
-  padding: 50px 0;
+  padding: 56px 0 50px 0;
+
+  @media (min-width: $tablet-width) {
+    padding: 53px 0 72px 0;
+  }
 
   @media (min-width: $desktop-width) {
-    padding: 60px 0;
+    padding: 65px 0 82px 0;
   }
 }
 
 .programs__heading {
   display: flex;
   align-self: center;
-  margin: 0 0 30px;
+  margin: 0 0 34px;
   font-size: 20px;
   font-weight: 400;
   line-height: 20px;
@@ -35,7 +39,7 @@
     font-size: 50px;
     width: 1440px;
     padding: 0 100px;
-    margin: 0 0 40px;
+    margin: 0 0 45px;
   }
 }
 
@@ -70,10 +74,12 @@
 
   @media (min-width: $tablet-width) {
     min-height: 420px;
+    min-width: 324px;
     max-width: 324px;
   }
 
   @media (min-width: $desktop-width) {
+    min-width: 392px;
     max-width: 392px;
   }
 }
@@ -89,11 +95,11 @@
 
   @media (min-width: $tablet-width) {
     min-height: 420px;
-    padding: 20px 10px;
+    padding: 10px 20px;
   }
 
   @media (min-width: $desktop-width) {
-    padding: 20px 17px;
+    padding: 17px 20px;
   }
 }
 
@@ -133,10 +139,12 @@
 
   @media (min-width: $tablet-width) {
     width: 173px;
+    padding: 19px 6px 5px 18px;
   }
 
   @media (min-width: $desktop-width) {
     width: 194px;
+    padding: 18px 6px 6px 18px;
   }
 
   &::after {
@@ -173,7 +181,7 @@
 
 .programs__description-wrapper {
   background-color: $primary-white;
-  padding: 12px 18px 15px 18px;
+  padding: 13px 18px 14px 18px;
   width: 270px;
   border-bottom-left-radius: 12px;
   border-top-right-radius: 12px;
@@ -184,10 +192,13 @@
 
   @media (min-width: $tablet-width) {
     width: 284px;
+    padding: 12px 18px 15px 18px;
   }
 
   @media (min-width: $desktop-width) {
     width: 321px;
+    padding: 0 18px;
+    min-height: 82px;
   }
 }
 
@@ -204,7 +215,7 @@
   height: max-content;
 
   @media (min-width: $tablet-width) {
-    width: 210px;
+    width: 196px;
     font-size: 14px;
     line-height: 20px;
   }
@@ -213,12 +224,13 @@
     width: 240px;
     font-size: 14px;
     line-height: 18px;
+    margin: 0 0 2px;
   }
 }
 
 .programs__slide-link {
   display: block;
-  margin: 0;
+  margin: 0 0 2px;
   padding: 0;
   width: 30px;
   height: 30px;
@@ -226,12 +238,27 @@
 
   &::after {
     right: 0;
+    width: 30px;
+    height: 30px;
   }
 
   &::before {
-    right: 12px;
+    right: 11px;
+
     // top: 50%;
     // transform: translate(-50% -50%);
+  }
+
+  @media (min-width: $tablet-width) {
+    margin: 0;
+    &::before {
+      width: 9px;
+      height: 9px;
+    }
+  }
+
+  @media (min-width: $desktop-width) {
+    margin: 0 0 2px;
   }
 }
 
@@ -248,20 +275,46 @@
     padding: 0;
     right: calc(50% - ((768px - 45px * 2) / 2));
     justify-content: flex-end;
+    align-items: flex-end;
+    top: 50px;
   }
 
   @media (min-width: $desktop-width) {
     margin: 0;
     padding: 0;
+    top: 62px;
     right: calc(50% - ((1440px - 100px * 2) / 2));
   }
 }
 
 .programs__link {
   width: 205px;
+  padding: 18px 21px 16px 30px;
 
+  &::before {
+    right: 16px;
+  }
+
+  &::after {
+    right: 4px;
+  }
   @media (min-width: $tablet-width) {
     width: 234px;
+    height: 56px;
+    padding: 16px 21px 16px 30px;
+    font-size: 14px;
+    line-height: 14px;
+    letter-spacing: 0.28px;
+
+    &::after {
+      width: 46px;
+      height: 46px;
+    }
+    &::before {
+      width: 9px;
+      height: 9px;
+      right: 22px;
+    }
   }
 }
 
@@ -269,17 +322,19 @@
   width: 54px;
   // height: 24px;
   display: flex;
+  justify-content: flex-end;
   flex-flow: row wrap;
   gap: 8px;
   position: absolute;
   content: "";
-  top: 50px;
+  top: 54px;
   right: calc(50% - ((320px - 15px * 2) / 2));
   z-index: 2;
 
   @media (min-width: $tablet-width) {
     top: unset;
     bottom: 50px;
+    gap: 10px;
     right: calc(50% - ((768px - 45px * 2) / 2));
   }
 
@@ -318,14 +373,13 @@
   }
 }
 
-
 .programs__swiper-button.swiper-button-next::after {
   position: absolute;
   content: "";
   mask: url("/__spritemap#sprite-swiper-button-view") no-repeat center; //кривая стрелочка
   background-color: $primary-blue;
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -336,8 +390,8 @@
   content: "";
   mask: url("/__spritemap#sprite-swiper-button-view") no-repeat center; //кривая стрелочка
   background-color: $primary-blue;
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) rotate(180deg);
@@ -352,7 +406,7 @@
 .programs__swiper-button.swiper-button-next:disabled:after,
 .programs__swiper-button.swiper-button-prev:disabled:after {
   background-color: #a9afb7;
-  pointer-events:none;
+  pointer-events: none;
 }
 
 .swiper-scrollbar.programs__swiper-scrollbar,
@@ -363,7 +417,7 @@
     display: flex;
     position: absolute;
     content: "";
-    bottom: 50px;
+    bottom: 60px;
     left: calc(50% - ((768px - 45px * 2) / 2));
     width: 562px;
     height: 2px;
@@ -376,7 +430,7 @@
     position: absolute;
     content: "";
 
-    bottom: 60px;
+    bottom: 48px;
     left: calc(50% - ((1440px - 100px * 2) / 2));
     width: 1136px;
     height: 2px;
