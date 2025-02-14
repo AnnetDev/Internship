@@ -72,7 +72,7 @@
   }
 }
 
-.hero__swiper-slide.swiper-slide {
+.hero__swiper-slide.swiper {
   display: flex;
   flex-flow: column wrap;
   justify-content: flex-end;
@@ -130,10 +130,9 @@
   padding: 6px;
   // margin: 0 auto;
   // align-self: center;
-  transition: bottom 0.3s ease;
+  // transition: bottom 0.3s ease;
   left: calc(50% - (290px / 2));
   // transform: translateX(-50%);
-  // animation: fadeOut 0.3s ease-out forwards;
 
   // @keyframes fadeOut { //можно ли применять?
   //   from {
@@ -143,6 +142,8 @@
   //     opacity: 1;
   //   }
   // }
+  // animation: fadeOut 0.3s ease-out forwards;
+
 
   &::after {
     position: absolute;

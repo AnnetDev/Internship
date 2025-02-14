@@ -12,7 +12,7 @@ import { initializeReviewsSwiper } from './blocks/swiper-reviews';
 import { formValidator } from './blocks/form';
 import { toggleFormDropdown } from './blocks/form';
 // import { initializeNewsSwiperMobile, initializeNewsSwiperTabletDesktop } from './blocks/swiper-news';
-import { initializeNewsSwiper } from './blocks/swiper-news';
+import { initializeNewsSwiper, toggleTabs } from './blocks/swiper-news';
 
 toggleMenu();
 initializeHeroSwiper();
@@ -25,6 +25,7 @@ initializeReviewsSwiper();
 formValidator();
 toggleFormDropdown();
 initializeNewsSwiper();
+toggleTabs();
 // initializeNewsSwiperMobile();
 // initializeNewsSwiperTabletDesktop
 
@@ -39,3 +40,5 @@ initializeNewsSwiper();
 // );
 
 //проблема с слайдером новости
+
+

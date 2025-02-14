@@ -1,6 +1,8 @@
 import Swiper from 'swiper';
-import { Pagination, Keyboard, A11y } from 'swiper/modules';
+import { Pagination, Keyboard, A11y, EffectFade } from 'swiper/modules';
 import 'swiper/scss';
+// import 'swiper/scss/pagination';
+
 
 function updatePaginationPosition(swiper) {
   const activeSlide = swiper.slides[swiper.activeIndex];
@@ -48,10 +50,14 @@ export function initializeHeroSwiper() {
   }
 
   const swiper = new Swiper(heroSwiperContainer, {
-    modules: [Pagination, Keyboard, A11y],
+    modules: [Pagination, Keyboard, A11y, EffectFade],
     loop: true,
     loopedSlides: 3,
-    effect: 'creative',
+    speed: 800,
+    effect: 'fade',
+    fadeEffect: {
+      crossFade: true
+    },
     centeredSlides: true,
     slidesPerView: 1,
     keyboard: {
@@ -118,4 +124,5 @@ export function initializeHeroSwiper() {
 
   // window.addEventListener('resize', initializeHeroSwiper);
   window.addEventListener('resize', () => updatePaginationPosition(swiper));
+
 }
