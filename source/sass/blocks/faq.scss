@@ -54,15 +54,19 @@
   padding: 0;
   list-style: none;
   gap: 10px;
+  @media (min-width: $desktop-width) {
+    width: 1028px;
+    align-self: center;
+  }
 }
 
 .faq__list-item {
   display: flex;
   flex-flow: column wrap;
   margin: 0;
-  padding: 17px 22px;
+  padding: 20px 15px;
   border: solid 2px $primary-blue;
-  border-radius: 16px;
+  border-radius: 14px;
   // gap: 20px;
   background-color: transparent;
   transition: all 0.3s ease;
@@ -70,13 +74,13 @@
   overflow: hidden; // Prevents content from overflowing during the transition
 
   @media (min-width: $tablet-width) {
-    padding: 32px;
+    padding: 30px;
+    border-radius: 16px;
   }
 
   @media (min-width: $desktop-width) {
-    padding: 42px;
+    padding: 40px;
   }
-
 
   &--active {
     background-color: $primary-blue;
@@ -90,6 +94,10 @@
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
+
+  @media (min-width: $tablet-width) {
+    align-items: flex-start;
+  }
 }
 
 .faq__title {
@@ -107,6 +115,9 @@
     font-size: 22px;
     line-height: 26px;
     max-width: 570px;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
   }
 
   @media (min-width: $desktop-width) {
@@ -116,6 +127,13 @@
   }
 }
 
+.faq__list-item:nth-child(4n) .faq__title {
+  @media (min-width: $tablet-width) {
+    max-width: 440px;
+  }
+  @media (min-width: $desktop-width) {
+  max-width: 800px;}
+}
 .faq__list-item p {
   // display: none;
   max-height: 0; // Initially hidden
@@ -155,7 +173,6 @@
   // }
   max-height: fit-content; // Max height when active, adjust as needed
   padding: 20px 0 0;
-
 }
 
 .faq__button {
