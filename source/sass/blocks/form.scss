@@ -20,7 +20,7 @@
   align-self: center;
   display: flex;
   flex-flow: column wrap;
-  padding: 34px 10px 40px;
+  padding: 43px 10px 40px;
   background-image: image-set(
     url("../../img/form/form-mobile@1x.webp") 1x,
     url("../../img/form/form-mobile@2x.webp") 2x,
@@ -104,15 +104,15 @@
     max-width: 442px;
     width: 442px;
     min-height: 780px;
-    padding: 30px 40px 36px;
+    padding: 41px 40px 36px;
     position: relative;
   }
 
   @media (min-width: $desktop-width) {
     width: 490px;
+    max-width: 490px;
     min-height: 800px;
     padding: 44px 70px 40px;
-
   }
 }
 
@@ -141,14 +141,15 @@
 
 .form__description {
   display: block;
-  margin: 0 0 20px;
+  margin: 0 0 21px;
   padding: 0;
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
   text-align: left;
   opacity: 90%;
-  color: $primary-white;
+  color: #f0efe9;
+  ;
 
   @media (min-width: $tablet-width) {
     // width: 350px;
@@ -172,7 +173,7 @@
 
 .form__page-label {
   display: block;
-  margin: 0 0 12px;
+  margin: 0 0 11px;
   padding: 0;
   font-size: 12px;
   font-weight: 400;
@@ -184,6 +185,7 @@
   @media (min-width: $tablet-width) {
     font-size: 14px;
     line-height: 20px;
+    margin: 0 0 12px;
   }
 
   @media (min-width: $desktop-width) {
@@ -193,7 +195,7 @@
 
 .form__page-input {
   display: block;
-  margin: 0 0 15px;
+  margin: 0 0 21px;
   padding: 8px;
   background-color: transparent;
   border: solid 1px #6f99d4;
@@ -205,34 +207,37 @@
   @media (min-width: $tablet-width) {
     height: 50px;
     width: 362px;
+    margin: 0 0 20px;
   }
 
-  @media (min-width: $tablet-width) {
+  @media (min-width: $desktop-width) {
     width: 350px;
   }
 }
 
 .form__page-dropdown-button.dropdown__button {
-background-color: transparent;
-border: solid 1px #6f99d4;
-color: #f0efe9;
-width: 260px;
-
-@media (min-width: $tablet-width) {
-  width: 362px;
-  }
+  background-color: transparent;
+  border: solid 1px #6f99d4;
+  color: #f0efe9;
+  width: 260px;
+  height: 52px;
+  margin: 0 0 21px;
 
   @media (min-width: $tablet-width) {
+    width: 362px;
+    margin: 0 0 20px;
+  }
+
+  @media (min-width: $desktop-width) {
     width: 350px;
   }
 
-
-&:after {
-  background-color: $primary-white;
+  &:after {
+    background-color: $primary-white;
+  }
 }
-}
 
-.form__page-dropdown-button.open.dropdown__button  {
+.form__page-dropdown-button.open.dropdown__button {
   border: solid 1px $primary-white;
 
   &::after {
@@ -242,7 +247,6 @@ width: 260px;
 
 .form__page-label.form__page-label-dropdown.open {
   opacity: 100%;
-
 }
 
 .form__page-dropdown-list {
@@ -251,12 +255,11 @@ width: 260px;
 
   @media (min-width: $tablet-width) {
     width: 362px;
-    }
+  }
 
-    @media (min-width: $tablet-width) {
-      width: 350px;
-    }
-
+  @media (min-width: $tablet-width) {
+    width: 350px;
+  }
 }
 
 .form__page-input-textarea {
@@ -272,16 +275,29 @@ width: 260px;
   @media (min-width: $desktop-width) {
     height: 90px;
     min-height: 90px;
+    margin: 0 0 18px;
   }
 }
-// .form .container .form__page-form {
-//   max-width: 300px;
-//   margin: 0 auto;
-// }
+
+.form__page-label.form__page-label-dropdown {
+  @media (min-width: $desktop-width) {
+    margin: 0 0 10px;
+  }
+}
 
 .form__page-dropdown-button {
   background-color: $primary-white;
   opacity: 100%;
+}
+
+.form__page-checkbox {
+  min-height: 40px;
+  margin: 0 0 20px;
+
+  @media (min-width: $tablet-width) {
+    min-height: 20px;
+    margin: 0 0 40px;
+  }
 }
 
 .form__page-checkbox-mark.popup__checkbox-mark {
@@ -292,17 +308,38 @@ width: 260px;
   background-color: $primary-blue;
 }
 
-.form__page-checkbox-text {
+.form__page-checkbox-text--mobile.form__page-checkbox-text {
+  display: block;
   margin: 0;
   padding: 0;
   width: 240px;
   font-size: 12px;
   line-height: 14px;
   opacity: 90%;
+  min-height: 40px;
 
   @media (min-width: $tablet-width) {
+    display: none;
+  }
+}
+
+.form__page-checkbox-text {
+  display: none;
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  line-height: 14px;
+  opacity: 90%;
+  // min-height: 40px;
+
+
+  @media (min-width: $tablet-width) {
+    display: block;
     width: 304px;
     line-height: 12px;
+    min-height: 20px;
+    display: flex;
+    align-items: center;
   }
 
   // @media (min-width: $desktop-width) {
@@ -314,25 +351,43 @@ width: 260px;
   border: solid 1px $primary-white;
   color: $primary-white;
   justify-content: center;
-  padding: 16px 58px 16px 21px; //fix
+  padding: 17px 58px 16px 21px; //fix
 
   width: 260px;
 
   @media (min-width: $tablet-width) {
-    width: 362px;
-    }
+    width: 352px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 14px;
+    letter-spacing: 0.28px;
+    text-align: center;
+    padding: 17px 70px 16px 21px; //fix
+  }
 
-    @media (min-width: $tablet-width) {
-      width: 350px;
-    }
-
+  @media (min-width: $desktop-width) {
+    width: 350px;
+  }
 
   &::after {
     background-color: $primary-white;
+    right: 4px;
+
+    @media (min-width: $tablet-width) {
+      width: 46px;
+      height: 46px;
+    }
   }
 
   &::before {
     background-color: $primary-blue;
+    width: 9px;
+    height: 9px;
+    right: 17px;
+
+    @media (min-width: $tablet-width) {
+      right: 23px;
+    }
   }
 
   &:hover {
@@ -362,7 +417,6 @@ width: 260px;
     opacity: 70%;
     transform: translateY(-50%) rotate(45deg);
   }
-
 
   &:focus,
   &:focus-visible,
