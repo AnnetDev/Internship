@@ -156,13 +156,16 @@
   &:hover {
     color: #484848;
   }
+
+  &[aria-disabled="true"],
+  &:disabled {
+    border: solid 1px #CBCFD4;
+    background-color: #EEEFF1;
+    color: #CCCFD4;
+    pointer-events: none;
+  }
 }
 
-
-// .popup__fieldset:has(#input-name:hover) label[for="input-name"],
-// .popup__fieldset:has(#input-phone:hover) label[for="input-phone"] {
-//   color: #484848;
-// }
 
 .popup__label-dropdown.open {
   opacity: 100%;
@@ -177,14 +180,6 @@
   color: #484848;
 }
 
-/* Стили для input #input-name */
-#input-name:active,
-#input-name:focus,
-#input-name:focus-visible,
-#input-name:focus-within {
-  border: solid 1px #484848;
-  outline: none;
-}
 
 /* Стили для label при наведении, фокусе и других состояниях для #input-phone */
 .popup__fieldset:has(#input-phone:hover) label[for="input-phone"],
@@ -195,14 +190,14 @@
   color: #484848;
 }
 
-/* Стили для input #input-phone */
-#input-phone:active,
-#input-phone:focus,
-#input-phone:focus-visible,
-#input-phone:focus-within {
-  border: solid 1px #484848;
-  outline: none;
-}
+// /* Стили для input #input-phone */
+// #input-phone:active,
+// #input-phone:focus,
+// #input-phone:focus-visible,
+// #input-phone:focus-within {
+//   border: solid 1px #484848;
+//   outline: none;
+// }
 
 
 .popup__input {
@@ -220,15 +215,6 @@
     width: 350px;
   }
 
-  // &:-webkit-autofill,
-  // &:-webkit-autofill:hover,
-  // &:-webkit-autofill:focus,
-  // &:-webkit-autofill:active {
-  //   background-color: red;
-  //   -webkit-box-shadow: 0 0 0px 1000px transparent inset;
-  //   // -webkit-text-fill-color: #000 !important;
-  // }
-
   &:hover,
   &:active,
   &:focus,
@@ -236,6 +222,14 @@
   &:focus-within {
     border: solid 1px #484848;
     outline: none;
+  }
+
+  &[aria-disabled="true"],
+  &:disabled {
+    border: solid 1px #CBCFD4;
+    background-color: #EEEFF1;
+    color: #CCCFD4;
+    pointer-events: none;
   }
 }
 
@@ -249,6 +243,18 @@
     align-self: center;
   }
 }
+.popup__dropdown {
+  border-radius: 9px;
+  height: 50px;
+  margin-bottom: 20px;
+
+  &[aria-disabled="true"] {
+    border: solid 1px #CBCFD4;
+    background-color: #EEEFF1;
+    color: #CCCFD4;
+    pointer-events: none;
+  }
+}
 
 .popup__dropdown-button {
   &:hover,
@@ -258,6 +264,14 @@
   &:focus-within {
     border: solid 1px #484848;
     outline: none;
+  }
+
+  &[aria-disabled="true"],
+  &:disabled {
+    border: solid 1px #CBCFD4;
+    background-color: #EEEFF1;
+    color: #CCCFD4;
+    pointer-events: none;
   }
 }
 
@@ -359,4 +373,19 @@ cursor: pointer;
   @media (min-width: $desktop-width) {
     width: 312px;
   }
+}
+
+.popup__error {
+  background-color: #ffdfe0;
+  border: solid 1px #ff5d66;
+
+  &:hover,
+  &:active,
+  &:focus,
+  &:focus-visible,
+  &:focus-within {
+    background-color: #ffdfe0;
+    border: solid 1px #ff5d66;
+  }
+
 }

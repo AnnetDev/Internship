@@ -5,6 +5,8 @@ export function popupValidator() {
   }
   const nameField = document.querySelector('input[name="name"]');
   const phoneField = document.querySelector('input[name="phone"]');
+  const cityInput = document.querySelector('#city-input');
+  const dropdown = document.querySelector('.popup__dropdown');
 
   nameField.addEventListener('input', () => {
     const nameValue = nameField.value.trim();
@@ -13,17 +15,17 @@ export function popupValidator() {
 
     if (validCharacters && hasEnoughLetters) {
       nameField.setCustomValidity('');
+      nameField.classList.remove('popup__error');
     } else {
       nameField.setCustomValidity('Имя должно содержать не менее 2 букв и только буквы и пробелы');
+      nameField.classList.add('popup__error');
     }
   });
 
   // Обработчик ввода для поля "Телефон"
   phoneField.addEventListener('input', () => {
     let value = phoneField.value;
-    // Удаляем буквы (латиница и кириллица)
-    value = value.replace(/[A-Za-zА-Яа-яЁё]/g, '');
-    // Если значение не начинается с "+7", принудительно добавляем его
+    value = value.replace(/[A-Za-zА-Яа-яЁё]/g, ''); // Удаляем буквы (латиница и кириллица)
     if (!value.startsWith('+7')) {
       value = `+7${value.replace(/^\+/, '')}`;
     }
@@ -32,8 +34,20 @@ export function popupValidator() {
     const digits = value.replace(/\D/g, '');
     if (value.startsWith('+7') && digits.length === 11) {
       phoneField.setCustomValidity('');
+      phoneField.classList.remove('popup__error');
     } else {
       phoneField.setCustomValidity('Введите корректный номер телефона в формате +7XXXXXXXXXX');
+      phoneField.classList.add('popup__error');
+    }
+  });
+
+  // Обработчик для изменения выбора города
+  dropdown.addEventListener('click', () => {
+    const selectedCity = cityInput.value;
+    if (selectedCity !== '-') {
+      dropdown.classList.remove('popup__error');
+    } else {
+      dropdown.classList.add('popup__error');
     }
   });
 
@@ -42,22 +56,33 @@ export function popupValidator() {
 
     nameField.setCustomValidity('');
     phoneField.setCustomValidity('');
+    cityInput.setCustomValidity('');
 
     const nameValue = nameField.value.trim();
     const phoneValue = phoneField.value.trim();
+    const cityValue = cityInput.value;
 
     if (!/^[A-Za-zА-ЯЁа-яё\s]+$/.test(nameValue)) {
       nameField.setCustomValidity('Имя может содержать только буквы и пробелы');
+      nameField.classList.add('popup__error');
       isValid = false;
     }
     if (nameValue.replace(/\s/g, '').length < 2) {
       nameField.setCustomValidity('Имя должно содержать не менее 2 букв');
+      nameField.classList.add('popup__error');
       isValid = false;
     }
 
     const digits = phoneValue.replace(/\D/g, '');
     if (!phoneValue.startsWith('+7') || digits.length !== 11) {
       phoneField.setCustomValidity('Введите корректный номер телефона в формате +7XXXXXXXXXX');
+      phoneField.classList.add('popup__error');
+      isValid = false;
+    }
+
+    if (cityValue === '-') {
+      cityInput.setCustomValidity('Пожалуйста, выберите город');
+      dropdown.classList.add('popup__error'); // Добавляем класс ошибки к выбору города
       isValid = false;
     }
 
@@ -66,11 +91,11 @@ export function popupValidator() {
       // Вызываем reportValidity(), чтобы отобразить сообщение об ошибке
       nameField.reportValidity();
       phoneField.reportValidity();
+      cityInput.reportValidity();
       event.preventDefault();
     }
   });
 }
-//сброс полей??
 
 export const togglePopup = () => {
   document.addEventListener('DOMContentLoaded', () => {
