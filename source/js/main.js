@@ -5,7 +5,7 @@
 
 import { toggleMenu } from './blocks/burger-menu';
 import { initializeHeroSwiper } from './blocks/swiper-hero';
-import { togglePopup, popupValidator, toggleDropdown } from './blocks/popup';
+import { togglePopup, popupValidator, toggleDropdown, toggleCheckbox } from './blocks/popup';
 import { initializeProgramsSwiper } from './blocks/swiper-programs';
 import { toggleAccordion } from './blocks/faq';
 import { initializeReviewsSwiper } from './blocks/swiper-reviews';
@@ -17,6 +17,7 @@ import { initializeNewsSwiper, toggleTabs } from './blocks/swiper-news';
 toggleMenu();
 initializeHeroSwiper();
 togglePopup();
+toggleCheckbox();
 popupValidator();
 toggleDropdown();
 initializeProgramsSwiper();

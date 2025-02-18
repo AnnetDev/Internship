@@ -79,6 +79,8 @@ export const togglePopup = () => {
     const popupCloser = document.querySelector('.popup__close');
     const body = document.querySelector('.page-body');
     const form = popup.querySelector('.popup__form');
+    const hiddenCityInput = document.getElementById('city-input');
+    const dropdownButton = document.querySelector('.dropdown__button');
 
     popupOpener.addEventListener('click', (event) => {
       event.stopPropagation();
@@ -91,56 +93,132 @@ export const togglePopup = () => {
       event.stopPropagation();
       popup.classList.remove('popup--opened');
       body.classList.remove('overlay-active-popup');
-      form.reset();
 
+      // Сброс формы и кастомных элементов при закрытии
+      form.reset();
+      if (dropdownButton && hiddenCityInput) {
+        dropdownButton.innerHTML = '<span class="visually-hidden">Выберите город</span>';
+        hiddenCityInput.value = '';
+      }
     });
 
     document.addEventListener('click', (event) => {
       if (!popup.contains(event.target)) {
         popup.classList.remove('popup--opened');
         body.classList.remove('overlay-active-popup');
+
+        // Сброс формы и кастомных элементов при закрытии
         form.reset();
+        if (dropdownButton && hiddenCityInput) {
+          dropdownButton.innerHTML = '<span class="visually-hidden">Выберите город</span>';
+          hiddenCityInput.value = '';
+        }
       }
     });
   });
 };
 
+// export const toggleDropdown = () => {
+//   document.addEventListener('DOMContentLoaded', () => {
+//     const form = document.querySelector('.popup__form');
+//     const dropdown = document.querySelector('.dropdown');
+//     const button = dropdown.querySelector('.dropdown__button');
+//     const items = dropdown.querySelectorAll('.dropdown__item');
+//     const label = form.querySelector('.popup__label-dropdown');
+
+//     // Получаем скрытый input по id
+//     const hiddenCityInput = document.getElementById('city-input');
+
+//     button.innerHTML = '<span class="visually-hidden">Выберите город</span>';
+
+//     button.addEventListener('click', (event) => {
+//       event.stopPropagation();
+//       dropdown.classList.toggle('open');
+//       button.classList.toggle('open');
+//       label.classList.toggle('open');
+//       button.setAttribute('aria-expanded', dropdown.classList.contains('open'));
+//     });
+
+//     items.forEach((item) => {
+//       item.addEventListener('click', (event) => {
+//         event.stopPropagation();
+//         const value = item.getAttribute('data-value');
+//         if (!value) {
+//           // Если выбрана первая опция или значение отсутствует, отображаем placeholder и очищаем скрытое поле
+//           button.innerHTML = '<span class="visually-hidden">Выберите город</span>';
+//           hiddenCityInput.value = '';
+//         } else {
+//           // Отображаем текст выбранного города и сохраняем значение в скрытом поле
+//           button.textContent = item.textContent;
+//           hiddenCityInput.value = value;
+//         }
+//         dropdown.classList.remove('open');
+//         button.setAttribute('aria-expanded', 'false');
+//       });
+//     });
+
+//     document.addEventListener('click', (e) => {
+//       if (!dropdown.contains(e.target)) {
+//         dropdown.classList.remove('open');
+//         button.setAttribute('aria-expanded', 'false');
+//       }
+//     });
+//   });
+// };
+
 export const toggleDropdown = () => {
   document.addEventListener('DOMContentLoaded', () => {
-    const form = document.querySelector('.popup__form');
     const dropdown = document.querySelector('.dropdown');
     const button = dropdown.querySelector('.dropdown__button');
     const items = dropdown.querySelectorAll('.dropdown__item');
-    const label = form.querySelector('.popup__label-dropdown');
-
-    // Получаем скрытый input по id
     const hiddenCityInput = document.getElementById('city-input');
+    // const form = document.querySelector('.popup__form');
 
+    // Устанавливаем изначальное значение кнопки
     button.innerHTML = '<span class="visually-hidden">Выберите город</span>';
 
     button.addEventListener('click', (event) => {
       event.stopPropagation();
       dropdown.classList.toggle('open');
       button.classList.toggle('open');
-      label.classList.toggle('open');
       button.setAttribute('aria-expanded', dropdown.classList.contains('open'));
+
+      if (dropdown.classList.contains('open')) {
+        // Фокусируемся на первом элементе списка, если он открыт
+        const firstItem = items[0];
+        firstItem?.focus();
+      }
     });
 
     items.forEach((item) => {
+      item.setAttribute('tabindex', '0'); // Делаем элементы списка доступными для фокуса
       item.addEventListener('click', (event) => {
         event.stopPropagation();
         const value = item.getAttribute('data-value');
+
         if (!value) {
-          // Если выбрана первая опция или значение отсутствует, отображаем placeholder и очищаем скрытое поле
+          // Сбрасываем выбор, если выбрана пустая опция
           button.innerHTML = '<span class="visually-hidden">Выберите город</span>';
           hiddenCityInput.value = '';
         } else {
-          // Отображаем текст выбранного города и сохраняем значение в скрытом поле
           button.textContent = item.textContent;
           hiddenCityInput.value = value;
         }
         dropdown.classList.remove('open');
         button.setAttribute('aria-expanded', 'false');
+      });
+
+      // Обрабатываем выбор через клавишу Enter
+      item.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+          event.preventDefault();
+          const value = item.getAttribute('data-value');
+          button.textContent = item.textContent;
+          hiddenCityInput.value = value;
+
+          dropdown.classList.remove('open');
+          button.setAttribute('aria-expanded', 'false');
+        }
       });
     });
 
@@ -153,3 +231,17 @@ export const toggleDropdown = () => {
   });
 };
 
+export const toggleCheckbox = () => {
+  document.addEventListener('DOMContentLoaded', () => {
+    const checkboxes = document.querySelectorAll('.popup__checkbox-input');
+
+    checkboxes.forEach((checkbox) => {
+      checkbox.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+          event.preventDefault();
+          checkbox.checked = !checkbox.checked; // Переключаем состояние
+        }
+      });
+    });
+  });
+};

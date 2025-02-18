@@ -11,7 +11,7 @@
   border: none;
   padding: 10px;
   cursor: pointer;
-  width: 350px;
+  width: 260px;
   height: 50px;
   padding: 8px;
   background-color: transparent;
@@ -23,6 +23,9 @@
   line-height: 14px;
   text-align: left;
   color: #484848;
+  @media (min-width: $tablet-width) {
+    width: 350px;
+  }
 
   &::after {
     position: absolute;
@@ -36,6 +39,9 @@
     height: 16px;
     transition: all 0.3s ease;
   }
+
+
+
 }
 
 .dropdown__button.open {

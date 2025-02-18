@@ -1,20 +1,5 @@
 .popup {
   display: none;
-  // display: block;
-  // position: absolute;
-  //     top: 23px;
-  //     left: 50%;
-  //     transform: translate(-50%);
-  //     width: 290px;
-  //     height: max-content;
-  //     background-color: $primary-white;
-  //     display: flex;
-  //     flex-flow: column wrap;
-  //     align-content: center;
-  //     align-items: center;
-  //     z-index: 2;
-  //     border-radius: 16px;
-  //     padding: 20px 15px 40px;
 
   @media (min-width: $tablet-width) {
     top: 204px;
@@ -157,7 +142,7 @@
   font-weight: 400;
   line-height: 14px;
   text-align: left;
-  color: #484848;
+  color: #6d6d6d;
   opacity: 80%;
 
   @media (min-width: $tablet-width) {
@@ -167,11 +152,58 @@
   @media (min-width: $desktop-width) {
     line-height: 18px;
   }
+
+  &:hover {
+    color: #484848;
+  }
 }
+
+
+// .popup__fieldset:has(#input-name:hover) label[for="input-name"],
+// .popup__fieldset:has(#input-phone:hover) label[for="input-phone"] {
+//   color: #484848;
+// }
 
 .popup__label-dropdown.open {
   opacity: 100%;
 }
+
+/* Стили для label при наведении, фокусе и других состояниях для #input-name */
+.popup__fieldset:has(#input-name:hover) label[for="input-name"],
+.popup__fieldset:has(#input-name:active) label[for="input-name"],
+.popup__fieldset:has(#input-name:focus) label[for="input-name"],
+.popup__fieldset:has(#input-name:focus-visible) label[for="input-name"],
+.popup__fieldset:has(#input-name:focus-within) label[for="input-name"] {
+  color: #484848;
+}
+
+/* Стили для input #input-name */
+#input-name:active,
+#input-name:focus,
+#input-name:focus-visible,
+#input-name:focus-within {
+  border: solid 1px #484848;
+  outline: none;
+}
+
+/* Стили для label при наведении, фокусе и других состояниях для #input-phone */
+.popup__fieldset:has(#input-phone:hover) label[for="input-phone"],
+.popup__fieldset:has(#input-phone:active) label[for="input-phone"],
+.popup__fieldset:has(#input-phone:focus) label[for="input-phone"],
+.popup__fieldset:has(#input-phone:focus-visible) label[for="input-phone"],
+.popup__fieldset:has(#input-phone:focus-within) label[for="input-phone"] {
+  color: #484848;
+}
+
+/* Стили для input #input-phone */
+#input-phone:active,
+#input-phone:focus,
+#input-phone:focus-visible,
+#input-phone:focus-within {
+  border: solid 1px #484848;
+  outline: none;
+}
+
 
 .popup__input {
   display: block;
@@ -179,12 +211,13 @@
   padding: 8px;
   border: solid 1px #c8c8c8;
   border-radius: 8px;
-  width: 350px;
+  width: 260px;
   height: 44px;
   background-color: transparent;
 
   @media (min-width: $tablet-width) {
     height: 50px;
+    width: 350px;
   }
 
   // &:-webkit-autofill,
@@ -195,11 +228,55 @@
   //   -webkit-box-shadow: 0 0 0px 1000px transparent inset;
   //   // -webkit-text-fill-color: #000 !important;
   // }
+
+  &:hover,
+  &:active,
+  &:focus,
+  &:focus-visible,
+  &:focus-within {
+    border: solid 1px #484848;
+    outline: none;
+  }
 }
 
 .popup__button {
   width: 260px;
+  display: flex;
+  justify-content: center;
+  padding-right: 68px;
+  @media (min-width: $tablet-width) {
+    width: 194px;
+    align-self: center;
+  }
 }
+
+.popup__dropdown-button {
+  &:hover,
+  &:active,
+  &:focus,
+  &:focus-visible,
+  &:focus-within {
+    border: solid 1px #484848;
+    outline: none;
+  }
+}
+
+.popup__fieldset:has(#dropdown-input:hover) label[for="dropdown-input"], // если нельзя id то заменить на классы и написать новые классы в разметку
+.popup__fieldset:has(#dropdown-input:active) label[for="dropdown-input"],
+.popup__fieldset:has(#dropdown-input:focus) label[for="dropdown-input"],
+.popup__fieldset:has(#dropdown-input:focus-visible) label[for="dropdown-input"],
+.popup__fieldset:has(#dropdown-input:focus-within) label[for="dropdown-input"] {
+  color: #484848;
+}
+
+// #dropdown-input:active,
+// #dropdown-input:focus,
+// #dropdown-input:focus-visible,
+// #dropdown-input:focus-within {
+//   border: solid 1px #484848;
+//   outline: none;
+// }
+
 
 .popup__checkbox {
   display: flex;
@@ -208,6 +285,23 @@
   gap: 10px;
   margin: 0 0 25px;
   transition: all 0.3s ease;
+cursor: pointer;
+
+  &:hover {
+    opacity: 80%;
+  }
+
+  &:active {
+    opacity: 100%;
+  }
+
+  &:focus,
+  &:focus-visible,
+  &:focus-within {
+    opacity: 70%;
+    outline: none;
+  }
+
 }
 
 .popup__checkbox-input {
@@ -224,8 +318,16 @@
   width: 20px;
   height: 20px;
   background-color: $primary-blue;
+  border: solid 1px transparent;
   border-radius: 2px;
   transition: all 0.3s ease;
+
+  &:focus,
+  &:focus-visible,
+  &:focus-within {
+    outline: none;
+    border: solid 1px #484848;
+  }
 }
 
 .popup__checkbox-input:checked + .popup__checkbox-mark::before {
