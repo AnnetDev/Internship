@@ -11,7 +11,8 @@ export const toggleMenu = () => {
     const heading = document.querySelector('.hero__header-heading');
     const sublistPrograms = menuLinkPrograms.nextElementSibling;
     const sublistNews = menuLinkNews.nextElementSibling;
-    // const body = document.querySelector('.page-body');
+    const body = document.querySelector('.page-body');
+    const logo = header.querySelector('.hero__header-logo');
 
 
     // Открытие/закрытие главного меню
@@ -22,7 +23,8 @@ export const toggleMenu = () => {
       toggleIcon.classList.toggle('hero__header-toggle-icon--opened');
       menu.classList.toggle('hero__menu-wrapper--opened');
       heading.classList.toggle('hero__header-heading--opened');
-      // body.classList.toggle('overlay-active');
+      body.classList.toggle('overlay-active');
+      logo.classList.toggle('hero__header-logo--opened');
     });
 
     menuToggle.addEventListener('click', (event) => {
@@ -32,7 +34,9 @@ export const toggleMenu = () => {
       toggleIcon.classList.toggle('hero__header-toggle-icon--opened');
       menu.classList.toggle('hero__menu-wrapper--opened');
       heading.classList.toggle('hero__header-heading--opened');
-      // body.classList.toggle('overlay-active');
+      body.classList.toggle('overlay-active');
+      logo.classList.toggle('hero__header-logo--opened');
+
     });
 
     // Закрытие меню при клике вне него
@@ -43,7 +47,8 @@ export const toggleMenu = () => {
         toggleIcon.classList.remove('hero__header-toggle-icon--opened');
         menu.classList.remove('hero__menu-wrapper--opened');
         heading.classList.remove('hero__header-heading--opened');
-        // body.classList.remove('overlay-active');
+        body.classList.remove('overlay-active');
+        logo.classList.remove('hero__header-logo--opened');
       }
     });
 

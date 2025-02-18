@@ -70,7 +70,7 @@ export function popupValidator() {
     }
   });
 }
-//сброс полей?
+//сброс полей??
 
 export const togglePopup = () => {
   document.addEventListener('DOMContentLoaded', () => {
@@ -83,14 +83,14 @@ export const togglePopup = () => {
     popupOpener.addEventListener('click', (event) => {
       event.stopPropagation();
       popup.classList.toggle('popup--opened');
-      body.classList.toggle('overlay-active');
+      body.classList.toggle('overlay-active-popup');
 
     });
 
     popupCloser.addEventListener('click', (event) => {
       event.stopPropagation();
       popup.classList.remove('popup--opened');
-      body.classList.remove('overlay-active');
+      body.classList.remove('overlay-active-popup');
       form.reset();
 
     });
@@ -98,7 +98,7 @@ export const togglePopup = () => {
     document.addEventListener('click', (event) => {
       if (!popup.contains(event.target)) {
         popup.classList.remove('popup--opened');
-        body.classList.remove('overlay-active');
+        body.classList.remove('overlay-active-popup');
         form.reset();
       }
     });
