@@ -441,6 +441,7 @@
 
 .hero__header-wrapper {
   position: relative;
+  cursor: pointer;
 }
 
 .hero__header .container {
@@ -462,7 +463,6 @@
   border-radius: 50%;
   align-items: center;
   justify-content: center;
-  // z-index: 999;
 
   &--opened {
     &::after {
@@ -598,9 +598,8 @@
   justify-content: space-between;
   transition: all 0.3s ease;
   width: 136px;
-
+cursor: pointer;
   position: relative;
-  // z-index: 1001;
 
   &--opened {
     background-color: $primary-blue;
