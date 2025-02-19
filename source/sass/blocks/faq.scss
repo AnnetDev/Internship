@@ -54,6 +54,7 @@
   padding: 0;
   list-style: none;
   gap: 10px;
+  cursor: pointer;
   @media (min-width: $desktop-width) {
     width: 1028px;
     align-self: center;
@@ -132,7 +133,8 @@
     max-width: 440px;
   }
   @media (min-width: $desktop-width) {
-  max-width: 800px;}
+    max-width: 800px;
+  }
 }
 .faq__list-item p {
   // display: none;
@@ -173,6 +175,7 @@
   // }
   max-height: fit-content; // Max height when active, adjust as needed
   padding: 20px 0 0;
+  color: #f0efe9;
 }
 
 .faq__button {
@@ -182,6 +185,7 @@
   margin: 0;
   padding: 0;
   background-color: $primary-blue;
+  border: solid 1px $primary-blue;
   width: 40px;
   height: 40px;
   border: none;
@@ -216,5 +220,95 @@
 
   &--active::before {
     opacity: 0;
+  }
+}
+
+.faq__list-item:hover,
+.faq__list-item:focus,
+.faq__list-item:focus-visible,
+.faq__list-item:focus-within {
+  background-color: $primary-white;
+  color: $primary-blue;
+  outline: none;
+}
+
+.faq__list-item:active {
+  background-color: $primary-white;
+  color: $active-blue;
+  outline: none;
+}
+
+.faq__list-item:hover .faq__button,
+.faq__list-item:focus .faq__button,
+.faq__list-item:focus-visible .faq__button,
+.faq__list-item:focus-within .faq__button {
+  background-color: transparent;
+  border: solid 1px $primary-blue;
+  outline: none;
+
+  &::after,
+  &::before {
+    background-color: $primary-blue;
+  }
+}
+
+.faq__list-item:active .faq__button {
+  background-color: transparent;
+  border: solid 1px $active-blue;
+
+  &::after,
+  &::before {
+    background-color: $active-blue;
+  }
+}
+
+.faq__list-item--active:hover,
+.faq__list-item--active:focus,
+.faq__list-item--active:focus-visible,
+.faq__list-item--active:focus-within {
+  background-color: $primary-blue;
+  color: $primary-white;
+  outline: none;
+}
+.faq__list-item--active:hover .faq__button,
+.faq__list-item--active:focus .faq__button,
+.faq__list-item--active:focus-visible .faq__button,
+.faq__list-item--active:focus-within .faq__button {
+  background-color: transparent;
+  border: solid 1px $primary-white;
+  outline: none;
+
+  &::after {
+    background-color: $primary-white;
+  }
+
+  &::before {
+    opacity: 0;
+  }
+}
+
+.faq__list-item--active:active {
+  background-color: $active-blue;
+  outline: none;
+}
+
+.faq__list-item--active:active .faq__button {
+  background-color: $primary-white;
+  border: solid 1px transparent;
+  outline: none;
+
+  &::after {
+    background-color: $active-blue;
+  }
+
+  &::before {
+    opacity: 0;
+  }
+}
+.faq__header {
+  &:focus,
+  &:focus-visible,
+  &:focus-within{
+    outline: none;
   }
 }
