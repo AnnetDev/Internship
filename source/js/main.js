@@ -27,19 +27,16 @@ formValidator();
 toggleFormDropdown();
 initializeNewsSwiper();
 toggleTabs();
-// initializeNewsSwiperMobile();
-// initializeNewsSwiperTabletDesktop
-
-// window.addEventListener('resize', () => {
-
-//   if (window.innerWidth < 768) {
-//     initializeNewsSwiperMobile();
-//   } else {
-//     initializeNewsSwiperTabletDesktop();
-//   }
-// }
-// );
-
-//проблема с слайдером новости
 
 
+let newsSwiper = initializeNewsSwiper();
+let resizeTimeout;
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimeout);
+  resizeTimeout = setTimeout(() => {
+    if (newsSwiper && typeof newsSwiper.destroy === 'function') {
+      newsSwiper.destroy(true, true);
+    }
+    newsSwiper = initializeNewsSwiper();
+  }, 1);
+});

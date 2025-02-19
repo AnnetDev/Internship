@@ -2,30 +2,23 @@ import Swiper from 'swiper';
 import { Navigation, Pagination, Grid } from 'swiper/modules';
 import 'swiper/scss';
 import 'swiper/scss/grid';
-// import 'swiper/scss/pagination';
 
 function updateCustomPagination(swiper) {
-  // Автоматически получаем общее число слайдов (включая клонированные)
   const totalSlides = swiper.slides.length;
-  const slidesPerGroup = swiper.params.slidesPerGroup; // размер группы (сколько слайдов пролистывается за раз)
+  const slidesPerGroup = swiper.params.slidesPerGroup;
   const totalGroups = Math.ceil(totalSlides / slidesPerGroup);
-
   const activeGroup = Math.floor(swiper.activeIndex / slidesPerGroup) + 1;
 
   let displayedButtons = [];
 
   if (activeGroup <= 3) {
-    if (totalGroups < 4) {
-      displayedButtons = Array.from({ length: totalGroups }, (_, i) => i + 1);
-    } else {
-      displayedButtons = [1, 2, 3, 4];
-    }
+    displayedButtons = totalGroups < 4
+      ? Array.from({ length: totalGroups }, (_, i) => i + 1)
+      : [1, 2, 3, 4];
   } else if (activeGroup >= totalGroups) {
-    if (totalGroups < 4) {
-      displayedButtons = Array.from({ length: totalGroups }, (_, i) => i + 1);
-    } else {
-      displayedButtons = [totalGroups - 3, totalGroups - 2, totalGroups - 1, totalGroups];
-    }
+    displayedButtons = totalGroups < 4
+      ? Array.from({ length: totalGroups }, (_, i) => i + 1)
+      : [totalGroups - 3, totalGroups - 2, totalGroups - 1, totalGroups];
   } else {
     displayedButtons = [activeGroup - 2, activeGroup - 1, activeGroup, activeGroup + 1];
   }
@@ -82,7 +75,7 @@ export function initializeNewsSwiper() {
 
     const slides = swiperWrapper.querySelectorAll('.news__swiper-slide.swiper-slide');
     if (slides.length > 0) {
-      const targetCount = 24; // Общее количество слайдов
+      const targetCount = 15; // Общее количество слайдов
       const currentCount = slides.length; // Текущее количество слайдов
       const clonesNeeded = targetCount - currentCount; // Сколько слайдов нужно клонировать
 
@@ -95,8 +88,34 @@ export function initializeNewsSwiper() {
 
   }
 
+  function padEmptySlides() {
+    // Сначала удаляем ранее добавленные пустые слайды, если они были.
+    swiperWrapper.querySelectorAll('.news__swiper-slide--empty').forEach((el) => el.remove());
+
+    // Выбираем все слайды, исключая те, что с классом --empty
+    const slides = swiperWrapper.querySelectorAll('.news__swiper-slide.swiper-slide:not(.news__swiper-slide--empty)');
+    const count = slides.length;
+    const remainder = count % 3;
+    if (remainder !== 0) {
+      const emptyNeeded = 3 - remainder;
+      for (let i = 0; i < emptyNeeded; i++) {
+        const emptySlide = document.createElement('div');
+        // Добавляем классы, чтобы пустой слайд соответствовал стилям слайдов,
+        // а в CSS для .news__swiper-slide--empty зададите нужные размеры и opacity: 0.
+        emptySlide.classList.add('news__swiper-slide', 'swiper-slide', 'news__swiper-slide--empty');
+        swiperWrapper.appendChild(emptySlide);
+      }
+    }
+  }
+
+  // Выполняем клонирование слайдов
   cloneSlides();
 
+  // Для десктопа (например, если ширина окна >= 1440px) добавляем пустые слайды,
+  // чтобы общее число слайдов было кратно 3.
+  if (window.innerWidth >= 1440) {
+    padEmptySlides();
+  }
 
   const newsSwiper = new Swiper('.news__swiper', {
     modules: [Navigation, Pagination, Grid],
@@ -110,7 +129,7 @@ export function initializeNewsSwiper() {
       //   return `<span class="${className}">${index + 1}</span>`;
       // },
     },
-
+    // centeredSlides: false,
     navigation: {
       nextEl: '.news__swiper-button.swiper-button-next',
       prevEl: '.news__swiper-button.swiper-button-prev',
@@ -173,7 +192,6 @@ export function initializeNewsSwiper() {
     newsSwiper.update();
   });
 
-  return newsSwiper;
 
   // let resizeTimeout;
   // window.addEventListener('resize', () => {
@@ -183,8 +201,10 @@ export function initializeNewsSwiper() {
   //   }, 50);
   // }); //костыль
 
+  return newsSwiper;
 
 }
+
 export function toggleTabs() {
   const tabs = document.querySelectorAll('.news__tab-button');
 
