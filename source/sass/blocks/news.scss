@@ -65,7 +65,7 @@
     width: 674px;
     flex-wrap: wrap;
     overflow-x: unset;
-    gap: 10px; // ?? problem padding
+    gap: 10px;
     justify-content: center;
     margin: 0 0 30px;
   }
@@ -127,6 +127,8 @@
   }
 
   &:active {
+    border: solid 2px $primary-blue;
+
     @media (min-width: $tablet-width) {
       padding: 12px 20px;
     }
@@ -601,7 +603,6 @@
     // width: calc(100% - 200px);
     bottom: 60px;
   }
-
   // border: solid red 2px;
 }
 
@@ -698,6 +699,11 @@
     width: 188px;
     height: 32px;
   }
+  &:focus,
+  &:focus-visible,
+  &:focus-within {
+    outline: none;
+  }
 }
 
 .news__swiper-pagination.swiper-pagination .swiper-pagination-bullet {
@@ -750,4 +756,13 @@
   opacity: 1;
   background-color: $primary-blue;
   border: solid 2px transparent;
+
+  &:focus,
+  &:focus-visible,
+  &:focus-within {
+    outline: none;
+    background-color: $active-blue;
+    border: solid 2px $active-blue;
+    color: $primary-white;
+  }
 }
