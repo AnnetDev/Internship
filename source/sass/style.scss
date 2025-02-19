@@ -4,28 +4,26 @@
 @import "vendor/normalize";
 
 // Commom
-@import "common/mixins.scss";
-@import "common/fonts.scss";
-@import "common/variables.scss";
-@import "common/visually-hidden.scss";
-@import "common/overlay.scss";
-@import "common/global.scss";
-@import "common/container.scss";
+@import "common/mixins";
+@import "common/fonts";
+@import "common/variables";
+@import "common/visually-hidden";
+@import "common/overlay";
+@import "common/global";
+@import "common/container";
 
 
 // Blocks
-@import "blocks/button.scss";
-@import "blocks/hero.scss";
-@import "blocks/about.scss";
-@import "blocks/popup.scss";
-@import "blocks/dropdown.scss";
-@import "blocks/programs.scss";
-@import "blocks/grant.scss";
-@import "blocks/news.scss";
-@import "blocks/faq.scss";
-@import "blocks/reviews.scss";
-@import "blocks/contacts.scss";
-@import "blocks/form.scss";
-@import "blocks/footer.scss";
-
-
+@import "blocks/button";
+@import "blocks/hero";
+@import "blocks/about";
+@import "blocks/popup";
+@import "blocks/dropdown";
+@import "blocks/programs";
+@import "blocks/grant";
+@import "blocks/news";
+@import "blocks/faq";
+@import "blocks/reviews";
+@import "blocks/contacts";
+@import "blocks/form";
+@import "blocks/footer";

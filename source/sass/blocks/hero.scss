@@ -21,6 +21,7 @@
   @media (min-width: $tablet-width) {
     min-height: 1024px;
   }
+
   @media (min-width: $desktop-width) {
     min-height: 800px;
   }
@@ -36,6 +37,7 @@
   @media (min-width: $tablet-width) {
     min-height: 1024px;
   }
+
   @media (min-width: $desktop-width) {
     min-height: 800px;
   }
@@ -56,6 +58,7 @@
   @media (min-width: $tablet-width) {
     height: 1024px;
   }
+
   @media (min-width: $desktop-width) {
     height: 800px;
   }
@@ -71,6 +74,7 @@
   @media (min-width: $tablet-width) {
     min-height: 1024px;
   }
+
   @media (min-width: $desktop-width) {
     min-height: 800px;
   }
@@ -126,6 +130,7 @@
     background-image: url("/__spritemap#sprite-connecter-view");
     right: -15px;
     bottom: -1px;
+
     @media (min-width: $tablet-width) {
       right: -20px;
     }
@@ -189,18 +194,18 @@
   background-color: $primary-white;
   border-top-right-radius: 16px;
   border-bottom-right-radius: 16px;
-  padding: 20px 14px 16px 14px;
+  padding: 20px 14px 16px;
   position: relative;
 
   @media (min-width: $tablet-width) {
     border-top-right-radius: 30px;
     border-bottom-right-radius: 30px;
-    padding: 31px 40px 23px 40px;
+    padding: 31px 40px 23px;
     width: 659px;
   }
 
   @media (min-width: $desktop-width) {
-    padding: 40px 50px 30px 50px;
+    padding: 40px 50px 30px;
     width: 968px;
   }
 
@@ -213,6 +218,7 @@
     transform: rotate(90deg);
     right: 16px;
     bottom: -9px;
+
     @media (min-width: $tablet-width) {
       display: none;
     }
@@ -234,6 +240,7 @@
     font-weight: 400;
     line-height: 44px;
   }
+
   @media (min-width: $desktop-width) {
     font-size: 54px;
     font-weight: 400;
@@ -254,7 +261,7 @@
   display: flex;
   background-color: $primary-white;
   border-bottom-right-radius: 14px;
-  padding: 0 14px 15px 14px;
+  padding: 0 14px 15px;
   width: 267px;
 
   @media (min-width: $tablet-width) {
@@ -299,6 +306,7 @@
     padding: 0 40px 10px 30px;
     width: 268px;
   }
+
   @media (min-width: $desktop-width) {
     width: 279px;
     padding: 11px 40px 10px 30px;
@@ -324,6 +332,7 @@
 
 .hero__slide-link.is-active { /// ???????
   border: solid 2px red;
+
   &:hover {
     background-color: $primary-blue;
     color: $primary-white;
@@ -403,6 +412,7 @@
   margin: 0;
   padding: 16px 21px;
   width: 100%;
+
   // height: 44px;
 
   @media (min-width: $tablet-width) {
@@ -523,6 +533,7 @@
 
   @media (min-width: $desktop-width) {
     width: 1440px;
+
     // top: 60px;
   }
 }
@@ -563,10 +574,12 @@
       height: 52px;
       background: $overlay-form;
       z-index: 0;
+
       @media (min-width: $tablet-width) {
         left: 45px;
         z-index: 1;
       }
+
       @media (min-width: $desktop-width) {
         left: 100px;
       }
@@ -778,6 +791,7 @@
     left: calc(100% + 10px);
     transition: transform 0.3s ease;
   }
+
   &--opened {
     opacity: 1;
   }

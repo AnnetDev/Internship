@@ -44,6 +44,7 @@
 
 .swiper.reviews__swiper {
   width: 290px;
+
   // padding: 0 0 0 15px;
   margin-bottom: 30px;
   height: auto;
@@ -104,6 +105,7 @@
 .reviews__author-wrapper {
   display: flex;
   flex-flow: column wrap;
+
   // gap: 15px;
   margin: 0 0 25px;
 
@@ -126,10 +128,10 @@
   gap: 10px;
   align-items: center;
   margin: 0 0 15px;
+
   @media (min-width: $tablet-width) {
     gap: 15px;
     margin: 0 0 16px;
-
   }
 }
 
@@ -173,6 +175,7 @@
   @media (min-width: $tablet-width) {
     gap: 10px;
   }
+
   @media (min-width: $desktop-width) {
     padding: 0 0 0 2px;
   }
@@ -186,8 +189,9 @@
   @media (min-width: $tablet-width) {
     gap: 27px;
     min-height: 90px;
+
     // align-items: center;
-    padding: 17px 0 0 0;
+    padding: 17px 0 0;
   }
 
   @media (min-width: $desktop-width) {
@@ -224,6 +228,7 @@
     font-size: 14px;
     line-height: 20px;
   }
+
   @media (min-width: $desktop-width) {
     font-size: 14px;
     line-height: 18px;
@@ -277,6 +282,7 @@
 
 .reviews__swiper-buttons {
   width: 54px;
+
   // height: 24px;
   display: flex;
   flex-flow: row wrap;
@@ -340,13 +346,14 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
 .reviews__swiper-button.swiper-button-next::after,
-  .reviews__swiper-button.swiper-button-prev::after {
-    @media (min-width: $tablet-width) {
-      width: 9px;
-      height: 9px;
-    }
+.reviews__swiper-button.swiper-button-prev::after {
+  @media (min-width: $tablet-width) {
+    width: 9px;
+    height: 9px;
   }
+}
 
 
 .reviews__swiper-button.swiper-button-prev::after {
@@ -361,14 +368,14 @@
   transform: translate(-50%, -50%) rotate(180deg);
 }
 
-.reviews__swiper-button.swiper-button-next:active:after,
-.reviews__swiper-button.swiper-button-prev:active:after {
+.reviews__swiper-button.swiper-button-next:active::after,
+.reviews__swiper-button.swiper-button-prev:active::after {
   outline: none;
   opacity: 70%;
 }
 
-.reviews__swiper-button.swiper-button-next:disabled:after,
-.reviews__swiper-button.swiper-button-prev:disabled:after {
+.reviews__swiper-button.swiper-button-next:disabled::after,
+.reviews__swiper-button.swiper-button-prev:disabled::after {
   background-color: #a9afb7;
   pointer-events: none;
 }
@@ -404,5 +411,5 @@
   display: block;
   background: $primary-blue;
   height: 100%;
-    cursor: grab;
+  cursor: grab;
 }

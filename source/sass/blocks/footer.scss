@@ -77,12 +77,12 @@
   @media (min-width: $tablet-width) {
     width: 528px;
     gap: 0;
-    justify-content: space-between;  }
+    justify-content: space-between;
+  }
 
   @media (min-width: $desktop-width) {
-width: unset;
-gap: 20px 30px;
-
+    width: unset;
+    gap: 20px 30px;
   }
 }
 
@@ -191,7 +191,6 @@ gap: 20px 30px;
     color: $primary-blue;
     border-bottom: solid 1px $primary-blue;
     opacity: 70%;
-
   }
 
   &:focus,
@@ -285,6 +284,7 @@ gap: 20px 30px;
     mask: url("/__spritemap#sprite-vk-view") no-repeat center;
     width: 11px;
     height: 6px;
+
     @media (min-width: $tablet-width) {
       width: 16px;
       height: 9px;
@@ -295,6 +295,7 @@ gap: 20px 30px;
     mask: url("/__spritemap#sprite-ok-view") no-repeat center;
     width: 7px;
     height: 11px;
+
     @media (min-width: $tablet-width) {
       width: 9px;
       height: 16px;
@@ -305,6 +306,7 @@ gap: 20px 30px;
     mask: url("/__spritemap#sprite-reddit-view") no-repeat center;
     width: 10px;
     height: 11px;
+
     @media (min-width: $tablet-width) {
       width: 14px;
       height: 15px;

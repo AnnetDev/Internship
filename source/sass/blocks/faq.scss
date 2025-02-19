@@ -55,6 +55,7 @@
   list-style: none;
   gap: 10px;
   cursor: pointer;
+
   @media (min-width: $desktop-width) {
     width: 1028px;
     align-self: center;
@@ -68,6 +69,7 @@
   padding: 20px 15px;
   border: solid 2px $primary-blue;
   border-radius: 14px;
+
   // gap: 20px;
   background-color: transparent;
   transition: all 0.3s ease;
@@ -132,10 +134,12 @@
   @media (min-width: $tablet-width) {
     max-width: 440px;
   }
+
   @media (min-width: $desktop-width) {
     max-width: 800px;
   }
 }
+
 .faq__list-item p {
   // display: none;
   max-height: 0; // Initially hidden
@@ -185,7 +189,6 @@
   margin: 0;
   padding: 0;
   background-color: $primary-blue;
-  border: solid 1px $primary-blue;
   width: 40px;
   height: 40px;
   border: none;
@@ -270,6 +273,7 @@
   color: $primary-white;
   outline: none;
 }
+
 .faq__list-item--active:hover .faq__button,
 .faq__list-item--active:focus .faq__button,
 .faq__list-item--active:focus-visible .faq__button,
@@ -305,10 +309,11 @@
     opacity: 0;
   }
 }
+
 .faq__header {
   &:focus,
   &:focus-visible,
-  &:focus-within{
+  &:focus-within {
     outline: none;
   }
 }

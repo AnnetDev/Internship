@@ -10,6 +10,7 @@
   @media (min-width: $desktop-width) {
     top: 90px;
   }
+
   &--opened {
     position: absolute;
     top: 23px;
@@ -58,6 +59,7 @@
     height: 1px;
     background-color: $active-blue;
     transform: rotate(45deg);
+
     @media (min-width: $tablet-width) {
       width: 22px;
     }
@@ -121,6 +123,7 @@
     font-size: 16px;
     line-height: 20px;
   }
+
   @media (min-width: $desktop-width) {
     line-height: 26px;
   }
@@ -159,9 +162,9 @@
 
   &[aria-disabled="true"],
   &:disabled {
-    border: solid 1px #CBCFD4;
-    background-color: #EEEFF1;
-    color: #CCCFD4;
+    border: solid 1px #cbcfd4;
+    background-color: #eeeff1;
+    color: #cccfd4;
     pointer-events: none;
   }
 }
@@ -226,9 +229,9 @@
 
   &[aria-disabled="true"],
   &:disabled {
-    border: solid 1px #CBCFD4;
-    background-color: #EEEFF1;
-    color: #CCCFD4;
+    border: solid 1px #cbcfd4;
+    background-color: #eeeff1;
+    color: #cccfd4;
     pointer-events: none;
   }
 }
@@ -238,20 +241,22 @@
   display: flex;
   justify-content: center;
   padding-right: 68px;
+
   @media (min-width: $tablet-width) {
     width: 194px;
     align-self: center;
   }
 }
+
 .popup__dropdown {
   border-radius: 9px;
   height: 50px;
   margin-bottom: 20px;
 
   &[aria-disabled="true"] {
-    border: solid 1px #CBCFD4;
-    background-color: #EEEFF1;
-    color: #CCCFD4;
+    border: solid 1px #cbcfd4;
+    background-color: #eeeff1;
+    color: #cccfd4;
     pointer-events: none;
   }
 }
@@ -268,9 +273,9 @@
 
   &[aria-disabled="true"],
   &:disabled {
-    border: solid 1px #CBCFD4;
-    background-color: #EEEFF1;
-    color: #CCCFD4;
+    border: solid 1px #cbcfd4;
+    background-color: #eeeff1;
+    color: #cccfd4;
     pointer-events: none;
   }
 }
@@ -299,7 +304,7 @@
   gap: 10px;
   margin: 0 0 25px;
   transition: all 0.3s ease;
-cursor: pointer;
+  cursor: pointer;
 
   &:hover {
     opacity: 80%;
@@ -315,7 +320,6 @@ cursor: pointer;
     opacity: 70%;
     outline: none;
   }
-
 }
 
 .popup__checkbox-input {
@@ -387,5 +391,4 @@ cursor: pointer;
     background-color: #ffdfe0;
     border: solid 1px #ff5d66;
   }
-
 }

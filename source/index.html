@@ -13,11 +13,14 @@
 <body class="page-body">
   <main>
     <section class="hero" data-test="hero">
+      <h1 class="hero__title visually-hidden">Проект "Стажировка": профессиональный
+        опыт обучения за рубежом</h1>
       <section class="hero__header">
         <div class="container">
           <h2 class="visually-hidden">Навигация сайта</h2>
           <div class="hero__header-logo">
-            <svg class="hero__header-logo-icon" width="30" height="30" alt="Логотип компании">
+            <span class="visually-hidden">Логотип компании</span>
+            <svg class="hero__header-logo-icon" width="30" height="30">
               <use href="/__spritemap#sprite-logo"></use>
             </svg>
           </div>
@@ -79,10 +82,8 @@
           </div>
         </div>
       </section>
-      <section class="hero__main">
-        <h1 class="hero__title visually-hidden">Проект "Стажировка": профессиональный
-          опыт обучения за рубежом</h1>
 
+      <section class="hero__main">
         <div class="hero__swiper swiper">
           <div class="hero__swiper-wrapper swiper-wrapper">
             <div class="hero__swiper-slide swiper-slide">
@@ -274,18 +275,19 @@
             <legend class="visually-hidden">Отправить заявку на для консультацию</legend>
 
             <label class="popup__label" for="input-name">Имя</label>
-            <input class="popup__input popup__input-name" name="name" id="input-name" required>
+            <input class="popup__input popup__input-name" type="text" name="name" id="input-name" required>
 
             <label class="popup__label" for="input-phone">Телефон</label>
             <input class="popup__input popup__input-phone" type="tel" name="phone" id="input-phone" required>
 
-            <label class="popup__label popup__label-dropdown" for="dropdown-input">Выберите город</label>
-            <div class="popup__dropdown dropdown" name="dropdown-input" id="dropdown-input">
-              <button class="dropdown__button popup__dropdown-button" aria-haspopup="listbox" aria-expanded="false"
-                type="button">
+            <label class="popup__label popup__label-dropdown" for="dropdown-button">Выберите город</label>
+            <div class="popup__dropdown dropdown">
+              <button class="dropdown__button popup__dropdown-button" id="dropdown-button" aria-haspopup="listbox"
+                aria-expanded="false" type="button">
                 <span class="visually-hidden">Выберите город</span>
               </button>
-              <ul class="dropdown__list" role="listbox">
+              <ul class="dropdown__list">
+                <!-- deleted role role="listbox" -->
                 <li class="dropdown__item" role="option" data-value="-"></li>
                 <li class="dropdown__item" role="option" data-value="moscow">Москва</li>
                 <li class="dropdown__item" role="option" data-value="saint-petersburg">Санкт-Петербург</li>
@@ -308,7 +310,7 @@
             <label class="popup__checkbox">
               <input class="popup__checkbox-input" type="checkbox" required name="popup-checkbox">
               <span class="popup__checkbox-mark"></span>
-              <p class="popup__label-text">Я согласен на обработку моих персональных данных</p>
+              <span class="popup__label-text">Я согласен на обработку моих персональных данных</span>
             </label>
 
             <button class="button popup__button" type="submit">Отправить</button>
@@ -506,7 +508,7 @@
         <h2 class="news__heading">
           Новости и материалы
         </h2>
-        <nav class="news__tab-nav">
+        <nav class="news__tab-nav" aria-label="Навигация по раделу Новости">
           <button class="news__tab-button button news__tab-button--active news__tab-button--general" type="button">
             Общее
           </button>
@@ -874,16 +876,16 @@
               required>
 
             <label class="form__page-label" for="form-text">Ваше сообщение</label>
-            <textarea class="form__page-input form__page-input-textarea" type="text" name="form-text" id="form-text"
+            <textarea class="form__page-input form__page-input-textarea" name="form-text" id="form-text"
               required></textarea>
 
-            <label class="form__page-label form__page-label-dropdown" for="form-dropdown">Выберите город</label>
-            <div class="form__page-dropdown dropdown" name="form-dropdown" id="form-dropdown">
-              <button class="form__page-dropdown-button dropdown__button" aria-haspopup="listbox" aria-expanded="false"
-                type="button">
+            <label class="form__page-label form__page-label-dropdown" for="form-dropdown-button">Выберите город</label>
+            <div class="form__page-dropdown dropdown">
+              <button class="form__page-dropdown-button dropdown__button" id="form-dropdown-button"
+                aria-haspopup="listbox" aria-expanded="false" type="button">
                 <span class="visually-hidden">Выберите город</span>
               </button>
-              <ul class="dropdown__list form__page-dropdown-list" role="listbox">
+              <ul class="dropdown__list form__page-dropdown-list">
                 <li class="dropdown__item form__page-dropdown-item" role="option" data-value="-"></li>
                 <li class="dropdown__item form__page-dropdown-item" role="option" data-value="moscow">Москва</li>
                 <li class="dropdown__item form__page-dropdown-item" role="option" data-value="saint-petersburg">
@@ -915,10 +917,11 @@
               <input class="form__page-checkbox-input popup__checkbox-input" type="checkbox" required
                 name="popup-checkbox">
               <span class="form__page-checkbox-mark popup__checkbox-mark"></span>
-              <p class="form__page-checkbox-text popup__label-text form__page-checkbox-text--mobile">Я согласен на
-                обработку моих персональных<br>данных</p>
+              <span class="form__page-checkbox-text popup__label-text form__page-checkbox-text--mobile">Я согласен на
+                обработку моих персональных<br>данных</span>
 
-              <p class="form__page-checkbox-text popup__label-text">Я согласен на обработку моих персональных данных</p>
+              <span class="form__page-checkbox-text popup__label-text">Я согласен на обработку моих персональных
+                данных</span>
             </label>
 
             <button class="button form__page-button" type="submit">Отправить</button>
@@ -932,10 +935,10 @@
         <h2 class="visually-hidden">Подвал сайта</h2>
 
         <div class="footer__navigation-wrapper">
-          <svg class="footer__logo-icon" width="30" height="30" alt="Логотип компании">
+          <svg class="footer__logo-icon" width="30" height="30">
             <use href="/__spritemap#sprite-logo"></use>
           </svg>
-          <nav class="footer__nav">
+          <nav class="footer__nav" aria-label="Навигация по разделам сайта">
             <ul class="footer__nav-list">
               <li class="footer__nav-list-item">
                 <a class="footer__nav-list-link" href="#about">О проекте</a>

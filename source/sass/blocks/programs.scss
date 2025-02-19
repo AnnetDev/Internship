@@ -1,17 +1,18 @@
 .programs {
   display: flex;
   flex-flow: column wrap;
+
   // align-items: center;
   background-color: #f0efe9;
   position: relative;
-  padding: 56px 0 50px 0;
+  padding: 56px 0 50px;
 
   @media (min-width: $tablet-width) {
-    padding: 53px 0 72px 0;
+    padding: 53px 0 72px;
   }
 
   @media (min-width: $desktop-width) {
-    padding: 65px 0 82px 0;
+    padding: 65px 0 82px;
   }
 }
 
@@ -45,6 +46,7 @@
 
 .swiper.programs__swiper {
   width: 290px;
+
   // padding: 0 0 0 15px;
   margin-bottom: 30px;
 
@@ -105,9 +107,8 @@
 
 .progarms__swiper-image {
   display: block;
-  margin: 0;
-  padding: 0;
   border-radius: 12px;
+
   // position: absolute;
   // width: 100%;
   // height: 100%;
@@ -120,10 +121,12 @@
   height: 400px;
   object-fit: cover;
   object-position: center;
+
   // width: 100vw;
   @media (min-width: $tablet-width) {
     height: 420px;
   }
+
   @media (min-width: $desktop-width) {
     // height: 800px;
   }
@@ -181,7 +184,7 @@
 
 .programs__description-wrapper {
   background-color: $primary-white;
-  padding: 13px 18px 14px 18px;
+  padding: 13px 18px 14px;
   width: 270px;
   border-bottom-left-radius: 12px;
   border-top-right-radius: 12px;
@@ -192,7 +195,7 @@
 
   @media (min-width: $tablet-width) {
     width: 284px;
-    padding: 12px 18px 15px 18px;
+    padding: 12px 18px 15px;
   }
 
   @media (min-width: $desktop-width) {
@@ -272,6 +275,7 @@
   &:focus-within {
     border: none;
     background-color: transparent;
+
     // color: $primary-blue;
     outline: none;
   }
@@ -313,6 +317,7 @@
   &::after {
     right: 4px;
   }
+
   @media (min-width: $tablet-width) {
     width: 234px;
     height: 56px;
@@ -325,6 +330,7 @@
       width: 46px;
       height: 46px;
     }
+
     &::before {
       width: 9px;
       height: 9px;
@@ -335,6 +341,7 @@
 
 .programs__swiper-buttons {
   width: 54px;
+
   // height: 24px;
   display: flex;
   justify-content: flex-end;
@@ -418,8 +425,8 @@
   opacity: 70%;
 }
 
-.programs__swiper-button.swiper-button-next:disabled:after,
-.programs__swiper-button.swiper-button-prev:disabled:after {
+.programs__swiper-button.swiper-button-next:disabled::after,
+.programs__swiper-button.swiper-button-prev:disabled::after {
   background-color: #a9afb7;
   pointer-events: none;
 }

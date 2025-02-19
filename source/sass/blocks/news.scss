@@ -57,6 +57,7 @@
   gap: 9px;
   width: 305px;
   overflow-x: auto;
+
   // scrollbar-width: thin;
   -webkit-overflow-scrolling: touch;
   margin: 0 0 24px;
@@ -133,6 +134,7 @@
       padding: 12px 20px;
     }
   }
+
   // &:disabled {
   //   all: unset;
   // }
@@ -166,7 +168,7 @@
   border: none;
   display: block;
   margin: 0;
-  padding: 14px 0 9px 0;
+  padding: 14px 0 9px;
 
   &::after {
     right: 0;
@@ -206,12 +208,14 @@
   width: 290px;
   padding: 0;
   margin: 0 0 24px -15px;
+
   // min-height: 590px;
   height: 590px;
 
   @media (min-width: $tablet-width) {
     width: 678px;
     margin: 0 0 30px;
+
     //   min-height: 730px;
     height: 730px;
   }
@@ -220,12 +224,14 @@
     margin: 0 0 40px;
     width: 1240px;
     height: 400px;
+
     //   min-height: 400px;
   }
 }
 
 .news__swiper-wrapper.swiper-wrapper {
   width: 100%;
+
   // max-width: 100%;
   padding: 0;
   margin: 0;
@@ -275,6 +281,7 @@
       max-width: 604px;
       width: 604px;
     }
+
     // &--wide.swiper-slide {
     //   min-width: 604px;
     //   max-width: 604px;
@@ -307,25 +314,21 @@
   }
 }
 
-.news__swiper-slide.swiper-slide.swiper-slide:nth-child(3n + 1)
-  .news__swiper-slide-text-container {
+.news__swiper-slide.swiper-slide.swiper-slide:nth-child(3n + 1) .news__swiper-slide-text-container {
   @media (min-width: $desktop-width) {
     width: 468px;
     gap: 16px;
   }
 }
 
-.news__swiper-slide.swiper-slide.swiper-slide:nth-child(3n + 1)
-  .news__swiper-slide-title {
+.news__swiper-slide.swiper-slide.swiper-slide:nth-child(3n + 1) .news__swiper-slide-title {
   @media (min-width: $desktop-width) {
     width: 426px;
     padding: 18px 0 5px;
   }
 }
 
-.news__swiper-slide.swiper-slide.swiper-slide:nth-child(3n + 1)
-  .news__swiper-slide-text-container
-  p {
+.news__swiper-slide.swiper-slide.swiper-slide:nth-child(3n + 1) .news__swiper-slide-text-container p {
   @media (min-width: $desktop-width) {
     width: 404px;
   }
@@ -366,6 +369,7 @@
 
 .news__swiper-slide-container {
   width: 100%;
+
   // min-height: 240px;
   height: 100%;
   background-color: #6e8988;
@@ -383,39 +387,43 @@
   }
 
   &--interview {
-    background-image: image-set(
-      url("../../img/news/interview-bg@1x.webp") 1x,
-      url("../../img/news/interview-bg@2x.webp") 2x,
-      url("../../img/news/interview-bg@1x.jpg") 1x,
-      url("../../img/news/interview-bg@2x.jpg") 2x
-    );
+    background-image:
+      image-set(
+        url("../../img/news/interview-bg@1x.webp") 1x,
+        url("../../img/news/interview-bg@2x.webp") 2x,
+        url("../../img/news/interview-bg@1x.jpg") 1x,
+        url("../../img/news/interview-bg@2x.jpg") 2x
+      );
   }
 
   &--travels {
-    background-image: image-set(
-      url("../../img/news/travels-bg@1x.webp") 1x,
-      url("../../img/news/travels-bg@2x.webp") 2x,
-      url("../../img/news/travels-bg@1x.jpg") 1x,
-      url("../../img/news/travels-bg@2x.jpg") 2x
-    );
+    background-image:
+      image-set(
+        url("../../img/news/travels-bg@1x.webp") 1x,
+        url("../../img/news/travels-bg@2x.webp") 2x,
+        url("../../img/news/travels-bg@1x.jpg") 1x,
+        url("../../img/news/travels-bg@2x.jpg") 2x
+      );
   }
 
   &--volunteer {
-    background-image: image-set(
-      url("../../img/news/volunteer-bg@1x.webp") 1x,
-      url("../../img/news/volunteer-bg@2x.webp") 2x,
-      url("../../img/news/volunteer-bg@1x.png") 1x,
-      url("../../img/news/volunteer-bg@2x.png") 2x
-    );
+    background-image:
+      image-set(
+        url("../../img/news/volunteer-bg@1x.webp") 1x,
+        url("../../img/news/volunteer-bg@2x.webp") 2x,
+        url("../../img/news/volunteer-bg@1x.png") 1x,
+        url("../../img/news/volunteer-bg@2x.png") 2x
+      );
   } // delete jpg?
 
   &--career {
-    background-image: image-set(
-      url("../../img/news/career-bg@1x.webp") 1x,
-      url("../../img/news/career-bg@2x.webp") 2x,
-      url("../../img/news/career-bg@1x.jpg") 1x,
-      url("../../img/news/career-bg@2x.jpg") 2x
-    );
+    background-image:
+      image-set(
+        url("../../img/news/career-bg@1x.webp") 1x,
+        url("../../img/news/career-bg@2x.webp") 2x,
+        url("../../img/news/career-bg@1x.jpg") 1x,
+        url("../../img/news/career-bg@2x.jpg") 2x
+      );
   }
 }
 
@@ -430,6 +438,7 @@
     width: 244px;
   }
 }
+
 .news__swiper-slide-container--career .news__swiper-slide-date {
   @media (min-width: $tablet-width) {
     width: 76px;
@@ -454,7 +463,7 @@
 
 .news__swiper-slide-date {
   padding: 13px 0 5px;
-  border-radius: 0px 12px 0px 0px;
+  border-radius: 0 12px 0 0;
   width: 79px;
   font-size: 12px;
   font-weight: 400;
@@ -477,6 +486,7 @@
     left: 0;
     top: -16px;
   }
+
   &::after {
     position: absolute;
     content: "";
@@ -492,7 +502,7 @@
 .news__swiper-slide-title {
   padding: 10px 0 2px;
   width: 200px;
-  border-radius: 0px 12px 0px 0px;
+  border-radius: 0 12px 0 0;
   font-size: 16px;
   font-weight: 400;
   line-height: 18px;
@@ -532,7 +542,7 @@
   flex-direction: row;
   width: 263px;
   align-items: center;
-  border-radius: 0px 12px 0px 12px;
+  border-radius: 0 12px;
   position: relative;
   padding: 0;
   gap: 10px;
@@ -559,7 +569,7 @@
 .news__swiper-slide-text-container p {
   display: block;
   margin: 0;
-  padding: 14px 0 10px 0;
+  padding: 14px 0 10px;
   color: #484848;
   font-size: 12px;
   font-weight: 400;
@@ -584,12 +594,15 @@
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
+
   // position: absolute;
   content: "";
   bottom: 50px;
+
   // left: 50%;
   // transform: translateX(-50%);
   margin: 0 0 0 -15px;
+
   // z-index: 2;
   align-items: center;
 
@@ -603,6 +616,7 @@
     // width: calc(100% - 200px);
     bottom: 60px;
   }
+
   // border: solid red 2px;
 }
 
@@ -672,10 +686,10 @@
   opacity: 70%;
 }
 
-.news__swiper-button.swiper-button-next:disabled:after,
-.news__swiper-button.swiper-button-prev:disabled:after,
-.news__swiper-button.swiper-button-disabled.swiper-button-prev:after,
-.news__swiper-button.swiper-button-disabled.swiper-button-next:after {
+.news__swiper-button.swiper-button-next:disabled::after,
+.news__swiper-button.swiper-button-prev:disabled::after,
+.news__swiper-button.swiper-button-disabled.swiper-button-prev::after,
+.news__swiper-button.swiper-button-disabled.swiper-button-next::after {
   background-color: #a9afb7;
   pointer-events: none;
 }
@@ -687,6 +701,7 @@
 
 .news__swiper-pagination.swiper-pagination {
   width: 152px;
+
   // border: solid red 2px;
   display: flex;
   gap: 16px;
@@ -699,6 +714,7 @@
     width: 188px;
     height: 32px;
   }
+
   &:focus,
   &:focus-visible,
   &:focus-within {

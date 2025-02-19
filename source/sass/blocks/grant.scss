@@ -67,6 +67,7 @@
     font-size: 16px;
     width: 510px;
   }
+
   @media (min-width: $desktop-width) {
     line-height: 26px;
   }
@@ -207,7 +208,7 @@
       line-height: 22px;
       letter-spacing: 0.22px;
       text-align: center;
-      top:-6px;
+      top: -6px;
       left: -6px;
     }
   }

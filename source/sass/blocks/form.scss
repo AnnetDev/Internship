@@ -29,7 +29,7 @@
   );
   min-height: 753px;
 
-  @media (min-width: 321px) {
+  @media (width >= 321px) {
     width: 100%;
     background-image: image-set(
       url("../../img/form/form-tablet@1x.webp") 1x,
@@ -63,6 +63,7 @@
       background-repeat: no-repeat;
       height: 780px;
       width: 652px;
+
       // border-radius: 16px;
       // border: solid 5px red;
     }
@@ -149,7 +150,6 @@
   text-align: left;
   opacity: 90%;
   color: #f0efe9;
-  ;
 
   @media (min-width: $tablet-width) {
     // width: 350px;
@@ -199,6 +199,7 @@
   padding: 8px;
   background-color: transparent;
   border: solid 1px #6f99d4;
+
   // opacity: 30%;
   border-radius: 8px;
   width: 270px;
@@ -232,7 +233,7 @@
     width: 350px;
   }
 
-  &:after {
+  &::after {
     background-color: $primary-white;
   }
 }
@@ -330,11 +331,10 @@
   font-size: 12px;
   line-height: 14px;
   opacity: 90%;
+
   // min-height: 40px;
 
-
   @media (min-width: $tablet-width) {
-    display: block;
     width: 304px;
     line-height: 12px;
     min-height: 20px;
