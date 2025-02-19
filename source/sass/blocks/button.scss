@@ -25,6 +25,7 @@
     height: 34px;
     background-color: $primary-blue;
     border-radius: 50%;
+    border: solid 1px transparent;
     top: 50%;
     transform: translateY(-50%);
     right: 5px;
@@ -36,7 +37,7 @@
     content: "";
     width: 10px;
     height: 10px;
-    mask-image: url("/__spritemap#sprite-arrow-view"); // Исправлено
+    mask-image: url("/__spritemap#sprite-arrow-view");
     mask-repeat: no-repeat;
     mask-position: center;
     background-color: $primary-white;

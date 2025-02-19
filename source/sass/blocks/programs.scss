@@ -260,6 +260,23 @@
   @media (min-width: $desktop-width) {
     margin: 0 0 2px;
   }
+
+
+  &:hover {
+    background-color: $primary-white;
+  }
+
+  &:active {
+    background-color: $primary-white;
+  }
+  &:focus,
+  &:focus-visible,
+  &:focus-within {
+    border: none;
+    background-color: transparent;
+    color: $primary-blue;
+    outline: none;
+  }
 }
 
 .programs__link-wrapper {
