@@ -274,21 +274,18 @@
           <fieldset class="popup__fieldset">
             <legend class="visually-hidden">Отправить заявку на для консультацию</legend>
 
-            <label class="popup__label" for="input-name">Имя</label>
+            <label class="popup__label popup__label-name" for="input-name">Имя</label>
             <input class="popup__input popup__input-name" type="text" name="name" id="input-name" required>
 
-            <label class="popup__label" for="input-phone">Телефон</label>
+            <label class="popup__label popup__label-phone" for="input-phone">Телефон</label>
             <input class="popup__input popup__input-phone" type="tel" name="phone" id="input-phone" required>
 
             <label class="popup__label popup__label-dropdown" for="dropdown-button">Выберите город</label>
             <div class="popup__dropdown dropdown">
-              <button class="dropdown__button popup__dropdown-button" id="dropdown-button" aria-haspopup="listbox"
-                aria-expanded="false" type="button">
-                <span class="visually-hidden">Выберите город</span>
-              </button>
+              <input class="popup__dropdown-button dropdown__button" name="dropdown-button" type="select" id="dropdown-button" required >
+              <span class="visually-hidden">Выберите город</span>
               <ul class="dropdown__list">
-                <!-- deleted role role="listbox" -->
-                <li class="dropdown__item" role="option" data-value="-"></li>
+                <li class="dropdown__item" role="option" data-value="-">-</li>
                 <li class="dropdown__item" role="option" data-value="moscow">Москва</li>
                 <li class="dropdown__item" role="option" data-value="saint-petersburg">Санкт-Петербург</li>
                 <li class="dropdown__item" role="option" data-value="novosibirsk">Новосибирск</li>
@@ -305,7 +302,6 @@
                 <li class="dropdown__item" role="option" data-value="volgograd">Волгоград</li>
               </ul>
             </div>
-            <input type="hidden" name="city" id="city-input" value="-">
 
             <label class="popup__checkbox">
               <input class="popup__checkbox-input visually-hidden-but-accessible" type="checkbox" required name="popup-checkbox">

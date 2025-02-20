@@ -169,39 +169,9 @@
   }
 }
 
-
 .popup__label-dropdown.open {
   opacity: 100%;
 }
-
-/* Стили для label при наведении, фокусе и других состояниях для #input-name */
-.popup__fieldset:has(#input-name:hover) label[for="input-name"],
-.popup__fieldset:has(#input-name:active) label[for="input-name"],
-.popup__fieldset:has(#input-name:focus) label[for="input-name"],
-.popup__fieldset:has(#input-name:focus-visible) label[for="input-name"],
-.popup__fieldset:has(#input-name:focus-within) label[for="input-name"] {
-  color: #484848;
-}
-
-
-/* Стили для label при наведении, фокусе и других состояниях для #input-phone */
-.popup__fieldset:has(#input-phone:hover) label[for="input-phone"],
-.popup__fieldset:has(#input-phone:active) label[for="input-phone"],
-.popup__fieldset:has(#input-phone:focus) label[for="input-phone"],
-.popup__fieldset:has(#input-phone:focus-visible) label[for="input-phone"],
-.popup__fieldset:has(#input-phone:focus-within) label[for="input-phone"] {
-  color: #484848;
-}
-
-// /* Стили для input #input-phone */
-// #input-phone:active,
-// #input-phone:focus,
-// #input-phone:focus-visible,
-// #input-phone:focus-within {
-//   border: solid 1px #484848;
-//   outline: none;
-// }
-
 
 .popup__input {
   display: block;
@@ -227,7 +197,6 @@
     outline: none;
   }
 
-  &[aria-disabled="true"],
   &:disabled {
     border: solid 1px #cbcfd4;
     background-color: #eeeff1;
@@ -280,22 +249,39 @@
   }
 }
 
-.popup__fieldset:has(#dropdown-input:hover) label[for="dropdown-input"], // если нельзя id то заменить на классы и написать новые классы в разметку
-.popup__fieldset:has(#dropdown-input:active) label[for="dropdown-input"],
-.popup__fieldset:has(#dropdown-input:focus) label[for="dropdown-input"],
-.popup__fieldset:has(#dropdown-input:focus-visible) label[for="dropdown-input"],
-.popup__fieldset:has(#dropdown-input:focus-within) label[for="dropdown-input"] {
+.popup__fieldset:has(.popup__input-name:hover) .popup__label-name,
+.popup__fieldset:has(.popup__input-phone:hover) .popup__label-phone,
+.popup__fieldset:has(.popup__input-textarea:hover) .popup__label-text,
+.popup__fieldset:has(.popup__dropdown-button:hover.dropdown__button)
+  .popup__label-dropdown,
+.popup__fieldset:has(.popup__input-name:active) .popup__label-name,
+.popup__fieldset:has(.popup__input-phone:active) .popup__label-phone,
+.popup__fieldset:has(.popup__input-textarea:active) .popup__label-text,
+.popup__fieldset:has(.popup__dropdown-button:active.dropdown__button)
+  .popup__label-dropdown,
+.popup__fieldset:has(.popup__input-name:focus) .popup__label-name,
+.popup__fieldset:has(.popup__input-phone:focus) .popup__label-phone,
+.popup__fieldset:has(.popup__input-textarea:focus) .popup__label-text,
+.popup__fieldset:has(.popup__dropdown-button:focus.dropdown__button)
+  .popup__label-dropdown,
+.popup__fieldset:has(.popup__input-name:focus-visible) .popup__label-name,
+.popup__fieldset:has(.popup__input-phone:focus-visible) .popup__label-phone,
+.popup__fieldset:has(.popup__dropdown-button:focus-visible.dropdown__button)
+  .popup__label-dropdown,
+.popup__fieldset:has(.popup__input-name:focus-within) .popup__label-name,
+.popup__fieldset:has(.popup__input-phone:focus-within) .popup__label-phone,
+.popup__fieldset:has(.popup__dropdown-button:focus-within.dropdown__button)
+  .popup__label-dropdown {
   color: #484848;
+  outline: none;
 }
 
-// #dropdown-input:active,
-// #dropdown-input:focus,
-// #dropdown-input:focus-visible,
-// #dropdown-input:focus-within {
-//   border: solid 1px #484848;
-//   outline: none;
-// }
-
+.popup__fieldset:has(.popup__input-name:disabled) .form__page-label-name,
+.popup__fieldset:has(.popup__input-phone:disabled) .form__page-label-phone,
+.popup__fieldset:has(.popup__dropdown-button:disabled.dropdown__button)
+  .form__page-label-dropdown {
+  color: #cccfd4;
+}
 
 .popup__checkbox {
   display: flex;
@@ -305,29 +291,7 @@
   margin: 0 0 25px;
   transition: all 0.3s ease;
   cursor: pointer;
-
-  // &:hover {
-  //   opacity: 80%;
-  // }
-
-  // &:active {
-  //   opacity: 100%;
-  // }
-
-  // &:focus,
-  // &:focus-visible,
-  // &:focus-within {
-  //   opacity: 70%;
-  //   outline: none;
-  // }
 }
-
-// .popup__checkbox-input {
-//   position: absolute;
-//   opacity: 0;
-//   width: 0;
-//   height: 0;
-// }
 
 .popup__checkbox-mark {
   margin: 0;
@@ -339,6 +303,14 @@
   border: solid 1px transparent;
   border-radius: 2px;
   transition: all 0.3s ease;
+  cursor: pointer;
+
+  &:hover,
+  &:active {
+    background-color: transparent;
+    outline: none;
+    border: solid 1px #484848;
+  }
 
   &:focus,
   &:focus-visible,
@@ -358,6 +330,47 @@
   transform: translate(-50%, -50%);
   mask: url("/__spritemap#sprite-tick-view") no-repeat center;
   background-color: $primary-white;
+}
+
+.popup__checkbox-input:hover + .popup__checkbox-mark,
+.popup__checkbox-input:focus + .popup__checkbox-mark,
+.popup__checkbox-input:focus-visible + .popup__checkbox-mark,
+.popup__checkbox-input:focus-within + .popup__checkbox-mark {
+  background-color: $primary-white;
+  border: solid 1px $primary-blue;
+}
+
+.popup__checkbox-input:checked:hover + .popup__checkbox-mark,
+.popup__checkbox-input:checked:focus + .popup__checkbox-mark,
+.popup__checkbox-input:checked:focus-visible + .popup__checkbox-mark,
+.popup__checkbox-input:checked:focus-within + .popup__checkbox-mark {
+  background-color: $primary-blue;
+  border: solid 1px $primary-blue;
+}
+
+.popup__checkbox-input:checked:focus + ::before,
+.popup__checkbox-input:checked:focus-visible + ::before,
+.popup__checkbox-input:checked:focus-within + ::before {
+  background-color: $primary-white;
+  outline: none;
+}
+
+.popup__checkbox-input:disabled + .popup__checkbox-mark {
+  border: solid 1px #cbcfd4;
+  background-color: #eeeff1;
+  color: #cccfd4;
+  pointer-events: none;
+}
+
+.popup__checkbox-input:checked:disabled + .popup__checkbox-mark {
+  background-color: #a9afb7;
+  border: solid 1px #a9afb7;
+  pointer-events: none;
+}
+
+.popup__checkbox-input:checked:disabled + ::before {
+  background-color: #e5e7e9;
+  pointer-events: none;
 }
 
 .popup__label-text {
