@@ -199,6 +199,7 @@
   padding: 8px;
   background-color: transparent;
   border: solid 1px #6f99d4;
+  color:#f0efe9;
 
   // opacity: 30%;
   border-radius: 8px;
@@ -440,5 +441,20 @@
     outline: none;
     background-color: $primary-blue;
     transform: translateY(-50%) rotate(45deg);
+  }
+}
+
+.form__page-input--error {
+  background-color: #5a6ab0;
+  border: solid 1px #ff5d66;
+
+  &:hover,
+  &:active,
+  &:focus,
+  &:focus-visible,
+  &:focus-within {
+    outline: none;
+    background-color: #ffdfe0;
+    border: solid 1px #ff5d66;
   }
 }

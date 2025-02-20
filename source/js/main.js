@@ -11,7 +11,6 @@ import { toggleAccordion } from './blocks/faq';
 import { initializeReviewsSwiper } from './blocks/swiper-reviews';
 import { formValidator } from './blocks/form';
 import { toggleFormDropdown } from './blocks/form';
-// import { initializeNewsSwiperMobile, initializeNewsSwiperTabletDesktop } from './blocks/swiper-news';
 import { initializeNewsSwiper, toggleTabs } from './blocks/swiper-news';
 
 toggleMenu();

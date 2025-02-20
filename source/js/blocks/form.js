@@ -3,22 +3,34 @@ export function formValidator() {
   if (!form) {
     throw new Error('Форма не найдена на странице.');
   }
-  const name = document.querySelector('input[name="form-name"]');
-  const phone = document.querySelector('input[name="form-phone"]');
-  // const text = document.querySelector('input[name="form-text"]');
+  const name = document.querySelector('.form__page-input-name');
+  const phone = document.querySelector('.form__page-input-phone');
 
+  // Добавление и удаление класса ошибки
+  const setError = (element, message) => {
+    element.setCustomValidity(message);
+    element.classList.add('form__page-input--error');
+  };
+
+  const clearError = (element) => {
+    element.setCustomValidity('');
+    element.classList.remove('form__page-input--error');
+  };
+
+  // Валидация имени
   name.addEventListener('input', () => {
     const nameValue = name.value.trim();
     const validCharacters = /^[A-Za-zА-ЯЁа-яё\s]+$/.test(nameValue);
     const hasEnoughLetters = nameValue.replace(/\s/g, '').length >= 2;
 
     if (validCharacters && hasEnoughLetters) {
-      name.setCustomValidity('');
+      clearError(name);
     } else {
-      name.setCustomValidity('Имя должно содержать не менее 2 букв и только буквы и пробелы');
+      setError(name, 'Имя должно содержать не менее 2 букв и только буквы и пробелы');
     }
   });
 
+  // Валидация телефона
   phone.addEventListener('input', () => {
     let value = phone.value;
     value = value.replace(/[A-Za-zА-Яа-яЁё]/g, '');
@@ -29,44 +41,47 @@ export function formValidator() {
 
     const digits = value.replace(/\D/g, '');
     if (value.startsWith('+7') && digits.length === 11) {
-      phone.setCustomValidity('');
+      clearError(phone);
     } else {
-      phone.setCustomValidity('Введите корректный номер телефона в формате +7XXXXXXXXXX');
+      setError(phone, 'Введите корректный номер телефона в формате +7XXXXXXXXXX');
     }
   });
 
+  // Валидация при отправке формы
   form.addEventListener('submit', (event) => {
     let isValid = true;
 
-    name.setCustomValidity('');
-    phone.setCustomValidity('');
-
+    // Проверяем поля вручную
     const nameValue = name.value.trim();
+    if (!nameValue || nameValue.replace(/\s/g, '').length < 2) {
+      name.classList.add('form__page-input--error');
+      isValid = false;
+    } else {
+      name.classList.remove('form__page-input--error');
+    }
+
     const phoneValue = phone.value.trim();
-
-    if (!/^[A-Za-zА-ЯЁа-яё\s]+$/.test(nameValue)) {
-      name.setCustomValidity('Имя может содержать только буквы и пробелы');
-      isValid = false;
-    }
-    if (nameValue.replace(/\s/g, '').length < 2) {
-      name.setCustomValidity('Имя должно содержать не менее 2 букв');
-      isValid = false;
-    }
-
     const digits = phoneValue.replace(/\D/g, '');
     if (!phoneValue.startsWith('+7') || digits.length !== 11) {
-      phone.setCustomValidity('Введите корректный номер телефона в формате +7XXXXXXXXXX');
+      phone.classList.add('form__page-input--error');
       isValid = false;
+    } else {
+      phone.classList.remove('form__page-input--error');
     }
 
+    // Если невалидно, предотвращаем отправку
     if (!isValid) {
-      name.reportValidity();
-      phone.reportValidity();
       event.preventDefault();
+    }
+
+    // Для стандартной браузерной проверки, чтобы синхронизироваться
+    if (!form.checkValidity()) {
+      event.preventDefault();
+      const invalidFields = form.querySelectorAll(':invalid');
+      invalidFields.forEach((field) => field.classList.add('form__page-input--error'));
     }
   });
 }
-
 
 export const toggleFormDropdown = () => {
   document.addEventListener('DOMContentLoaded', () => {
@@ -75,7 +90,6 @@ export const toggleFormDropdown = () => {
     const button = dropdown.querySelector('.form__page-dropdown-button');
     const items = dropdown.querySelectorAll('.form__page-dropdown-item');
     const label = form.querySelector('.form__page-label-dropdown');
-    // Получаем скрытый input по id
     const hiddenCityInput = document.getElementById('form-city-input');
 
     button.innerHTML = '<span class="visually-hidden">Выберите город</span>';
@@ -93,13 +107,13 @@ export const toggleFormDropdown = () => {
         event.stopPropagation();
         const value = item.getAttribute('data-value');
         if (!value) {
-          // Если выбрана первая опция или значение отсутствует, отображаем placeholder и очищаем скрытое поле
           button.innerHTML = '<span class="visually-hidden">Выберите город</span>';
           hiddenCityInput.value = '';
+          hiddenCityInput.classList.add('form__page-input--error');
         } else {
-          // Отображаем текст выбранного города и сохраняем значение в скрытом поле
           button.textContent = item.textContent;
           hiddenCityInput.value = value;
+          hiddenCityInput.classList.remove('form__page-input--error');
         }
         dropdown.classList.remove('open');
         button.setAttribute('aria-expanded', 'false');
