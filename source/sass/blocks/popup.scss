@@ -306,20 +306,20 @@
   transition: all 0.3s ease;
   cursor: pointer;
 
-  &:hover {
-    opacity: 80%;
-  }
+  // &:hover {
+  //   opacity: 80%;
+  // }
 
-  &:active {
-    opacity: 100%;
-  }
+  // &:active {
+  //   opacity: 100%;
+  // }
 
-  &:focus,
-  &:focus-visible,
-  &:focus-within {
-    opacity: 70%;
-    outline: none;
-  }
+  // &:focus,
+  // &:focus-visible,
+  // &:focus-within {
+  //   opacity: 70%;
+  //   outline: none;
+  // }
 }
 
 // .popup__checkbox-input {

@@ -180,7 +180,7 @@
   line-height: 14px;
   text-align: left;
   color: #cad5e1;
-  opacity: 80%;
+  transition: all 0.3s ease;
 
   @media (min-width: $tablet-width) {
     font-size: 14px;
@@ -199,13 +199,12 @@
   padding: 8px;
   background-color: transparent;
   border: solid 1px #6f99d4;
-  color:#f0efe9;
-
-  // opacity: 30%;
+  color: #f0efe9;
+  cursor: pointer;
   border-radius: 8px;
   width: 270px;
   height: 50px;
-
+  transition: all 0.3s ease;
   @media (min-width: $tablet-width) {
     height: 50px;
     width: 362px;
@@ -215,6 +214,76 @@
   @media (min-width: $desktop-width) {
     width: 350px;
   }
+
+  &:hover,
+  &:active,
+  &:focus,
+  &:focus-visible,
+  &:focus-within {
+    background-color: transparent;
+    border: solid 1px $primary-white;
+    outline: none;
+  }
+
+  &:disabled {
+    background-color: #4179c7;
+    border: solid 1px #83a7da;
+    pointer-events: none;
+  }
+}
+
+.form__page-fieldset:has(.form__page-input-name:hover) .form__page-label-name,
+.form__page-fieldset:has(.form__page-input-phone:hover) .form__page-label-phone,
+.form__page-fieldset:has(.form__page-input-textarea:hover)
+  .form__page-label-text,
+.form__page-fieldset:has(.form__page-dropdown-button:hover.dropdown__button)
+  .form__page-label-dropdown,
+.form__page-fieldset:has(.form__page-input-name:active) .form__page-label-name,
+.form__page-fieldset:has(.form__page-input-phone:active)
+  .form__page-label-phone,
+.form__page-fieldset:has(.form__page-input-textarea:active)
+  .form__page-label-text,
+.form__page-fieldset:has(.form__page-dropdown-button:active.dropdown__button)
+  .form__page-label-dropdown,
+.form__page-fieldset:has(.form__page-input-name:focus) .form__page-label-name,
+.form__page-fieldset:has(.form__page-input-phone:focus) .form__page-label-phone,
+.form__page-fieldset:has(.form__page-input-textarea:focus)
+  .form__page-label-text,
+.form__page-fieldset:has(.form__page-dropdown-button:focus.dropdown__button)
+  .form__page-label-dropdown,
+.form__page-fieldset:has(.form__page-input-name:focus-visible)
+  .form__page-label-name,
+.form__page-fieldset:has(.form__page-input-phone:focus-visible)
+  .form__page-label-phone,
+.form__page-fieldset:has(.form__page-input-textarea:focus-visible)
+  .form__page-label-text,
+.form__page-fieldset:has(
+    .form__page-dropdown-button:focus-visible.dropdown__button
+  )
+  .form__page-label-dropdown,
+.form__page-fieldset:has(.form__page-input-name:focus-within)
+  .form__page-label-name,
+.form__page-fieldset:has(.form__page-input-phone:focus-within)
+  .form__page-label-phone,
+.form__page-fieldset:has(.form__page-input-textarea:focus-within)
+  .form__page-label-text,
+.form__page-fieldset:has(
+    .form__page-dropdown-button:focus-within.dropdown__button
+  )
+  .form__page-label-dropdown {
+  color: #f0efe9;
+  outline: none;
+}
+
+.form__page-fieldset:has(.form__page-input-name:disabled)
+  .form__page-label-name,
+.form__page-fieldset:has(.form__page-input-phone:disabled)
+  .form__page-label-phone,
+.form__page-fieldset:has(.form__page-input-textarea:disabled)
+  .form__page-label-text,
+.form__page-fieldset:has(.form__page-dropdown-button:disabled.dropdown__button)
+  .form__page-label-dropdown {
+  color: #a4bbd9;
 }
 
 .form__page-dropdown-button.dropdown__button {
@@ -236,6 +305,23 @@
 
   &::after {
     background-color: $primary-white;
+  }
+
+  &:hover {
+    background-color: transparent;
+    border: solid 1px $primary-white;
+  }
+  &:focus,
+  &:focus-visible,
+  &:focus-within {
+    outline: none;
+    border: solid 1px $primary-white;
+  }
+
+  &:disabled {
+    background-color: #4179c7;
+    border: solid 1px #83a7da;
+    pointer-events: none;
   }
 }
 
@@ -304,11 +390,59 @@
 
 .form__page-checkbox-mark.popup__checkbox-mark {
   background-color: $primary-white;
+  border: solid 1px $primary-white;
+
+  &:hover,
+  &:focus,
+  &:focus-visible,
+  &:focus-within {
+    opacity: 1;
+    outline: none;
+    background-color: transparent;
+    border: solid 1px $primary-white;
+  }
 }
 
 .form__page-checkbox-input:checked + .form__page-checkbox-mark::before {
   background-color: $primary-blue;
 }
+
+.form__page-checkbox-input:checked:hover + .form__page-checkbox-mark.popup__checkbox-mark,
+.form__page-checkbox-input:checked:focus + .form__page-checkbox-mark.popup__checkbox-mark,
+.form__page-checkbox-input:checked:focus-visible + .form__page-checkbox-mark.popup__checkbox-mark,
+.form__page-checkbox-input:checked:focus-within + .form__page-checkbox-mark.popup__checkbox-mark,
+.form__page-checkbox-input:hover + .form__page-checkbox-mark.popup__checkbox-mark,
+.form__page-checkbox-input:focus + .form__page-checkbox-mark.popup__checkbox-mark,
+.form__page-checkbox-input:focus-visible + .form__page-checkbox-mark.popup__checkbox-mark,
+.form__page-checkbox-input:focus-within + .form__page-checkbox-mark.popup__checkbox-mark {
+  background-color: transparent;
+  border: solid 1px $primary-white;
+}
+
+.form__page-checkbox-input:checked:focus + .form__page-checkbox-mark::before,
+.form__page-checkbox-input:checked:focus-visible + .form__page-checkbox-mark::before,
+.form__page-checkbox-input:checked:focus-within + .form__page-checkbox-mark::before {
+  background-color: $primary-white;
+}
+
+.form__page-checkbox-input:disabled + .form__page-checkbox-mark.popup__checkbox-mark {
+  background-color: #adc5e7;
+  border: solid 1px $primary-white;
+pointer-events: none;
+}
+
+.form__page-checkbox-input:checked:disabled + .form__page-checkbox-mark.popup__checkbox-mark {
+  background-color: #a9afb7;
+  border: solid 1px #a9afb7;
+  pointer-events: none;
+}
+
+.form__page-checkbox-input:checked:disabled + .form__page-checkbox-mark::before {
+background-color: #e5e7e9;
+pointer-events: none;
+}
+
+
 
 .form__page-checkbox-text--mobile.form__page-checkbox-text {
   display: block;
