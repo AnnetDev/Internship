@@ -292,7 +292,7 @@
   color: #f0efe9;
   width: 260px;
   height: 52px;
-  margin: 0 0 21px;
+  margin: 0 0 20px;
 
   @media (min-width: $tablet-width) {
     width: 362px;
@@ -380,7 +380,7 @@
 
 .form__page-checkbox {
   min-height: 40px;
-  margin: 0 0 19px;
+  margin: 0 0 20px;
 
   @media (min-width: $tablet-width) {
     min-height: 20px;
@@ -578,7 +578,7 @@ pointer-events: none;
   }
 }
 
-.form__page-input--error {
+.form__page-input.form__page-input--error {
   background-color: #5a6ab0;
   border: solid 1px #ff5d66;
 
@@ -592,3 +592,5 @@ pointer-events: none;
     border: solid 1px #ff5d66;
   }
 }
+
+
