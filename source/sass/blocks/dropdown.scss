@@ -1,6 +1,18 @@
 .dropdown {
   position: relative;
   display: inline-block;
+  &::after {
+    position: absolute;
+    content: "";
+    top: 50%;
+    transform: translateY(-50%);
+    mask: url("/__spritemap#sprite-dropdown-view") no-repeat center;
+    background-color: #484848;
+    right: 20px;
+    width: 16px;
+    height: 16px;
+    transition: all 0.3s ease;
+  }
 }
 
 .dropdown__button {
@@ -26,18 +38,7 @@
     width: 350px;
   }
 
-  &::after {
-    position: absolute;
-    content: "";
-    top: 50%;
-    transform: translateY(-50%);
-    mask: url("/__spritemap#sprite-dropdown-view") no-repeat center;
-    background-color: #484848;
-    right: 20px;
-    width: 16px;
-    height: 16px;
-    transition: all 0.3s ease;
-  }
+
 }
 
 .dropdown__button.open {
@@ -48,11 +49,17 @@
   }
 }
 
+.dropdown.open {
+  &::after {
+    transform: rotate(180deg) translateY(50%);
+  }
+}
+
 .dropdown__list {
   display: none;
 
   position: absolute;
-  top: calc(100% - 13px);
+  top: calc(100% + 4px);
   left: 0;
   background-color: $primary-white;
   border: solid 1px #484848;

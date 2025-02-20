@@ -5,8 +5,10 @@ export function formValidator() {
   }
   const name = document.querySelector('.form__page-input-name');
   const phone = document.querySelector('.form__page-input-phone');
+  // Кастомный инпут для выбора города
+  const cityInput = document.querySelector('.form__page-dropdown-button');
 
-  // Добавление и удаление класса ошибки
+  // Функции для установки/снятия ошибок
   const setError = (element, message) => {
     element.setCustomValidity(message);
     element.classList.add('form__page-input--error');
@@ -51,7 +53,7 @@ export function formValidator() {
   form.addEventListener('submit', (event) => {
     let isValid = true;
 
-    // Проверяем поля вручную
+    // Проверка имени
     const nameValue = name.value.trim();
     if (!nameValue || nameValue.replace(/\s/g, '').length < 2) {
       name.classList.add('form__page-input--error');
@@ -60,6 +62,7 @@ export function formValidator() {
       name.classList.remove('form__page-input--error');
     }
 
+    // Проверка телефона
     const phoneValue = phone.value.trim();
     const digits = phoneValue.replace(/\D/g, '');
     if (!phoneValue.startsWith('+7') || digits.length !== 11) {
@@ -69,12 +72,21 @@ export function formValidator() {
       phone.classList.remove('form__page-input--error');
     }
 
-    // Если невалидно, предотвращаем отправку
+    // Проверка выбора города: если data-city-value не установлено – ошибка.
+    if (!cityInput.dataset.cityValue) {
+      cityInput.classList.add('form__page-input--error');
+      setError(cityInput, 'Выберите город');
+      isValid = false;
+    } else {
+      clearError(cityInput);
+    }
+
+    // Если форма невалидна, предотвращаем отправку
     if (!isValid) {
       event.preventDefault();
     }
 
-    // Для стандартной браузерной проверки, чтобы синхронизироваться
+    // Для синхронизации с браузерной валидацией (если есть поля, не прошедшие проверку)
     if (!form.checkValidity()) {
       event.preventDefault();
       const invalidFields = form.querySelectorAll(':invalid');
@@ -83,48 +95,121 @@ export function formValidator() {
   });
 }
 
+
 export const toggleFormDropdown = () => {
   document.addEventListener('DOMContentLoaded', () => {
-    const form = document.querySelector('.form__page-form');
     const dropdown = document.querySelector('.form__page-dropdown');
-    const button = dropdown.querySelector('.form__page-dropdown-button');
+    const input = dropdown.querySelector('.form__page-dropdown-button');
     const items = dropdown.querySelectorAll('.form__page-dropdown-item');
-    const label = form.querySelector('.form__page-label-dropdown');
-    const hiddenCityInput = document.getElementById('form-city-input');
+    const label = document.querySelector('.form__page-label-dropdown');
 
-    button.innerHTML = '<span class="visually-hidden">Выберите город</span>';
+    let focusedIndex = -1;
 
-    button.addEventListener('click', (event) => {
+    // Функция открытия/закрытия списка
+    const toggleDropdown = (isOpen) => {
+      if (isOpen) {
+        dropdown.classList.add('open');
+        input.classList.add('open');
+        label.classList.add('open');
+        input.setAttribute('aria-expanded', 'true');
+      } else {
+        dropdown.classList.remove('open');
+        input.classList.remove('open');
+        label.classList.remove('open');
+        input.setAttribute('aria-expanded', 'false');
+        focusedIndex = -1;
+      }
+    };
+
+    // Функция выбора элемента:
+    // При выборе записываем текст для отображения и сохраняем значение (data-value) в data-city-value.
+    // Если выбран элемент с data-value равным "-" – это валидный выбор, который означает, что список городов неполон.
+    const selectItem = (item) => {
+      const value = item.getAttribute('data-value');
+      // Если значение вообще отсутствует (например, null или пустая строка) – ошибка.
+      if (!value) {
+        input.value = '';
+        input.dataset.cityValue = '';
+        input.classList.add('form__page-input--error');
+      } else {
+        input.value = item.textContent.trim();
+        input.dataset.cityValue = value; // Может быть "-" или корректным значением
+        input.classList.remove('form__page-input--error');
+      }
+      toggleDropdown(false);
+    };
+
+    // Обработка клика по input (открытие/закрытие)
+    input.addEventListener('click', (event) => {
       event.stopPropagation();
-      dropdown.classList.toggle('open');
-      button.classList.toggle('open');
-      label.classList.toggle('open');
-      button.setAttribute('aria-expanded', dropdown.classList.contains('open'));
+      const isOpen = dropdown.classList.contains('open');
+      toggleDropdown(!isOpen);
     });
 
-    items.forEach((item) => {
+    // Обработка клавиатурных событий на input
+    input.addEventListener('keydown', (event) => {
+      const isOpen = dropdown.classList.contains('open');
+      switch (event.key) {
+        case 'Enter':
+          if (!isOpen) {
+            toggleDropdown(true);
+          } else if (focusedIndex >= 0 && focusedIndex < items.length) {
+            selectItem(items[focusedIndex]);
+          }
+          event.preventDefault();
+          break;
+        case 'ArrowDown':
+          if (!isOpen) {
+            toggleDropdown(true);
+          } else {
+            focusedIndex = (focusedIndex + 1) % items.length;
+            items[focusedIndex].focus();
+          }
+          event.preventDefault();
+          break;
+        case 'ArrowUp':
+          if (isOpen) {
+            focusedIndex = (focusedIndex - 1 + items.length) % items.length;
+            items[focusedIndex].focus();
+          }
+          event.preventDefault();
+          break;
+        case 'Escape':
+          if (isOpen) {
+            toggleDropdown(false);
+            event.preventDefault();
+          }
+          break;
+        default:
+          break;
+      }
+    });
+
+    // Обработка событий на элементах списка
+    items.forEach((item, index) => {
+      item.setAttribute('tabindex', '0');
       item.addEventListener('click', (event) => {
         event.stopPropagation();
-        const value = item.getAttribute('data-value');
-        if (!value) {
-          button.innerHTML = '<span class="visually-hidden">Выберите город</span>';
-          hiddenCityInput.value = '';
-          hiddenCityInput.classList.add('form__page-input--error');
-        } else {
-          button.textContent = item.textContent;
-          hiddenCityInput.value = value;
-          hiddenCityInput.classList.remove('form__page-input--error');
+        selectItem(item);
+      });
+      item.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+          selectItem(item);
+          event.preventDefault();
         }
-        dropdown.classList.remove('open');
-        button.setAttribute('aria-expanded', 'false');
+      });
+      item.addEventListener('focus', () => {
+        focusedIndex = index;
       });
     });
 
-    document.addEventListener('click', (e) => {
-      if (!dropdown.contains(e.target)) {
-        dropdown.classList.remove('open');
-        button.setAttribute('aria-expanded', 'false');
+    // Закрываем список при клике вне его
+    document.addEventListener('click', (event) => {
+      if (!dropdown.contains(event.target)) {
+        toggleDropdown(false);
       }
     });
   });
 };
+
+

@@ -881,12 +881,14 @@
 
             <label class="form__page-label form__page-label-dropdown" for="form-dropdown-button">Выберите город</label>
             <div class="form__page-dropdown dropdown">
-              <button class="form__page-dropdown-button dropdown__button" id="form-dropdown-button"
+              <input class="form__page-dropdown-button dropdown__button" name="form-dropdown-button" type="select" id="form-dropdown-button" required >
+              <span class="visually-hidden">Выберите город</span>
+              <!-- <button class="form__page-dropdown-button dropdown__button" id="form-dropdown-button"
                 aria-haspopup="listbox" aria-expanded="false" type="button">
                 <span class="visually-hidden">Выберите город</span>
-              </button>
+              </button> -->
               <ul class="dropdown__list form__page-dropdown-list">
-                <li class="dropdown__item form__page-dropdown-item" role="option" data-value="-"></li>
+                <li class="dropdown__item form__page-dropdown-item" role="option" data-value="-">-</li>
                 <li class="dropdown__item form__page-dropdown-item" role="option" data-value="moscow">Москва</li>
                 <li class="dropdown__item form__page-dropdown-item" role="option" data-value="saint-petersburg">
                   Санкт-Петербург</li>
@@ -910,7 +912,7 @@
                 <li class="dropdown__item form__page-dropdown-item" role="option" data-value="volgograd">Волгоград</li>
               </ul>
             </div>
-            <input type="hidden" name="form-city" id="form-city-input" value="-">
+            <!-- <input type="hidden" name="form-city" id="form-city-input" value="-"> -->
 
 
             <label class="form__page-checkbox popup__checkbox form__page-label-checkbox">

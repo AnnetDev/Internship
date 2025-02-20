@@ -293,6 +293,8 @@
   width: 260px;
   height: 52px;
   margin: 0 0 20px;
+  caret-color: transparent;
+  position: relative;
 
   @media (min-width: $tablet-width) {
     width: 362px;
@@ -301,10 +303,6 @@
 
   @media (min-width: $desktop-width) {
     width: 350px;
-  }
-
-  &::after {
-    background-color: $primary-white;
   }
 
   &:hover {
@@ -325,12 +323,38 @@
   }
 }
 
-.form__page-dropdown-button.open.dropdown__button {
-  border: solid 1px $primary-white;
+.form__page-dropdown.dropdown {
+  position: relative;
+  height: 52px;
+  margin: 0 0 20px;
 
+  &::after {
+    position: absolute;
+    content: "";
+    top: 50%;
+    transform: translateY(-50%);
+    mask: url("/__spritemap#sprite-dropdown-view") no-repeat center;
+    background-color: $primary-white;
+    right: 31px;
+    width: 16px;
+    height: 16px;
+    transition: all 0.3s ease;
+
+    @media (min-width: $tablet-width) {
+      right: 21px;
+    }
+  }
+}
+
+.form__page-dropdown.open.dropdown {
   &::after {
     transform: rotate(180deg) translateY(50%);
   }
+}
+
+.form__page-dropdown-button.open.dropdown__button {
+  border: solid 1px $primary-white;
+
 }
 
 .form__page-label.form__page-label-dropdown.open {
@@ -407,42 +431,53 @@
   background-color: $primary-blue;
 }
 
-.form__page-checkbox-input:checked:hover + .form__page-checkbox-mark.popup__checkbox-mark,
-.form__page-checkbox-input:checked:focus + .form__page-checkbox-mark.popup__checkbox-mark,
-.form__page-checkbox-input:checked:focus-visible + .form__page-checkbox-mark.popup__checkbox-mark,
-.form__page-checkbox-input:checked:focus-within + .form__page-checkbox-mark.popup__checkbox-mark,
-.form__page-checkbox-input:hover + .form__page-checkbox-mark.popup__checkbox-mark,
-.form__page-checkbox-input:focus + .form__page-checkbox-mark.popup__checkbox-mark,
-.form__page-checkbox-input:focus-visible + .form__page-checkbox-mark.popup__checkbox-mark,
-.form__page-checkbox-input:focus-within + .form__page-checkbox-mark.popup__checkbox-mark {
+.form__page-checkbox-input:checked:hover
+  + .form__page-checkbox-mark.popup__checkbox-mark,
+.form__page-checkbox-input:checked:focus
+  + .form__page-checkbox-mark.popup__checkbox-mark,
+.form__page-checkbox-input:checked:focus-visible
+  + .form__page-checkbox-mark.popup__checkbox-mark,
+.form__page-checkbox-input:checked:focus-within
+  + .form__page-checkbox-mark.popup__checkbox-mark,
+.form__page-checkbox-input:hover
+  + .form__page-checkbox-mark.popup__checkbox-mark,
+.form__page-checkbox-input:focus
+  + .form__page-checkbox-mark.popup__checkbox-mark,
+.form__page-checkbox-input:focus-visible
+  + .form__page-checkbox-mark.popup__checkbox-mark,
+.form__page-checkbox-input:focus-within
+  + .form__page-checkbox-mark.popup__checkbox-mark {
   background-color: transparent;
   border: solid 1px $primary-white;
 }
 
 .form__page-checkbox-input:checked:focus + .form__page-checkbox-mark::before,
-.form__page-checkbox-input:checked:focus-visible + .form__page-checkbox-mark::before,
-.form__page-checkbox-input:checked:focus-within + .form__page-checkbox-mark::before {
+.form__page-checkbox-input:checked:focus-visible
+  + .form__page-checkbox-mark::before,
+.form__page-checkbox-input:checked:focus-within
+  + .form__page-checkbox-mark::before {
   background-color: $primary-white;
 }
 
-.form__page-checkbox-input:disabled + .form__page-checkbox-mark.popup__checkbox-mark {
+.form__page-checkbox-input:disabled
+  + .form__page-checkbox-mark.popup__checkbox-mark {
   background-color: #adc5e7;
   border: solid 1px $primary-white;
-pointer-events: none;
+  pointer-events: none;
 }
 
-.form__page-checkbox-input:checked:disabled + .form__page-checkbox-mark.popup__checkbox-mark {
+.form__page-checkbox-input:checked:disabled
+  + .form__page-checkbox-mark.popup__checkbox-mark {
   background-color: #a9afb7;
   border: solid 1px #a9afb7;
   pointer-events: none;
 }
 
-.form__page-checkbox-input:checked:disabled + .form__page-checkbox-mark::before {
-background-color: #e5e7e9;
-pointer-events: none;
+.form__page-checkbox-input:checked:disabled
+  + .form__page-checkbox-mark::before {
+  background-color: #e5e7e9;
+  pointer-events: none;
 }
-
-
 
 .form__page-checkbox-text--mobile.form__page-checkbox-text {
   display: block;
@@ -579,6 +614,7 @@ pointer-events: none;
 }
 
 .form__page-input.form__page-input--error {
+  background-color: unset;
   background-color: #5a6ab0;
   border: solid 1px #ff5d66;
 
@@ -588,9 +624,7 @@ pointer-events: none;
   &:focus-visible,
   &:focus-within {
     outline: none;
-    background-color: #ffdfe0;
+    background-color: #5a6ab0;
     border: solid 1px #ff5d66;
   }
 }
-
-
