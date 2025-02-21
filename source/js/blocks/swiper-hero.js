@@ -9,21 +9,24 @@ function updatePaginationPosition(swiper) {
     return;
   }
 
+  // Ищем элементы в активном слайде
   const titleWrapper = activeSlide.querySelector('.hero__slide-title-wrapper');
   const innerWrapper = activeSlide.querySelector('.hero__slider-inner-wrapper');
+  // Контейнер, у которого нас интересует нижний padding
   const container = activeSlide.querySelector('.container');
-  const heroContainer = activeSlide.querySelector('.hero__swiper-slide .container');
   const pagination = document.querySelector('.hero__swiper-pagination');
 
-  if (titleWrapper && innerWrapper && heroContainer && pagination && container) {
-    const computedStyle = window.getComputedStyle(heroContainer);
-    const heroContainerPaddingBottom = parseInt(computedStyle.paddingBottom, 10) || 0;
+  if (titleWrapper && innerWrapper && container && pagination) {
+    // Получаем вычисленный стиль контейнера и извлекаем padding-bottom
+    const computedStyle = window.getComputedStyle(container);
+    const containerPaddingBottom = parseInt(computedStyle.paddingBottom, 10) || 0;
 
-
-    const totalHeight = titleWrapper.offsetHeight + innerWrapper.offsetHeight + heroContainerPaddingBottom;
+    // Вычисляем общую высоту для отступа: высота заголовка + высота внутреннего блока + нижний padding контейнера
+    const totalHeight = titleWrapper.offsetHeight + innerWrapper.offsetHeight + containerPaddingBottom;
     pagination.style.bottom = `${totalHeight}px`;
   }
 }
+
 
 export function initializeHeroSwiper() {
   const heroSwiperContainer = document.querySelector('.hero__swiper.swiper');
@@ -39,9 +42,8 @@ export function initializeHeroSwiper() {
     fadeEffect: {
       crossFade: true
     },
-    centeredSlides: true,
-    // initialSlide: 1,
     slidesPerView: 1,
+    virtualTranslate: true,
     keyboard: {
       enabled: true,
       onlyInViewport: true,
@@ -61,47 +63,20 @@ export function initializeHeroSwiper() {
         allowTouchMove: false,
       }
     },
-    // on: {
-    //   slideChange: function () {
-    //     updatePaginationPosition(this);
-    //   },
-    // }
     on: {
       slideChange: function () {
         updatePaginationPosition(this);
 
-        // Обновляем tabindex у пагинации
         const paginationButtons = document.querySelectorAll('.hero__swiper-pagination .swiper-pagination-bullet');
         paginationButtons.forEach((button) => button.setAttribute('tabindex', '-1'));
-
         const activePagination = document.querySelector('.hero__swiper-pagination .swiper-pagination-bullet-active');
         if (activePagination) {
           activePagination.setAttribute('tabindex', '0');
         }
 
-        // Обновляем классы для слайдов
-        const allSlides = this.slides;
-        allSlides.forEach((slide) => {
-          // Удаляем класс is-active у всех ссылок
-          const link = slide.querySelector('.hero__slide-link');
-          if (link) {
-            link.classList.remove('is-active');
-            link.setAttribute('tabindex', '-1'); // Скрываем от фокуса неактивные ссылки
-          }
-        });
 
-        // Используем текущий активный слайд
-        const activeSlide = this.slides[this.activeIndex];
-        if (activeSlide) {
-          const activeLink = activeSlide.querySelector('.hero__slide-link');
-          if (activeLink) {
-            activeLink.classList.add('is-active');
-            activeLink.setAttribute('tabindex', '0'); // Делаем активную ссылку доступной
-          }
-        }
       },
     },
-
 
   });
 
