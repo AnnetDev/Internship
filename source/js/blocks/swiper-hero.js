@@ -9,19 +9,15 @@ function updatePaginationPosition(swiper) {
     return;
   }
 
-  // Ищем элементы в активном слайде
   const titleWrapper = activeSlide.querySelector('.hero__slide-title-wrapper');
   const innerWrapper = activeSlide.querySelector('.hero__slider-inner-wrapper');
-  // Контейнер, у которого нас интересует нижний padding
   const container = activeSlide.querySelector('.container');
   const pagination = document.querySelector('.hero__swiper-pagination');
 
   if (titleWrapper && innerWrapper && container && pagination) {
-    // Получаем вычисленный стиль контейнера и извлекаем padding-bottom
     const computedStyle = window.getComputedStyle(container);
     const containerPaddingBottom = parseInt(computedStyle.paddingBottom, 10) || 0;
 
-    // Вычисляем общую высоту для отступа: высота заголовка + высота внутреннего блока + нижний padding контейнера
     const totalHeight = titleWrapper.offsetHeight + innerWrapper.offsetHeight + containerPaddingBottom;
     pagination.style.bottom = `${totalHeight}px`;
   }

@@ -32,7 +32,6 @@ function updateCustomPagination(swiper) {
   let html = '';
   displayedButtons.forEach((groupNumber, idx) => {
     const activeClass = idx === activeButtonIndex ? 'swiper-pagination-bullet-active' : '';
-    // Добавляем tabindex="0" для фокусируемости каждой кнопки пагинации
     html += `<span class="swiper-pagination-bullet ${activeClass}" tabindex="0">${groupNumber}</span>`;
   });
   paginationContainer.innerHTML = html;
@@ -41,7 +40,6 @@ function updateCustomPagination(swiper) {
 function attachPaginationClickHandler(swiper) {
   const paginationContainer = document.querySelector('.news__swiper-pagination.swiper-pagination');
   if (!paginationContainer.dataset.listenerAttached) {
-    // Обработчик клика
     paginationContainer.addEventListener('click', (e) => {
       const bullet = e.target.closest('.swiper-pagination-bullet');
       if (!bullet) {
@@ -54,7 +52,6 @@ function attachPaginationClickHandler(swiper) {
       const slideIndex = (groupNumber - 1) * swiper.params.slidesPerGroup;
       swiper.slideTo(slideIndex);
     });
-    // Обработчик нажатия клавиши (Enter или Space)
     paginationContainer.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
@@ -76,7 +73,6 @@ function attachPaginationClickHandler(swiper) {
 
 
 function updateTabIndices(swiper) {
-  // Стрелки и контейнер пагинации делаем фокусируемыми (tabindex="0")
   const prevArrow = document.querySelector('.news__swiper-button.swiper-button-prev');
   const nextArrow = document.querySelector('.news__swiper-button.swiper-button-next');
   const pagination = document.querySelector('.news__swiper-pagination.swiper-pagination');
@@ -90,7 +86,6 @@ function updateTabIndices(swiper) {
     pagination.setAttribute('tabindex', '0');
   }
 
-  // Все ссылки в слайдах делаем не фокусируемыми
   swiper.slides.forEach((slide) => {
     const link = slide.querySelector('.news__link');
     if (link) {
@@ -98,7 +93,6 @@ function updateTabIndices(swiper) {
     }
   });
 
-  // Только ссылка в активном слайде делаем фокусируемой
   const activeSlide = swiper.slides[swiper.activeIndex];
   if (activeSlide) {
     const link = activeSlide.querySelector('.news__link');
@@ -119,7 +113,7 @@ export function initializeNewsSwiper() {
   function cloneSlides() {
     removeClonedSlides();
     const slides = swiperWrapper.querySelectorAll('.news__swiper-slide.swiper-slide:not(.news__swiper-slide--cloned)');
-    const targetCount = 24; // Общее количество слайдов
+    const targetCount = 24;
     const currentCount = slides.length;
     const clonesNeeded = targetCount - currentCount;
     if (clonesNeeded > 0) {
@@ -136,12 +130,10 @@ export function initializeNewsSwiper() {
   const newsSwiper = new Swiper('.news__swiper', {
     modules: [Navigation, Pagination, Grid],
     direction: 'horizontal',
-    // Указываем тип custom, чтобы Swiper не создавал свои кнопки
     pagination: {
       el: '.news__swiper-pagination.swiper-pagination',
       clickable: true,
       type: 'custom',
-      // Функция renderCustom может возвращать пустую строку, т.к. мы обновляем пагинацию вручную
       renderCustom: () => ''
     },
     navigation: {

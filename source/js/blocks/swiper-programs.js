@@ -1,7 +1,7 @@
 import Swiper from 'swiper';
 import { Navigation, Pagination, Scrollbar } from 'swiper/modules';
 import 'swiper/scss';
-//проверить клонирование
+
 export function initializeProgramsSwiper() {
   const swiperContainer = document.querySelector('.programs__swiper.swiper');
   const swiperWrapper = swiperContainer.querySelector('.programs__swiper-wrapper.swiper-wrapper');
@@ -77,7 +77,7 @@ export function initializeProgramsSwiper() {
 
   function handleResize() {
     cloneSlides();
-    swiperInstance.update(); // Обновляем Swiper после изменения DOM
+    swiperInstance.update();
   }
 
   window.addEventListener('resize', handleResize);

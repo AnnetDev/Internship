@@ -8,8 +8,8 @@ export const toggleAccordion = () => {
 
 
     listElements.forEach((listElement) => {
-      const question = listElement.querySelector('.faq__header'); // Select the header of each item
-      const questionButton = listElement.querySelector('.faq__button'); // Select the button of each item
+      const question = listElement.querySelector('.faq__header');
+      const questionButton = listElement.querySelector('.faq__button');
 
       const toggleItem = () => {
         listElement.classList.toggle('faq__list-item--active');
@@ -18,19 +18,16 @@ export const toggleAccordion = () => {
         questionButton.setAttribute('aria-expanded', isExpanded);
       };
 
-      // Event listener for mouse click on the header
       question.addEventListener('click', (event) => {
         event.stopPropagation();
         toggleItem();
       });
 
-      // Event listener for mouse click on the button
       questionButton.addEventListener('click', (event) => {
         event.stopPropagation();
         toggleItem();
       });
 
-      // Event listener for keyboard interaction (Enter key)
       question.addEventListener('keydown', (event) => {
         if (event.key === 'Enter') {
           event.preventDefault();

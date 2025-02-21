@@ -5,12 +5,10 @@ export function formValidator() {
   }
   const name = document.querySelector('.form__page-input-name');
   const phone = document.querySelector('.form__page-input-phone');
-  // Кастомный инпут для выбора города
   const cityInput = document.querySelector('.form__page-dropdown-button');
   const text = document.querySelector('.form__page-input-textarea');
   const checkbox = document.querySelector('.form__page-checkbox-input');
 
-  // Функции для установки/снятия ошибок
   const setError = (element, message) => {
     element.setCustomValidity(message);
     element.classList.add('form__page-input--error');
@@ -21,7 +19,6 @@ export function formValidator() {
     element.classList.remove('form__page-input--error');
   };
 
-  // Валидация имени
   name.addEventListener('input', () => {
     const nameValue = name.value.trim();
     const validCharacters = /^[A-Za-zА-ЯЁа-яё\s]+$/.test(nameValue);
@@ -34,7 +31,6 @@ export function formValidator() {
     }
   });
 
-  // Валидация телефона
   phone.addEventListener('input', () => {
     let value = phone.value;
     value = value.replace(/[A-Za-zА-Яа-яЁё]/g, '');
@@ -81,9 +77,11 @@ export function formValidator() {
 
   checkbox.addEventListener('input', () => {
     if (checkbox.checked) {
-      clearError(checkbox);
+      checkbox.setCustomValidity('');
+      checkbox.classList.remove('checkbox-input--error');
     } else {
-      setError(checkbox, 'Необходимо ваше согласие');
+      checkbox.setCustomValidity('Необходимо ваше согласие');
+      checkbox.classList.add('checkbox-input--error');
     }
   });
 
@@ -137,7 +135,6 @@ export const toggleFormDropdown = () => {
 
     let focusedIndex = -1;
 
-    // Функция открытия/закрытия списка
     const toggleDropdown = (isOpen) => {
       if (isOpen) {
         dropdown.classList.add('open');
@@ -161,20 +158,18 @@ export const toggleFormDropdown = () => {
         input.classList.add('form__page-input--error');
       } else {
         input.value = item.textContent.trim();
-        input.dataset.cityValue = value; // Может быть "-" или корректным значением
+        input.dataset.cityValue = value;
         input.classList.remove('form__page-input--error');
       }
       toggleDropdown(false);
     };
 
-    // Обработка клика по input (открытие/закрытие)
     input.addEventListener('click', (event) => {
       event.stopPropagation();
       const isOpen = dropdown.classList.contains('open');
       toggleDropdown(!isOpen);
     });
 
-    // Обработка клавиатурных событий на input
     input.addEventListener('keydown', (event) => {
       const isOpen = dropdown.classList.contains('open');
       switch (event.key) {
@@ -230,7 +225,6 @@ export const toggleFormDropdown = () => {
       });
     });
 
-    // Закрываем список при клике вне его
     document.addEventListener('click', (event) => {
       if (!dropdown.contains(event.target)) {
         toggleDropdown(false);

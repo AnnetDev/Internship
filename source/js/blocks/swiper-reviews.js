@@ -11,7 +11,6 @@ export function initializeReviewsSwiper() {
   }
 
   function cloneSlides() {
-    // Удаляем ранее клонированные слайды
     removeClonedSlides();
 
     if (window.innerWidth >= 1440) {
@@ -19,17 +18,16 @@ export function initializeReviewsSwiper() {
       const originalSlidesCount = slides.length;
 
       if (originalSlidesCount > 0 && originalSlidesCount < 5) {
-        const clonesNeeded = 5 - originalSlidesCount; // Сколько клонированных слайдов нужно добавить
+        const clonesNeeded = 5 - originalSlidesCount;
 
         for (let i = 0; i < clonesNeeded; i++) {
-          const clone = slides[i % originalSlidesCount].cloneNode(true); // Циклическое клонирование
+          const clone = slides[i % originalSlidesCount].cloneNode(true);
           clone.classList.add('reviews__swiper-slide--cloned');
           swiperWrapper.appendChild(clone);
         }
       }
     }
   }
-
 
   cloneSlides();
 
@@ -72,7 +70,7 @@ export function initializeReviewsSwiper() {
 
   function handleResize() {
     cloneSlides();
-    swiperInstance.update(); // Обновляем Swiper после изменения DOM
+    swiperInstance.update();
   }
 
   window.addEventListener('resize', handleResize);
@@ -104,6 +102,4 @@ export function initializeReviewsSwiper() {
       }
     });
   }
-
-
 }
