@@ -279,9 +279,12 @@
 }
 
 .news__swiper-slide:nth-child(3n + 1).swiper-slide {
+  @media (min-width: $desktop-width) {
+
   min-width: 604px;
   max-width: 604px;
   width: 604px;
+}
 }
 
 .news__swiper-slide.swiper-slide.swiper-slide:nth-child(3n + 1) .news__swiper-slide-text-container {
