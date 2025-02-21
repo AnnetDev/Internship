@@ -238,5 +238,3 @@ export const toggleFormDropdown = () => {
     });
   });
 };
-
-
