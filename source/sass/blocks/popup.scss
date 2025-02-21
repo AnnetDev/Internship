@@ -283,7 +283,8 @@
   color: #cccfd4;
 }
 
-.popup__checkbox {
+.popup__checkbox,
+.form__page-checkbox {
   display: flex;
   flex-flow: row wrap;
   align-items: center;
@@ -293,7 +294,8 @@
   cursor: pointer;
 }
 
-.popup__checkbox-mark {
+.popup__checkbox-mark,
+.form__page-checkbox-mark {
   margin: 0;
   padding: 0;
   position: relative;
@@ -320,7 +322,8 @@
   }
 }
 
-.popup__checkbox-input:checked + .popup__checkbox-mark::before {
+.popup__checkbox-input:checked + .popup__checkbox-mark::before,
+.form__page-checkbox-input:checked + .form__page-checkbox-mark::before {
   content: "";
   position: absolute;
   width: 10px;
@@ -373,7 +376,8 @@
   pointer-events: none;
 }
 
-.popup__label-text {
+.popup__label-text,
+.form__page-checkbox-text {
   margin: 0;
   padding: 0;
   width: 230px;

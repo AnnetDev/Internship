@@ -412,7 +412,7 @@
   }
 }
 
-.form__page-checkbox-mark.popup__checkbox-mark {
+.form__page-checkbox-mark {
   background-color: $primary-white;
   border: solid 1px $primary-white;
 
@@ -432,21 +432,21 @@
 }
 
 .form__page-checkbox-input:checked:hover
-  + .form__page-checkbox-mark.popup__checkbox-mark,
+  + .form__page-checkbox-mark,
 .form__page-checkbox-input:checked:focus
-  + .form__page-checkbox-mark.popup__checkbox-mark,
+  + .form__page-checkbox-mark,
 .form__page-checkbox-input:checked:focus-visible
-  + .form__page-checkbox-mark.popup__checkbox-mark,
+  + .form__page-checkbox-mark,
 .form__page-checkbox-input:checked:focus-within
-  + .form__page-checkbox-mark.popup__checkbox-mark,
+  + .form__page-checkbox-mark,
 .form__page-checkbox-input:hover
-  + .form__page-checkbox-mark.popup__checkbox-mark,
+  + .form__page-checkbox-mark,
 .form__page-checkbox-input:focus
-  + .form__page-checkbox-mark.popup__checkbox-mark,
+  + .form__page-checkbox-mark,
 .form__page-checkbox-input:focus-visible
-  + .form__page-checkbox-mark.popup__checkbox-mark,
+  + .form__page-checkbox-mark,
 .form__page-checkbox-input:focus-within
-  + .form__page-checkbox-mark.popup__checkbox-mark {
+  + .form__page-checkbox-mark {
   background-color: transparent;
   border: solid 1px $primary-white;
 }
@@ -460,14 +460,14 @@
 }
 
 .form__page-checkbox-input:disabled
-  + .form__page-checkbox-mark.popup__checkbox-mark {
+  + .form__page-checkbox-mark {
   background-color: #adc5e7;
   border: solid 1px $primary-white;
   pointer-events: none;
 }
 
 .form__page-checkbox-input:checked:disabled
-  + .form__page-checkbox-mark.popup__checkbox-mark {
+  + .form__page-checkbox-mark {
   background-color: #a9afb7;
   border: solid 1px #a9afb7;
   pointer-events: none;
@@ -479,7 +479,7 @@
   pointer-events: none;
 }
 
-.form__page-checkbox-input.checkbox-input--error + .form__page-checkbox-mark.popup__checkbox-mark  {
+.form__page-checkbox-input.checkbox-input--error + .form__page-checkbox-mark  {
   background-color: #4e6bb5;
   border: solid 1px #c16282;
 
