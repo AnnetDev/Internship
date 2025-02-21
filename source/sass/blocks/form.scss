@@ -479,6 +479,12 @@
   pointer-events: none;
 }
 
+.form__page-checkbox-input.checkbox-input--error + .form__page-checkbox-mark.popup__checkbox-mark  {
+  background-color: #4e6bb5;
+  border: solid 1px #c16282;
+
+}
+
 .form__page-checkbox-text--mobile.form__page-checkbox-text {
   display: block;
   margin: 0;

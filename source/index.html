@@ -282,7 +282,7 @@
 
             <label class="popup__label popup__label-dropdown" for="dropdown-button">Выберите город</label>
             <div class="popup__dropdown dropdown">
-              <input class="popup__dropdown-button dropdown__button" name="dropdown-button" type="select" id="dropdown-button" required >
+              <input class="popup__dropdown-button popup__input dropdown__button" name="dropdown-button" type="select" id="dropdown-button" required >
               <span class="visually-hidden">Выберите город</span>
               <ul class="dropdown__list">
                 <li class="dropdown__item" role="option" data-value="-">-</li>
@@ -877,12 +877,8 @@
 
             <label class="form__page-label form__page-label-dropdown" for="form-dropdown-button">Выберите город</label>
             <div class="form__page-dropdown dropdown">
-              <input class="form__page-dropdown-button dropdown__button" name="form-dropdown-button" type="select" id="form-dropdown-button" required >
+              <input class="form__page-dropdown-button form__page-input dropdown__button" name="form-dropdown-button" type="select" id="form-dropdown-button" required >
               <span class="visually-hidden">Выберите город</span>
-              <!-- <button class="form__page-dropdown-button dropdown__button" id="form-dropdown-button"
-                aria-haspopup="listbox" aria-expanded="false" type="button">
-                <span class="visually-hidden">Выберите город</span>
-              </button> -->
               <ul class="dropdown__list form__page-dropdown-list">
                 <li class="dropdown__item form__page-dropdown-item" role="option" data-value="-">-</li>
                 <li class="dropdown__item form__page-dropdown-item" role="option" data-value="moscow">Москва</li>
@@ -908,7 +904,6 @@
                 <li class="dropdown__item form__page-dropdown-item" role="option" data-value="volgograd">Волгоград</li>
               </ul>
             </div>
-            <!-- <input type="hidden" name="form-city" id="form-city-input" value="-"> -->
 
 
             <label class="form__page-checkbox popup__checkbox form__page-label-checkbox">

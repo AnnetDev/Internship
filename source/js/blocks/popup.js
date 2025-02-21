@@ -7,6 +7,7 @@ export function popupValidator() {
   const phoneField = form.querySelector('.popup__input-phone');
   // Кастомный инпут для выбора города
   const cityInput = form.querySelector('.popup__dropdown-button');
+  const checkbox = form.querySelector('.popup__checkbox-input');
 
   // Функции для установки/снятия ошибок
   const setError = (element, message) => {
@@ -46,6 +47,38 @@ export function popupValidator() {
       clearError(phoneField);
     } else {
       setError(phoneField, 'Введите корректный номер телефона в формате +7XXXXXXXXXX');
+    }
+  });
+
+  nameField.addEventListener('invalid', () => {
+    nameField.classList.add('popup__error');
+  });
+
+  phoneField.addEventListener('invalid', () => {
+    phoneField.classList.add('popup__error');
+  });
+
+  cityInput.addEventListener('invalid', () => {
+    cityInput.classList.add('popup__error');
+  });
+  cityInput.addEventListener('input', () => {
+    const cityInputValue = cityInput.value.trim();
+    if (cityInputValue) {
+      clearError(cityInput);
+    } else {
+      setError(cityInput, 'Необходимо ваше согласие');
+    }
+  });
+
+  checkbox.addEventListener('invalid', () => {
+    checkbox.classList.add('checkbox-input--error');
+  });
+  checkbox.addEventListener('input', () => {
+    const checkboxValue = checkbox.value.trim();
+    if (checkboxValue) {
+      clearError(checkbox);
+    } else {
+      setError(checkbox, 'Необходимо ваше согласие');
     }
   });
 

@@ -120,3 +120,8 @@
 .dropdown.open .dropdown__list {
   display: block;
 }
+
+.dropdown__button.popup__error {
+  background-color: #ffdfe0;
+  border: solid 1px #ff5d66;
+}

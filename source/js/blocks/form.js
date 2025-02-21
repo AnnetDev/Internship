@@ -7,6 +7,8 @@ export function formValidator() {
   const phone = document.querySelector('.form__page-input-phone');
   // Кастомный инпут для выбора города
   const cityInput = document.querySelector('.form__page-dropdown-button');
+  const text = document.querySelector('.form__page-input-textarea');
+  const checkbox = document.querySelector('.form__page-checkbox-input');
 
   // Функции для установки/снятия ошибок
   const setError = (element, message) => {
@@ -49,11 +51,45 @@ export function formValidator() {
     }
   });
 
-  // Валидация при отправке формы
+  name.addEventListener('invalid', () => {
+    name.classList.add('form__page-input--error');
+  });
+
+  phone.addEventListener('invalid', () => {
+    phone.classList.add('form__page-input--error');
+  });
+
+  cityInput.addEventListener('invalid', () => {
+    cityInput.classList.add('form__page-input--error');
+  });
+
+  text.addEventListener('invalid', () => {
+    text.classList.add('form__page-input--error');
+  });
+  text.addEventListener('input', () => {
+    const textValue = text.value.trim();
+    if (textValue) {
+      clearError(text);
+    } else {
+      setError(text, 'Сообщение не должно быть пустым');
+    }
+  });
+
+  checkbox.addEventListener('invalid', () => {
+    checkbox.classList.add('checkbox-input--error');
+  });
+  checkbox.addEventListener('input', () => {
+    const checkboxValue = checkbox.value.trim();
+    if (checkboxValue) {
+      clearError(checkbox);
+    } else {
+      setError(checkbox, 'Необходимо ваше согласие');
+    }
+  });
+
   form.addEventListener('submit', (event) => {
     let isValid = true;
 
-    // Проверка имени
     const nameValue = name.value.trim();
     if (!nameValue || nameValue.replace(/\s/g, '').length < 2) {
       name.classList.add('form__page-input--error');
@@ -62,7 +98,6 @@ export function formValidator() {
       name.classList.remove('form__page-input--error');
     }
 
-    // Проверка телефона
     const phoneValue = phone.value.trim();
     const digits = phoneValue.replace(/\D/g, '');
     if (!phoneValue.startsWith('+7') || digits.length !== 11) {
@@ -72,7 +107,6 @@ export function formValidator() {
       phone.classList.remove('form__page-input--error');
     }
 
-    // Проверка выбора города: если data-city-value не установлено – ошибка.
     if (!cityInput.dataset.cityValue) {
       cityInput.classList.add('form__page-input--error');
       setError(cityInput, 'Выберите город');
@@ -81,12 +115,10 @@ export function formValidator() {
       clearError(cityInput);
     }
 
-    // Если форма невалидна, предотвращаем отправку
     if (!isValid) {
       event.preventDefault();
     }
 
-    // Для синхронизации с браузерной валидацией (если есть поля, не прошедшие проверку)
     if (!form.checkValidity()) {
       event.preventDefault();
       const invalidFields = form.querySelectorAll(':invalid');
@@ -121,12 +153,8 @@ export const toggleFormDropdown = () => {
       }
     };
 
-    // Функция выбора элемента:
-    // При выборе записываем текст для отображения и сохраняем значение (data-value) в data-city-value.
-    // Если выбран элемент с data-value равным "-" – это валидный выбор, который означает, что список городов неполон.
     const selectItem = (item) => {
       const value = item.getAttribute('data-value');
-      // Если значение вообще отсутствует (например, null или пустая строка) – ошибка.
       if (!value) {
         input.value = '';
         input.dataset.cityValue = '';
@@ -185,7 +213,6 @@ export const toggleFormDropdown = () => {
       }
     });
 
-    // Обработка событий на элементах списка
     items.forEach((item, index) => {
       item.setAttribute('tabindex', '0');
       item.addEventListener('click', (event) => {
