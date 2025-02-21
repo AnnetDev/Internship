@@ -143,33 +143,9 @@
   display: flex;
   margin: 0;
   padding: 18px 20px 16px;
-
-  // align-items: center;
-  // border: solid 1px $primary-blue;
-  // border-radius: 30px;
-  // background-color: transparent;
-  // text-decoration: none;
-  // text-transform: uppercase;
-  // font-size: 12px;
-  // font-weight: 500;
-  // line-height: 12px;
-  // letter-spacing: 0.2px;
-  // text-align: center;
-  // color: $primary-blue;
-  // position: relative;
   width: 223px;
 
-  // cursor: pointer;
-
   &::after {
-    //   position: absolute;
-    //   content: "";
-    //   width: 34px;
-    //   height: 34px;
-    //   background-color: $primary-blue;
-    //   border-radius: 50%;
-    //   top: 50%;
-    //   transform: translateY(-50%);
     right: 4px;
 
     @media (min-width: $tablet-width) {
@@ -179,17 +155,8 @@
   }
 
   &::before {
-    //   position: absolute;
-    //   content: "";
-    //   width: 8px;
-    //   height: 8px;
-    //   mask: url("/__spritemap#sprite-arrow-view") no-repeat center; //кривая стрелочка
-    //   background-color: $primary-white;
-    //   top: 50%;
-    //   transform: translateY(-50%);
     right: 17px;
 
-    //   z-index: 2;
     @media (min-width: $tablet-width) {
       right: 23px;
     }
@@ -253,7 +220,7 @@
     content: "";
     width: 18px;
     height: 22px;
-    mask: url("/__spritemap#sprite-star-1-view") no-repeat center; //кривая стрелочка
+    mask: url("/__spritemap#sprite-star-1-view") no-repeat center;
     background-color: $primary-white;
     z-index: 2;
     top: -13px;

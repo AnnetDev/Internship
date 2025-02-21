@@ -24,7 +24,7 @@
   text-align: left;
   color: $primary-blue;
   width: 320px;
-  padding: 0 15px; //?
+  padding: 0 15px;
 
   @media (min-width: $tablet-width) {
     font-size: 34px;
@@ -44,8 +44,6 @@
 
 .swiper.reviews__swiper {
   width: 290px;
-
-  // padding: 0 0 0 15px;
   margin-bottom: 30px;
   height: auto;
 
@@ -105,8 +103,6 @@
 .reviews__author-wrapper {
   display: flex;
   flex-flow: column wrap;
-
-  // gap: 15px;
   margin: 0 0 25px;
 
   @media (min-width: $tablet-width) {
@@ -189,8 +185,6 @@
   @media (min-width: $tablet-width) {
     gap: 27px;
     min-height: 90px;
-
-    // align-items: center;
     padding: 17px 0 0;
   }
 
@@ -282,8 +276,6 @@
 
 .reviews__swiper-buttons {
   width: 54px;
-
-  // height: 24px;
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-end;
@@ -338,7 +330,7 @@
 .reviews__swiper-button.swiper-button-next::after {
   position: absolute;
   content: "";
-  mask: url("/__spritemap#sprite-swiper-button-view") no-repeat center; //кривая стрелочка
+  mask: url("/__spritemap#sprite-swiper-button-view") no-repeat center;
   background-color: $primary-blue;
   width: 8px;
   height: 8px;
@@ -359,7 +351,7 @@
 .reviews__swiper-button.swiper-button-prev::after {
   position: absolute;
   content: "";
-  mask: url("/__spritemap#sprite-swiper-button-view") no-repeat center; //кривая стрелочка
+  mask: url("/__spritemap#sprite-swiper-button-view") no-repeat center;
   background-color: $primary-blue;
   width: 8px;
   height: 8px;

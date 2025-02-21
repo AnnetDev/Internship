@@ -252,34 +252,28 @@
 .popup__fieldset:has(.popup__input-name:hover) .popup__label-name,
 .popup__fieldset:has(.popup__input-phone:hover) .popup__label-phone,
 .popup__fieldset:has(.popup__input-textarea:hover) .popup__label-text,
-.popup__fieldset:has(.popup__dropdown-button:hover.dropdown__button)
-  .popup__label-dropdown,
+.popup__fieldset:has(.popup__dropdown-button:hover.dropdown__button) .popup__label-dropdown,
 .popup__fieldset:has(.popup__input-name:active) .popup__label-name,
 .popup__fieldset:has(.popup__input-phone:active) .popup__label-phone,
 .popup__fieldset:has(.popup__input-textarea:active) .popup__label-text,
-.popup__fieldset:has(.popup__dropdown-button:active.dropdown__button)
-  .popup__label-dropdown,
+.popup__fieldset:has(.popup__dropdown-button:active.dropdown__button) .popup__label-dropdown,
 .popup__fieldset:has(.popup__input-name:focus) .popup__label-name,
 .popup__fieldset:has(.popup__input-phone:focus) .popup__label-phone,
 .popup__fieldset:has(.popup__input-textarea:focus) .popup__label-text,
-.popup__fieldset:has(.popup__dropdown-button:focus.dropdown__button)
-  .popup__label-dropdown,
+.popup__fieldset:has(.popup__dropdown-button:focus.dropdown__button) .popup__label-dropdown,
 .popup__fieldset:has(.popup__input-name:focus-visible) .popup__label-name,
 .popup__fieldset:has(.popup__input-phone:focus-visible) .popup__label-phone,
-.popup__fieldset:has(.popup__dropdown-button:focus-visible.dropdown__button)
-  .popup__label-dropdown,
+.popup__fieldset:has(.popup__dropdown-button:focus-visible.dropdown__button) .popup__label-dropdown,
 .popup__fieldset:has(.popup__input-name:focus-within) .popup__label-name,
 .popup__fieldset:has(.popup__input-phone:focus-within) .popup__label-phone,
-.popup__fieldset:has(.popup__dropdown-button:focus-within.dropdown__button)
-  .popup__label-dropdown {
+.popup__fieldset:has(.popup__dropdown-button:focus-within.dropdown__button) .popup__label-dropdown {
   color: #484848;
   outline: none;
 }
 
 .popup__fieldset:has(.popup__input-name:disabled) .form__page-label-name,
 .popup__fieldset:has(.popup__input-phone:disabled) .form__page-label-phone,
-.popup__fieldset:has(.popup__dropdown-button:disabled.dropdown__button)
-  .form__page-label-dropdown {
+.popup__fieldset:has(.popup__dropdown-button:disabled.dropdown__button) .form__page-label-dropdown {
   color: #cccfd4;
 }
 
@@ -410,8 +404,9 @@
   }
 }
 
-.popup__checkbox-input.checkbox-input--error + .popup__checkbox-mark  {
+.popup__checkbox-input.checkbox-input--error + .popup__checkbox-mark {
   background-color: #ffdfe0;
   border: solid 1px #ff5d66;
 }
+
 // .popup__checkbox-input:checked:hover + .popup__checkbox-mark,

@@ -21,22 +21,24 @@
   display: flex;
   flex-flow: column wrap;
   padding: 43px 10px 40px;
-  background-image: image-set(
-    url("../../img/form/form-mobile@1x.webp") 1x,
-    url("../../img/form/form-mobile@2x.webp") 2x,
-    url("../../img/form/form-mobile@1x.jpg") 1x,
-    url("../../img/form/form-mobile@2x.jpg") 2x
-  );
+  background-image:
+    image-set(
+      url("../../img/form/form-mobile@1x.webp") 1x,
+      url("../../img/form/form-mobile@2x.webp") 2x,
+      url("../../img/form/form-mobile@1x.jpg") 1x,
+      url("../../img/form/form-mobile@2x.jpg") 2x
+    );
   min-height: 753px;
 
   @media (width >= 321px) {
     width: 100%;
-    background-image: image-set(
-      url("../../img/form/form-tablet@1x.webp") 1x,
-      url("../../img/form/form-tablet@2x.webp") 2x,
-      url("../../img/form/form-tablet@1x.jpg") 1x,
-      url("../../img/form/form-tablet@2x.jpg") 2x
-    );
+    background-image:
+      image-set(
+        url("../../img/form/form-tablet@1x.webp") 1x,
+        url("../../img/form/form-tablet@2x.webp") 2x,
+        url("../../img/form/form-tablet@1x.jpg") 1x,
+        url("../../img/form/form-tablet@2x.jpg") 2x
+      );
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -53,19 +55,17 @@
       position: absolute;
       content: "";
       border-radius: 16px;
-      background-image: image-set(
-        url("../../img/form/form-tablet@1x.webp") 1x,
-        url("../../img/form/form-tablet@2x.webp") 2x,
-        url("../../img/form/form-tablet@1x.jpg") 1x,
-        url("../../img/form/form-tablet@2x.jpg") 2x
-      );
+      background-image:
+        image-set(
+          url("../../img/form/form-tablet@1x.webp") 1x,
+          url("../../img/form/form-tablet@2x.webp") 2x,
+          url("../../img/form/form-tablet@1x.jpg") 1x,
+          url("../../img/form/form-tablet@2x.jpg") 2x
+        );
       background-size: contain;
       background-repeat: no-repeat;
       height: 780px;
       width: 652px;
-
-      // border-radius: 16px;
-      // border: solid 5px red;
     }
   }
 
@@ -77,12 +77,13 @@
       position: absolute;
       content: "";
       border-radius: 16px;
-      background-image: image-set(
-        url("../../img/form/form-desktop@1x.webp") 1x,
-        url("../../img/form/form-desktop@2x.webp") 2x,
-        url("../../img/form/form-desktop@1x.jpg") 1x,
-        url("../../img/form/form-desktop@2x.jpg") 2x
-      );
+      background-image:
+        image-set(
+          url("../../img/form/form-desktop@1x.webp") 1x,
+          url("../../img/form/form-desktop@2x.webp") 2x,
+          url("../../img/form/form-desktop@1x.jpg") 1x,
+          url("../../img/form/form-desktop@2x.jpg") 2x
+        );
       width: 1240px;
       height: 800px;
     }
@@ -152,7 +153,6 @@
   color: #f0efe9;
 
   @media (min-width: $tablet-width) {
-    // width: 350px;
     margin: 0 0 40px;
     font-size: 16px;
     line-height: 20px;
@@ -205,6 +205,7 @@
   width: 270px;
   height: 50px;
   transition: all 0.3s ease;
+
   @media (min-width: $tablet-width) {
     height: 50px;
     width: 362px;
@@ -234,55 +235,36 @@
 
 .form__page-fieldset:has(.form__page-input-name:hover) .form__page-label-name,
 .form__page-fieldset:has(.form__page-input-phone:hover) .form__page-label-phone,
-.form__page-fieldset:has(.form__page-input-textarea:hover)
-  .form__page-label-text,
-.form__page-fieldset:has(.form__page-dropdown-button:hover.dropdown__button)
-  .form__page-label-dropdown,
+.form__page-fieldset:has(.form__page-input-textarea:hover) .form__page-label-text,
+.form__page-fieldset:has(.form__page-dropdown-button:hover.dropdown__button) .form__page-label-dropdown,
 .form__page-fieldset:has(.form__page-input-name:active) .form__page-label-name,
-.form__page-fieldset:has(.form__page-input-phone:active)
-  .form__page-label-phone,
-.form__page-fieldset:has(.form__page-input-textarea:active)
-  .form__page-label-text,
-.form__page-fieldset:has(.form__page-dropdown-button:active.dropdown__button)
-  .form__page-label-dropdown,
+.form__page-fieldset:has(.form__page-input-phone:active) .form__page-label-phone,
+.form__page-fieldset:has(.form__page-input-textarea:active) .form__page-label-text,
+.form__page-fieldset:has(.form__page-dropdown-button:active.dropdown__button) .form__page-label-dropdown,
 .form__page-fieldset:has(.form__page-input-name:focus) .form__page-label-name,
 .form__page-fieldset:has(.form__page-input-phone:focus) .form__page-label-phone,
-.form__page-fieldset:has(.form__page-input-textarea:focus)
-  .form__page-label-text,
-.form__page-fieldset:has(.form__page-dropdown-button:focus.dropdown__button)
-  .form__page-label-dropdown,
-.form__page-fieldset:has(.form__page-input-name:focus-visible)
-  .form__page-label-name,
-.form__page-fieldset:has(.form__page-input-phone:focus-visible)
-  .form__page-label-phone,
-.form__page-fieldset:has(.form__page-input-textarea:focus-visible)
-  .form__page-label-text,
+.form__page-fieldset:has(.form__page-input-textarea:focus) .form__page-label-text,
+.form__page-fieldset:has(.form__page-dropdown-button:focus.dropdown__button) .form__page-label-dropdown,
+.form__page-fieldset:has(.form__page-input-name:focus-visible) .form__page-label-name,
+.form__page-fieldset:has(.form__page-input-phone:focus-visible) .form__page-label-phone,
+.form__page-fieldset:has(.form__page-input-textarea:focus-visible) .form__page-label-text,
 .form__page-fieldset:has(
-    .form__page-dropdown-button:focus-visible.dropdown__button
-  )
-  .form__page-label-dropdown,
-.form__page-fieldset:has(.form__page-input-name:focus-within)
-  .form__page-label-name,
-.form__page-fieldset:has(.form__page-input-phone:focus-within)
-  .form__page-label-phone,
-.form__page-fieldset:has(.form__page-input-textarea:focus-within)
-  .form__page-label-text,
+  .form__page-dropdown-button:focus-visible.dropdown__button
+) .form__page-label-dropdown,
+.form__page-fieldset:has(.form__page-input-name:focus-within) .form__page-label-name,
+.form__page-fieldset:has(.form__page-input-phone:focus-within) .form__page-label-phone,
+.form__page-fieldset:has(.form__page-input-textarea:focus-within) .form__page-label-text,
 .form__page-fieldset:has(
-    .form__page-dropdown-button:focus-within.dropdown__button
-  )
-  .form__page-label-dropdown {
+  .form__page-dropdown-button:focus-within.dropdown__button
+) .form__page-label-dropdown {
   color: #f0efe9;
   outline: none;
 }
 
-.form__page-fieldset:has(.form__page-input-name:disabled)
-  .form__page-label-name,
-.form__page-fieldset:has(.form__page-input-phone:disabled)
-  .form__page-label-phone,
-.form__page-fieldset:has(.form__page-input-textarea:disabled)
-  .form__page-label-text,
-.form__page-fieldset:has(.form__page-dropdown-button:disabled.dropdown__button)
-  .form__page-label-dropdown {
+.form__page-fieldset:has(.form__page-input-name:disabled) .form__page-label-name,
+.form__page-fieldset:has(.form__page-input-phone:disabled) .form__page-label-phone,
+.form__page-fieldset:has(.form__page-input-textarea:disabled) .form__page-label-text,
+.form__page-fieldset:has(.form__page-dropdown-button:disabled.dropdown__button) .form__page-label-dropdown {
   color: #a4bbd9;
 }
 
@@ -309,6 +291,7 @@
     background-color: transparent;
     border: solid 1px $primary-white;
   }
+
   &:focus,
   &:focus-visible,
   &:focus-within {
@@ -354,7 +337,6 @@
 
 .form__page-dropdown-button.open.dropdown__button {
   border: solid 1px $primary-white;
-
 }
 
 .form__page-label.form__page-label-dropdown.open {
@@ -377,7 +359,7 @@
 .form__page-input-textarea {
   height: 94px;
   min-height: 94px;
-  resize: none; //add scroll?
+  resize: none; // add scroll?
 
   @media (min-width: $tablet-width) {
     height: 88px;
@@ -431,58 +413,44 @@
   background-color: $primary-blue;
 }
 
-.form__page-checkbox-input:checked:hover
-  + .form__page-checkbox-mark,
-.form__page-checkbox-input:checked:focus
-  + .form__page-checkbox-mark,
-.form__page-checkbox-input:checked:focus-visible
-  + .form__page-checkbox-mark,
-.form__page-checkbox-input:checked:focus-within
-  + .form__page-checkbox-mark,
-.form__page-checkbox-input:hover
-  + .form__page-checkbox-mark,
-.form__page-checkbox-input:focus
-  + .form__page-checkbox-mark,
-.form__page-checkbox-input:focus-visible
-  + .form__page-checkbox-mark,
-.form__page-checkbox-input:focus-within
-  + .form__page-checkbox-mark {
+.form__page-checkbox-input:checked:hover + .form__page-checkbox-mark,
+.form__page-checkbox-input:checked:focus + .form__page-checkbox-mark,
+.form__page-checkbox-input:checked:focus-visible + .form__page-checkbox-mark,
+.form__page-checkbox-input:checked:focus-within + .form__page-checkbox-mark,
+.form__page-checkbox-input:hover + .form__page-checkbox-mark,
+.form__page-checkbox-input:focus + .form__page-checkbox-mark,
+.form__page-checkbox-input:focus-visible + .form__page-checkbox-mark,
+.form__page-checkbox-input:focus-within + .form__page-checkbox-mark {
   background-color: transparent;
   border: solid 1px $primary-white;
 }
 
 .form__page-checkbox-input:checked:focus + .form__page-checkbox-mark::before,
-.form__page-checkbox-input:checked:focus-visible
-  + .form__page-checkbox-mark::before,
-.form__page-checkbox-input:checked:focus-within
-  + .form__page-checkbox-mark::before {
+.form__page-checkbox-input:checked:focus-visible + .form__page-checkbox-mark::before,
+.form__page-checkbox-input:checked:focus-within + .form__page-checkbox-mark::before {
   background-color: $primary-white;
 }
 
-.form__page-checkbox-input:disabled
-  + .form__page-checkbox-mark {
+.form__page-checkbox-input:disabled + .form__page-checkbox-mark {
   background-color: #adc5e7;
   border: solid 1px $primary-white;
   pointer-events: none;
 }
 
-.form__page-checkbox-input:checked:disabled
-  + .form__page-checkbox-mark {
+.form__page-checkbox-input:checked:disabled + .form__page-checkbox-mark {
   background-color: #a9afb7;
   border: solid 1px #a9afb7;
   pointer-events: none;
 }
 
-.form__page-checkbox-input:checked:disabled
-  + .form__page-checkbox-mark::before {
+.form__page-checkbox-input:checked:disabled + .form__page-checkbox-mark::before {
   background-color: #e5e7e9;
   pointer-events: none;
 }
 
-.form__page-checkbox-input.checkbox-input--error + .form__page-checkbox-mark  {
+.form__page-checkbox-input.checkbox-input--error + .form__page-checkbox-mark {
   background-color: #4e6bb5;
   border: solid 1px #c16282;
-
 }
 
 .form__page-checkbox-text--mobile.form__page-checkbox-text {
@@ -508,8 +476,6 @@
   line-height: 14px;
   opacity: 90%;
 
-  // min-height: 40px;
-
   @media (min-width: $tablet-width) {
     width: 304px;
     line-height: 12px;
@@ -517,17 +483,13 @@
     display: flex;
     align-items: center;
   }
-
-  // @media (min-width: $desktop-width) {
-  //   width: 312px;
-  // }
 }
 
 .form__page-button {
   border: solid 1px $primary-white;
   color: $primary-white;
   justify-content: center;
-  padding: 17px 58px 16px 21px; //fix
+  padding: 17px 58px 16px 21px;
 
   width: 260px;
 
@@ -538,7 +500,7 @@
     line-height: 14px;
     letter-spacing: 0.28px;
     text-align: center;
-    padding: 17px 70px 16px 21px; //fix
+    padding: 17px 70px 16px 21px;
   }
 
   @media (min-width: $desktop-width) {
@@ -620,7 +582,6 @@
 }
 
 .form__page-input.form__page-input--error {
-  background-color: unset;
   background-color: #5a6ab0;
   border: solid 1px #ff5d66;
 

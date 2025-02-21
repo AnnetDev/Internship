@@ -1,6 +1,7 @@
 .dropdown {
   position: relative;
   display: inline-block;
+
   &::after {
     position: absolute;
     content: "";
@@ -39,7 +40,6 @@
   @media (min-width: $tablet-width) {
     width: 350px;
   }
-
 }
 
 .dropdown__button.open {
@@ -74,17 +74,6 @@
   z-index: 2;
   transition: all 0.3s ease;
   animation: fadeOut 0.2s ease-out forwards;
-
-  @keyframes fadeOut {
-    //можно ли применять?
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
 }
 
 .dropdown__item {
@@ -112,10 +101,6 @@
     color: $primary-white;
   }
 }
-
-// .dropdown__item:hover {
-//   background: #f0f0f0;
-// }
 
 .dropdown.open .dropdown__list {
   display: block;

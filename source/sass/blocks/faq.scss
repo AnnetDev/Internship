@@ -101,6 +101,12 @@
   @media (min-width: $tablet-width) {
     align-items: flex-start;
   }
+
+  &:focus,
+  &:focus-visible,
+  &:focus-within {
+    outline: none;
+  }
 }
 
 .faq__title {
@@ -307,13 +313,5 @@
 
   &::before {
     opacity: 0;
-  }
-}
-
-.faq__header {
-  &:focus,
-  &:focus-visible,
-  &:focus-within {
-    outline: none;
   }
 }
