@@ -78,9 +78,9 @@ export function formValidator() {
   checkbox.addEventListener('invalid', () => {
     checkbox.classList.add('checkbox-input--error');
   });
+
   checkbox.addEventListener('input', () => {
-    const checkboxValue = checkbox.value.trim();
-    if (checkboxValue) {
+    if (checkbox.checked) {
       clearError(checkbox);
     } else {
       setError(checkbox, 'Необходимо ваше согласие');
