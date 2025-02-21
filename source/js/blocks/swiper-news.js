@@ -136,9 +136,13 @@ export function initializeNewsSwiper() {
   const newsSwiper = new Swiper('.news__swiper', {
     modules: [Navigation, Pagination, Grid],
     direction: 'horizontal',
+    // Указываем тип custom, чтобы Swiper не создавал свои кнопки
     pagination: {
       el: '.news__swiper-pagination.swiper-pagination',
       clickable: true,
+      type: 'custom',
+      // Функция renderCustom может возвращать пустую строку, т.к. мы обновляем пагинацию вручную
+      renderCustom: () => ''
     },
     navigation: {
       nextEl: '.news__swiper-button.swiper-button-next',
