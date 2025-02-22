@@ -207,7 +207,6 @@
   text-transform: uppercase;
 }
 
-// s
 .reviews__program-name,
 .reviews__date {
   display: inline-block;
@@ -269,8 +268,6 @@
   @media (min-width: $tablet-width) {
     font-size: 16px;
     line-height: 20px;
-
-    // max-height: 120px;
   }
 
   @media (min-width: $desktop-width) {

@@ -359,7 +359,7 @@
 .form__page-input-textarea {
   height: 94px;
   min-height: 94px;
-  resize: none; // add scroll?
+  resize: none;
 
   @media (min-width: $tablet-width) {
     height: 88px;

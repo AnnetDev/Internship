@@ -57,8 +57,6 @@
   gap: 9px;
   width: 305px;
   overflow-x: auto;
-
-  // scrollbar-width: thin;
   -webkit-overflow-scrolling: touch;
   margin: 0 0 24px;
 
@@ -346,7 +344,7 @@
         url("../../img/news/volunteer-bg@1x.png") 1x,
         url("../../img/news/volunteer-bg@2x.png") 2x
       );
-  } // delete jpg?
+  }
 
   &--career {
     background-image:

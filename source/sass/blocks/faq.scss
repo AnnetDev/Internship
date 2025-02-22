@@ -69,12 +69,9 @@
   padding: 20px 15px;
   border: solid 2px $primary-blue;
   border-radius: 14px;
-
-  // gap: 20px;
   background-color: transparent;
   transition: all 0.3s ease;
-
-  overflow: hidden; // Prevents content from overflowing during the transition
+  overflow: hidden;
 
   @media (min-width: $tablet-width) {
     padding: 30px;
@@ -147,15 +144,14 @@
 }
 
 .faq__list-item p {
-  // display: none;
-  max-height: 0; // Initially hidden
+  max-height: 0;
   margin: 0;
   padding: 0;
   font-size: 14px;
   line-height: 20px;
   text-align: left;
-  overflow: hidden; // Prevents content overflow during transition
-  transition: max-height 0.3s ease, padding 0.3s ease; // Smooth transition for opening and closing
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
 
   @media (min-width: $tablet-width) {
     font-size: 16px;
@@ -168,22 +164,7 @@
 }
 
 .faq__list-item--active p {
-  // display: block;
-  // margin: 0;
-  // padding: 0;
-  // font-size: 14px;
-  // line-height: 20px;
-  // text-align: left;
-
-  // @media (min-width: $tablet-width) {
-  //   font-size: 16px;
-  //   line-height: 20px;
-  // }
-
-  // @media (min-width: $desktop-width) {
-  //   line-height: 26px;
-  // }
-  max-height: fit-content; // Max height when active, adjust as needed
+  max-height: fit-content;
   padding: 20px 0 0;
   color: #f0efe9;
 }
