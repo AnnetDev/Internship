@@ -142,7 +142,7 @@
 .about__link {
   display: flex;
   margin: 0;
-  padding: 18px 20px 16px;
+  padding: 18px 50px 16px 20px;
   width: 223px;
 
   &::after {
@@ -163,7 +163,7 @@
   }
 
   @media (min-width: $tablet-width) {
-    padding: 21px 31px;
+    padding: 21px 50px 21px 31px;
     height: 56px;
     width: 279px;
     font-size: 14px;

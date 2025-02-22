@@ -262,10 +262,15 @@
   line-height: 20px;
   text-align: left;
   color: #484848;
+  max-height: 200px;
+  overflow-y: auto;
+
 
   @media (min-width: $tablet-width) {
     font-size: 16px;
     line-height: 20px;
+    // max-height: 120px;
+
   }
 
   @media (min-width: $desktop-width) {

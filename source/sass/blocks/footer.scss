@@ -61,10 +61,6 @@
   }
 }
 
-// .footer__nav {
-//   //
-// }
-
 .footer__nav-list {
   list-style: none;
   display: flex;
@@ -76,12 +72,13 @@
 
   @media (min-width: $tablet-width) {
     width: 528px;
-    gap: 0;
+    gap: unset;
     justify-content: space-between;
   }
 
   @media (min-width: $desktop-width) {
     width: unset;
+    justify-content: flex-start;
     gap: 20px 30px;
   }
 }

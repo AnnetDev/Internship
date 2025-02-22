@@ -62,7 +62,7 @@
 
   @media (min-width: $tablet-width) {
     flex-flow: row wrap;
-    gap: unset;
+    gap: 20px 0;
     justify-content: space-between;
   }
 

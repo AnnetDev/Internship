@@ -287,7 +287,7 @@
 
 .programs__link {
   width: 205px;
-  padding: 18px 21px 16px 30px;
+  padding: 18px 50px 16px 30px;
 
   &::before {
     right: 16px;
@@ -300,7 +300,7 @@
   @media (min-width: $tablet-width) {
     width: 234px;
     height: 56px;
-    padding: 16px 21px 16px 30px;
+    padding: 16px 50px 16px 30px;
     font-size: 14px;
     line-height: 14px;
     letter-spacing: 0.28px;
