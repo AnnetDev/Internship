@@ -12,6 +12,7 @@ export const toggleMenu = () => {
     const sublistNews = menuLinkNews.nextElementSibling;
     const body = document.querySelector('.page-body');
     const logo = header.querySelector('.hero__header-logo');
+    const menuLinks = navigation.querySelectorAll('a');
 
     function updateMenuTabIndices() {
       const isMenuOpen = navigation.classList.contains('hero__header-nav--opened');
@@ -52,6 +53,17 @@ export const toggleMenu = () => {
       updateMenuTabIndices();
     };
 
+    const closeMenu = () => {
+      navigation.classList.remove('hero__header-nav--opened');
+      menuToggle.classList.remove('hero__header-toggle--opened');
+      toggleIcon.classList.remove('hero__header-toggle-icon--opened');
+      menu.classList.remove('hero__menu-wrapper--opened');
+      heading.classList.remove('hero__header-heading--opened');
+      body.classList.remove('overlay-active');
+      logo.classList.remove('hero__header-logo--opened');
+      updateMenuTabIndices();
+    };
+
     menu.addEventListener('click', (event) => {
       event.stopPropagation();
       toggleMenuState();
@@ -64,14 +76,7 @@ export const toggleMenu = () => {
 
     document.addEventListener('click', (event) => {
       if (!header.contains(event.target)) {
-        navigation.classList.remove('hero__header-nav--opened');
-        menuToggle.classList.remove('hero__header-toggle--opened');
-        toggleIcon.classList.remove('hero__header-toggle-icon--opened');
-        menu.classList.remove('hero__menu-wrapper--opened');
-        heading.classList.remove('hero__header-heading--opened');
-        body.classList.remove('overlay-active');
-        logo.classList.remove('hero__header-logo--opened');
-        updateMenuTabIndices();
+        closeMenu();
       }
     });
 
@@ -87,6 +92,17 @@ export const toggleMenu = () => {
       sublistNews.classList.toggle('hero__header-sublist--opened');
       menuLinkNews.classList.toggle('hero__header-link-news--opened');
       updateMenuTabIndices();
+    });
+
+    menuLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        closeMenu();
+      });
+      link.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+          closeMenu();
+        }
+      });
     });
   });
 };
