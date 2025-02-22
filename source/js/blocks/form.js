@@ -170,6 +170,13 @@ export const toggleFormDropdown = () => {
       toggleDropdown(!isOpen);
     });
 
+    const cityInput = document.querySelector('.form__page-dropdown-button');
+
+    cityInput.addEventListener('keydown', (event) => {
+      event.preventDefault();
+    });
+
+
     input.addEventListener('keydown', (event) => {
       const isOpen = dropdown.classList.contains('open');
       switch (event.key) {

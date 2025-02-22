@@ -91,12 +91,6 @@ export function popupValidator() {
 
     const nameValue = nameField.value.trim();
     const phoneValue = phoneField.value.trim();
-    if (!cityInput.dataset.cityValue) {
-      setError(cityInput, 'Выберите город');
-      isValid = false;
-    } else {
-      clearError(cityInput);
-    }
 
     if (!cityInput.dataset.cityValue) {
       cityInput.classList.add('popup__error');
@@ -160,6 +154,12 @@ export const togglePopup = () => {
       }
     });
 
+    const cityInput = document.querySelector('.popup__dropdown-button');
+
+    cityInput.addEventListener('keydown', (event) => {
+      event.preventDefault();
+    });
+
     document.addEventListener('click', (event) => {
       if (!popup.contains(event.target)) {
         popup.classList.remove('popup--opened');
@@ -218,9 +218,8 @@ export const toggleDropdown = () => {
         event.stopPropagation();
         const value = item.getAttribute('data-value');
 
-        if (!value || value === '-') {
+        if (!value) {
           button.value = '';
-          button.placeholder = 'Выберите город';
           button.dataset.cityValue = '';
           setError(button, 'Выберите город');
         } else {

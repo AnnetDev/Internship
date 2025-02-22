@@ -469,7 +469,6 @@
 }
 
 .form__page-checkbox-text {
-  display: none;
   margin: 0;
   padding: 0;
   font-size: 12px;
@@ -482,6 +481,12 @@
     min-height: 20px;
     display: flex;
     align-items: center;
+  }
+}
+
+.form__page-checkbox-text br{
+  @media (min-width: $tablet-width) {
+    display: none;
   }
 }
 
