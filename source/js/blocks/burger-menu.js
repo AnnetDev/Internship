@@ -16,29 +16,30 @@ export const toggleMenu = () => {
 
     function updateMenuTabIndices() {
       const isMenuOpen = navigation.classList.contains('hero__header-nav--opened');
+      const focusableElements = navigation.querySelectorAll('a, button');
 
-      const mainLinks = navigation.querySelectorAll('a');
-      mainLinks.forEach((link) => {
+      focusableElements.forEach((element) => {
         if (!isMenuOpen) {
-          link.setAttribute('tabindex', '-1');
+          element.setAttribute('tabindex', '-1');
         } else {
-          link.removeAttribute('tabindex');
+          element.removeAttribute('tabindex');
         }
       });
 
       const submenus = navigation.querySelectorAll('.hero__header-sublist');
       submenus.forEach((submenu) => {
         const isSubmenuOpen = submenu.classList.contains('hero__header-sublist--opened');
-        const subLinks = submenu.querySelectorAll('a');
-        subLinks.forEach((link) => {
+        const subFocusable = submenu.querySelectorAll('a, button');
+        subFocusable.forEach((element) => {
           if (!isSubmenuOpen) {
-            link.setAttribute('tabindex', '-1');
+            element.setAttribute('tabindex', '-1');
           } else {
-            link.removeAttribute('tabindex');
+            element.removeAttribute('tabindex');
           }
         });
       });
     }
+
 
     updateMenuTabIndices();
 
