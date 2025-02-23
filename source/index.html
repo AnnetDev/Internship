@@ -4,9 +4,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preload" href="./fonts/Manrope-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="./fonts/Manrope-ExtraBold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="./fonts/Manrope-ExtraLight.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="./fonts/Manrope-Light.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="./fonts/Manrope-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="./fonts/Manrope-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="./fonts/Manrope-SemiBold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
   <title>Internship</title>
+  <meta name="description"
+    content="Проект «Стажировка» — совместный проект правительств и волонтёрских бригад, направленный на повышение квалификации молодых специалистов на ранних и средних стадиях карьеры">
   <link rel="icon" href="favicon.ico">
-  <!-- <link rel="icon" type="image/png" href="images/favicon.png"> -->
+  <link rel="icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
   <link rel="stylesheet" href="sass/style.scss">
 </head>
 
@@ -282,7 +292,8 @@
 
             <label class="popup__label popup__label-dropdown" for="dropdown-button">Выберите город</label>
             <div class="popup__dropdown dropdown">
-              <input class="popup__dropdown-button popup__input dropdown__button" name="dropdown-button" type="text" id="dropdown-button" required >
+              <input class="popup__dropdown-button popup__input dropdown__button" name="dropdown-button" type="text"
+                id="dropdown-button" required>
               <span class="visually-hidden">Выберите город</span>
               <ul class="dropdown__list">
                 <li class="dropdown__item" data-value="-">-</li>
@@ -304,7 +315,8 @@
             </div>
 
             <label class="popup__checkbox">
-              <input class="popup__checkbox-input visually-hidden-but-accessible" type="checkbox" required name="popup-checkbox">
+              <input class="popup__checkbox-input visually-hidden-but-accessible" type="checkbox" required
+                name="popup-checkbox" id="popup-checkbox">
               <span class="popup__checkbox-mark"></span>
               <span class="popup__label-text">Я согласен на обработку моих персональных данных</span>
             </label>
@@ -424,7 +436,8 @@
                 srcset="img/programs/programs-3-tablet@1x.jpg 1x, img/programs/programs-3-tablet@2x.jpg 2x" width="324"
                 height="420">
               <img class="programs__swiper-image" src="img/programs/programs-3-mobile@1x.jpg"
-                srcset="img/programs/programs-3-mobile@2x.jpg 2x" width="290" height="400" alt="Горы Кавказа">
+                srcset="img/programs/programs-3-mobile@2x.jpg 2x" width="290" height="400"
+                alt="Студенты на стажировке за рубежом">
             </picture>
             <div class="programs__swiper-innner-container">
               <div class="programs__title-wrapper">
@@ -877,7 +890,8 @@
 
             <label class="form__page-label form__page-label-dropdown" for="form-dropdown-button">Выберите город</label>
             <div class="form__page-dropdown dropdown">
-              <input class="form__page-dropdown-button form__page-input dropdown__button" name="form-dropdown-button" type="text" id="form-dropdown-button" required >
+              <input class="form__page-dropdown-button form__page-input dropdown__button" name="form-dropdown-button"
+                type="text" id="form-dropdown-button" required>
               <span class="visually-hidden">Выберите город</span>
               <ul class="dropdown__list form__page-dropdown-list">
                 <li class="dropdown__item form__page-dropdown-item" data-value="-">-</li>
@@ -907,8 +921,8 @@
 
 
             <label class="form__page-checkbox form__page-label-checkbox">
-              <input class="form__page-checkbox-input  visually-hidden-but-accessible"
-                type="checkbox" required name="form__page-checkbox">
+              <input class="form__page-checkbox-input  visually-hidden-but-accessible" type="checkbox" required
+                name="form__page-checkbox" id="form-page-checkbox">
               <span class="form__page-checkbox-mark"></span>
               <span class="form__page-checkbox-text">Я согласен на обработку моих персональных<br>
                 данных</span>
@@ -925,6 +939,7 @@
         <h2 class="visually-hidden">Подвал сайта</h2>
 
         <div class="footer__navigation-wrapper">
+          <span class="visually-hidden">Логотип сайта</span>
           <svg class="footer__logo-icon" width="30" height="30">
             <use href="/__spritemap#sprite-logo"></use>
           </svg>

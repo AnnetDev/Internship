@@ -85,6 +85,14 @@ export function formValidator() {
     }
   });
 
+  checkbox.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      checkbox.click();
+    }
+  });
+
+
   form.addEventListener('submit', (event) => {
     let isValid = true;
 
@@ -141,6 +149,8 @@ export const toggleFormDropdown = () => {
         input.classList.add('open');
         label.classList.add('open');
         input.setAttribute('aria-expanded', 'true');
+        items[0].focus();
+        focusedIndex = 0;
       } else {
         dropdown.classList.remove('open');
         input.classList.remove('open');
@@ -162,6 +172,7 @@ export const toggleFormDropdown = () => {
         input.classList.remove('form__page-input--error');
       }
       toggleDropdown(false);
+      input.focus();
     };
 
     input.addEventListener('click', (event) => {
@@ -170,52 +181,28 @@ export const toggleFormDropdown = () => {
       toggleDropdown(!isOpen);
     });
 
-    const cityInput = document.querySelector('.form__page-dropdown-button');
-
-    cityInput.addEventListener('keydown', (event) => {
-      event.preventDefault();
-    });
-
-
     input.addEventListener('keydown', (event) => {
-      const isOpen = dropdown.classList.contains('open');
       switch (event.key) {
         case 'Enter':
-          if (!isOpen) {
-            toggleDropdown(true);
-          } else if (focusedIndex >= 0 && focusedIndex < items.length) {
-            selectItem(items[focusedIndex]);
-          }
           event.preventDefault();
+          toggleDropdown(!dropdown.classList.contains('open'));
           break;
-        case 'ArrowDown':
-          if (!isOpen) {
-            toggleDropdown(true);
-          } else {
+        case 'Tab':
+          if (dropdown.classList.contains('open')) {
+            event.preventDefault();
             focusedIndex = (focusedIndex + 1) % items.length;
             items[focusedIndex].focus();
           }
-          event.preventDefault();
-          break;
-        case 'ArrowUp':
-          if (isOpen) {
-            focusedIndex = (focusedIndex - 1 + items.length) % items.length;
-            items[focusedIndex].focus();
-          }
-          event.preventDefault();
           break;
         case 'Escape':
-          if (isOpen) {
+          if (dropdown.classList.contains('open')) {
             toggleDropdown(false);
-            event.preventDefault();
           }
-          break;
-        default:
           break;
       }
     });
 
-    items.forEach((item, index) => {
+    items.forEach((item) => {
       item.setAttribute('tabindex', '0');
       item.addEventListener('click', (event) => {
         event.stopPropagation();
@@ -223,12 +210,17 @@ export const toggleFormDropdown = () => {
       });
       item.addEventListener('keydown', (event) => {
         if (event.key === 'Enter') {
-          selectItem(item);
           event.preventDefault();
+          selectItem(item);
+        } else if (event.key === 'ArrowDown' || (event.key === 'Tab' && !event.shiftKey)) {
+          event.preventDefault();
+          focusedIndex = (focusedIndex + 1) % items.length;
+          items[focusedIndex].focus();
+        } else if (event.key === 'ArrowUp' || (event.key === 'Tab' && event.shiftKey)) {
+          event.preventDefault();
+          focusedIndex = (focusedIndex - 1 + items.length) % items.length;
+          items[focusedIndex].focus();
         }
-      });
-      item.addEventListener('focus', () => {
-        focusedIndex = index;
       });
     });
 

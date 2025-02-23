@@ -66,7 +66,6 @@ export function popupValidator() {
     }
   });
 
-
   checkbox.addEventListener('invalid', () => {
     checkbox.classList.add('checkbox-input--error');
   });
@@ -80,7 +79,6 @@ export function popupValidator() {
       checkbox.classList.add('checkbox-input--error');
     }
   });
-
 
   form.addEventListener('submit', (event) => {
     let isValid = true;
@@ -124,7 +122,6 @@ export function popupValidator() {
   });
 }
 
-
 export const togglePopup = () => {
   document.addEventListener('DOMContentLoaded', () => {
     const popupOpener = document.querySelector('.about__link');
@@ -135,11 +132,40 @@ export const togglePopup = () => {
     const hiddenCityInput = document.getElementById('city-input');
     const dropdownButton = document.querySelector('.dropdown__button');
 
+    const trapFocus = (container) => {
+      const focusableSelectors = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex]:not([tabindex="-1"])';
+      const focusableElements = container.querySelectorAll(focusableSelectors);
+      const firstFocusable = focusableElements[0];
+      const lastFocusable = focusableElements[focusableElements.length - 1];
+
+      container.addEventListener('keydown', (e) => {
+        if (e.key === 'Tab') {
+          if (e.shiftKey) {
+            if (document.activeElement === firstFocusable) {
+              e.preventDefault();
+              lastFocusable.focus();
+            }
+          } else {
+            if (document.activeElement === lastFocusable) {
+              e.preventDefault();
+              firstFocusable.focus();
+            }
+          }
+        }
+      });
+    };
+
     popupOpener.addEventListener('click', (event) => {
       event.stopPropagation();
       popup.classList.toggle('popup--opened');
       body.classList.toggle('overlay-active-popup');
-
+      if (popup.classList.contains('popup--opened')) {
+        trapFocus(popup);
+        const firstFocusable = popup.querySelector('input, button, select, textarea, [tabindex]:not([tabindex="-1"])');
+        if (firstFocusable) {
+          firstFocusable.focus();
+        }
+      }
     });
 
     popupCloser.addEventListener('click', (event) => {
@@ -155,9 +181,10 @@ export const togglePopup = () => {
     });
 
     const cityInput = document.querySelector('.popup__dropdown-button');
-
     cityInput.addEventListener('keydown', (event) => {
-      event.preventDefault();
+      if (event.key !== 'Tab') {
+        event.preventDefault();
+      }
     });
 
     document.addEventListener('click', (event) => {
@@ -214,6 +241,7 @@ export const toggleDropdown = () => {
         element.setCustomValidity('');
         element.classList.remove('popup__error');
       };
+
       const selectItem = (event) => {
         event.stopPropagation();
         const value = item.getAttribute('data-value');
@@ -231,8 +259,14 @@ export const toggleDropdown = () => {
         dropdown.classList.remove('open');
         button.classList.remove('open');
         button.setAttribute('aria-expanded', 'false');
-      };
 
+        const checkbox = document.querySelector('.popup__checkbox-input');
+        setTimeout(() => {
+          if (checkbox) {
+            checkbox.focus();
+          }
+        }, 0);
+      };
 
       item.addEventListener('click', selectItem);
 
@@ -240,7 +274,6 @@ export const toggleDropdown = () => {
         if (event.key === 'Enter') {
           event.preventDefault();
           selectItem(event);
-          button.focus();
         }
       });
     });
@@ -264,16 +297,17 @@ export const toggleDropdown = () => {
   });
 };
 
-
 export const toggleCheckbox = () => {
   document.addEventListener('DOMContentLoaded', () => {
     const checkboxes = document.querySelectorAll('.popup__checkbox-input');
 
     checkboxes.forEach((checkbox) => {
+      checkbox.setAttribute('tabindex', '0');
+
       checkbox.addEventListener('keydown', (event) => {
-        if (event.key === 'Enter') {
+        if (event.key === 'Enter' || event.key === ' ') {
           event.preventDefault();
-          checkbox.checked = !checkbox.checked;
+          checkbox.click();
         }
       });
     });
