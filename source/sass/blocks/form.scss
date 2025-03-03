@@ -24,10 +24,10 @@
 
   background-image:
     image-set(
-      url("../../img/form/form-mobile@1x.webp") 1x,
-      url("../../img/form/form-mobile@2x.webp") 2x,
-      url("../../img/form/form-mobile@1x.jpg") 1x,
-      url("../../img/form/form-mobile@2x.jpg") 2x
+      url("../img/form/form-mobile@1x.webp") 1x,
+      url("../img/form/form-mobile@2x.webp") 2x,
+      url("../img/form/form-mobile@1x.jpg") 1x,
+      url("../img/form/form-mobile@2x.jpg") 2x
     );
   min-height: 753px;
 
@@ -35,10 +35,10 @@
     width: 100%;
     background-image:
       image-set(
-        url("../../img/form/form-tablet@1x.webp") 1x,
-        url("../../img/form/form-tablet@2x.webp") 2x,
-        url("../../img/form/form-tablet@1x.jpg") 1x,
-        url("../../img/form/form-tablet@2x.jpg") 2x
+        url("../img/form/form-tablet@1x.webp") 1x,
+        url("../img/form/form-tablet@2x.webp") 2x,
+        url("../img/form/form-tablet@1x.jpg") 1x,
+        url("../img/form/form-tablet@2x.jpg") 2x
       );
     background-position: center;
     background-repeat: no-repeat;
@@ -58,10 +58,10 @@
       border-radius: 16px;
       background-image:
         image-set(
-          url("../../img/form/form-tablet@1x.webp") 1x,
-          url("../../img/form/form-tablet@2x.webp") 2x,
-          url("../../img/form/form-tablet@1x.jpg") 1x,
-          url("../../img/form/form-tablet@2x.jpg") 2x
+          url("../img/form/form-tablet@1x.webp") 1x,
+          url("../img/form/form-tablet@2x.webp") 2x,
+          url("../img/form/form-tablet@1x.jpg") 1x,
+          url("../img/form/form-tablet@2x.jpg") 2x
         );
       background-size: contain;
       background-repeat: no-repeat;
@@ -80,10 +80,10 @@
       border-radius: 16px;
       background-image:
         image-set(
-          url("../../img/form/form-desktop@1x.webp") 1x,
-          url("../../img/form/form-desktop@2x.webp") 2x,
-          url("../../img/form/form-desktop@1x.jpg") 1x,
-          url("../../img/form/form-desktop@2x.jpg") 2x
+          url("../img/form/form-desktop@1x.webp") 1x,
+          url("../img/form/form-desktop@2x.webp") 2x,
+          url("../img/form/form-desktop@1x.jpg") 1x,
+          url("../img/form/form-desktop@2x.jpg") 2x
         );
       width: 1240px;
       height: 800px;
