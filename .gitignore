@@ -10,7 +10,7 @@ lerna-debug.log*
 node_modules
 # dist
 backstop_data
-.cache
+# .cache
 *.local
 package-lock.json
 
