@@ -3,7 +3,7 @@ import { Pagination, Keyboard, A11y, EffectFade } from 'swiper/modules';
 import 'swiper/scss';
 
 
-function updatePaginationPosition(swiper) {
+export function updatePaginationPosition(swiper) {
   const activeSlide = swiper.slides[swiper.activeIndex];
   if (!activeSlide) {
     return;
@@ -77,4 +77,10 @@ export function initializeHeroSwiper() {
   });
 
   window.addEventListener('resize', () => swiper);
+  document.querySelector('.language-switcher').addEventListener('click', () => {
+    updatePaginationPosition(swiper);
+  });
+  window.addEventListener('load', () => {
+    updatePaginationPosition(swiper);
+  });
 }

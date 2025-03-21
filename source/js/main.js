@@ -1,5 +1,5 @@
 import { toggleMenu } from './blocks/burger-menu';
-import { initializeHeroSwiper } from './blocks/swiper-hero';
+import { initializeHeroSwiper, updatePaginationPosition } from './blocks/swiper-hero';
 import { togglePopup, popupValidator, toggleDropdown, toggleCheckbox } from './blocks/popup';
 import { initializeProgramsSwiper } from './blocks/swiper-programs';
 import { toggleAccordion } from './blocks/faq';
@@ -36,5 +36,12 @@ window.addEventListener('resize', () => {
   }, 1);
 });
 
-document.querySelector('.language-switcher').addEventListener('click', toggleLanguage);
-window.addEventListener('load', setInitialLanguage);
+document.querySelector('.language-switcher').addEventListener('click', () => {
+  toggleLanguage();
+  initializeHeroSwiper();
+});
+
+window.addEventListener('load', () => {
+  setInitialLanguage();
+  initializeHeroSwiper();
+});
