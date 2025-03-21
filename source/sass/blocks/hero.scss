@@ -507,10 +507,10 @@
   position: absolute;
   bottom: 0;
   left: 75px;
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   padding: 0;
-  background-color: $primary-blue;
+  background-color: $primary-white;
   display: flex;
   border-radius: 11px;
   align-items: center;
@@ -522,6 +522,8 @@
 
   @media (min-width: $tablet-width) {
     left: 105px;
+    width: 30px;
+    height: 30px;
   }
 
   @media (min-width: $desktop-width) {
@@ -546,11 +548,16 @@
 
 .hero__header-translate-logo {
   mask: url("/__spritemap#sprite-translate-view") no-repeat center;
-  background-color: $primary-white;
-  width: 20px;
-  height: 20px;
+  background-color: $primary-blue;
+  width: 15px;
+  height: 15px;
   transition: opacity 0.3s ease;
   cursor: pointer;
+
+  @media (min-width: $tablet-width) {
+    width: 20px;
+  height: 20px;
+  }
 
   &:hover,
   &:focus,
