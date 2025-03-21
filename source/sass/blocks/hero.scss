@@ -507,8 +507,9 @@
   position: absolute;
   bottom: 0;
   left: 75px;
-  width: 35px;
-  height: 35px;
+  width: 30px;
+  height: 30px;
+  padding: 0;
   background-color: $primary-blue;
   display: flex;
   border-radius: 11px;
@@ -517,13 +518,10 @@
   border: none;
   cursor: pointer;
   gap: 5px;
-  transition: all 0.3s ease;
-
+  transition: opacity 0.3s ease;
 
   @media (min-width: $tablet-width) {
     left: 105px;
-    // width: 40px;
-    // height: 40px;
   }
 
   @media (min-width: $desktop-width) {
@@ -542,24 +540,16 @@
   }
 }
 
-.hero__header-translate-lang {
-  display: flex;
-  text-transform: uppercase;
-  color: $primary-white;
-  font-size: 10px;
-  font-weight: 600;
-    transition: all 0.3s ease;
-
+.hero__header-translate--opened {
+  background-color: #234d89;
 }
 
 .hero__header-translate-logo {
   mask: url("/__spritemap#sprite-translate-view") no-repeat center;
   background-color: $primary-white;
-  width: 35px;
-  height: 35px;
-  width: 40px;
-  height: 40px;
-  transition: all 0.3s ease;
+  width: 20px;
+  height: 20px;
+  transition: opacity 0.3s ease;
   cursor: pointer;
 
   &:hover,
@@ -570,6 +560,10 @@
     outline: none;
     border: none;
   }
+}
+
+.hero__header-translate-logo--opened {
+  background-color: #9ea4ad;
 }
 
 .hero__header-logo--opened {

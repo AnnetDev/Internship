@@ -13,6 +13,9 @@ export const toggleMenu = () => {
     const body = document.querySelector('.page-body');
     const logo = header.querySelector('.hero__header-logo');
     const menuLinks = navigation.querySelectorAll('a');
+    const translate = header.querySelector('.hero__header-translate');
+    const translateIcon = header.querySelector('.hero__header-translate-logo');
+
 
     function updateMenuTabIndices() {
       const isMenuOpen = navigation.classList.contains('hero__header-nav--opened');
@@ -51,6 +54,9 @@ export const toggleMenu = () => {
       heading.classList.toggle('hero__header-heading--opened');
       body.classList.toggle('overlay-active');
       logo.classList.toggle('hero__header-logo--opened');
+      translate.classList.toggle('hero__header-translate--opened');
+      translateIcon.classList.toggle('hero__header-translate-logo--opened');
+
       updateMenuTabIndices();
     };
 
@@ -62,6 +68,8 @@ export const toggleMenu = () => {
       heading.classList.remove('hero__header-heading--opened');
       body.classList.remove('overlay-active');
       logo.classList.remove('hero__header-logo--opened');
+      translate.classList.remove('hero__header-translate--opened');
+      translateIcon.classList.remove('hero__header-translate-logo--opened');
       updateMenuTabIndices();
     };
 
