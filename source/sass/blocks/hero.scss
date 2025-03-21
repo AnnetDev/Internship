@@ -507,8 +507,8 @@
   position: absolute;
   bottom: 0;
   left: 75px;
-  width: 35px;
-  height: 35px;
+  width: 30px;
+  height: 30px;
   padding: 0;
   background-color: $primary-blue;
   display: flex;
@@ -518,7 +518,7 @@
   border: none;
   cursor: pointer;
   gap: 5px;
-  transition: all 0.3s ease;
+  transition: opacity 0.3s ease;
 
   @media (min-width: $tablet-width) {
     left: 105px;
@@ -547,9 +547,9 @@
 .hero__header-translate-logo {
   mask: url("/__spritemap#sprite-translate-view") no-repeat center;
   background-color: $primary-white;
-  width: 29px;
-  height: 29px;
-  transition: all 0.3s ease;
+  width: 20px;
+  height: 20px;
+  transition: opacity 0.3s ease;
   cursor: pointer;
 
   &:hover,
