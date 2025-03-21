@@ -1,5 +1,6 @@
 {
   "ru": {
+    "metaDescription": "Проект «Стажировка» — совместный проект правительств и волонтёрских бригад, направленный на повышение квалификации молодых специалистов на ранних и средних стадиях карьеры",
     "hero-title": "Проект \"Стажировка\": профессиональный опыт обучения за рубежом",
     "site-navigation": "Навигация сайта",
     "company-logo": "Логотип компании",
@@ -27,6 +28,9 @@
     "slide2-description": "Получите незаменимый опыт работы в ведущих мировых компаниях и государственных организациях.",
     "slide3-title": "Волонтёрские программы – внесите свой вклад в общество",
     "slide3-description": "Возможности для преподавания, органического сельского хозяйства, устойчивого образа жизни и другое.",
+    "slide1-image-alt": "Студентка на стажировке за рубежом",
+    "slide2-image-alt": "Группа студентов на стажировке за рубежом",
+    "slide3-image-alt": "Группа студентов на стажировке за рубежом",
     "read-more": "Подробнее",
     "about-title": "О проекте «Стажировка»",
     "about-description": "«Стажировка» — совместный проект правительств и волонтёрских бригад.",
@@ -163,9 +167,19 @@
     "footer-copyright": "Стажировка © 2023 Все права защищены",
     "footer-social-vk": "ссылка на Вконтакте",
     "footer-social-ok": "ссылка на Одноклассники",
-    "footer-social-reddit": "ссылка на Реддит"
+    "footer-social-reddit": "ссылка на Реддит",
+    "programs-alt-1": "Группа студентов на стажировке за рубежом",
+    "programs-alt-2": "Студент на стажировке за рубежом",
+    "programs-alt-3": "Студенты на стажировке за рубежом",
+    "grant-alt": "Указатели",
+    "author-alt1": "фото автора - Лола Алекс",
+    "author-alt2": "фото автора - Давид Иванов",
+    "footer-nav": "Навигация по разделам сайта",
+    "main-nav": "Главная навигация сайта",
+    "news-nav": "Навигация по разделу Новости"
   },
   "en": {
+    "metaDescription": "The Internship project is a joint initiative between governments and volunteer brigades aimed at enhancing the qualifications of young professionals in the early and mid stages of their careers.",
     "hero-title": "Project \"Internship\": Professional Experience of Studying Abroad",
     "site-navigation": "Site Navigation",
     "company-logo": "Company Logo",
@@ -193,6 +207,9 @@
     "slide2-description": "Gain invaluable work experience in leading global companies and government organizations.",
     "slide3-title": "Volunteer Programs – Contribute to Society",
     "slide3-description": "Opportunities for teaching, organic farming, a sustainable lifestyle, and more.",
+    "slide1-image-alt": "Student on an internship abroad",
+    "slide2-image-alt": "Group of students on an internship abroad",
+    "slide3-image-alt": "Group of students on an internship abroad",
     "read-more": "Read More",
     "about-title": "About the 'Internship' Project",
     "about-description": "'Internship' is a joint project of governments and volunteer brigades.",
@@ -329,6 +346,16 @@
     "footer-copyright": "Internship © 2023 All Rights Reserved",
     "footer-social-vk": "VK link",
     "footer-social-ok": "OK link",
-    "footer-social-reddit": "Reddit link"
+    "footer-social-reddit": "Reddit link",
+    "programs-alt-1": "Group of students on an internship abroad",
+    "programs-alt-2": "Student on an internship abroad",
+    "programs-alt-3": "Students on an internship abroad",
+    "grant-alt": "Signposts",
+    "author-alt1": "Author's photo - Lola Alex",
+    "author-alt2": "Author's photo - David Ivanov",
+    "footer-nav": "Site sections navigation",
+    "main-nav": "Main navigation",
+    "news-nav": "News navigation"
+
   }
 }
