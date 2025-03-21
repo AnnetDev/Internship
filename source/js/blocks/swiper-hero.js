@@ -69,12 +69,12 @@ export function initializeHeroSwiper() {
         if (activePagination) {
           activePagination.setAttribute('tabindex', '0');
         }
-
-
       },
     },
-
   });
+
+  // Сохраняем экземпляр в глобальную переменную
+  window.heroSwiper = swiper;
 
   window.addEventListener('resize', () => swiper);
   document.querySelector('.language-switcher').addEventListener('click', () => {
@@ -84,3 +84,4 @@ export function initializeHeroSwiper() {
     updatePaginationPosition(swiper);
   });
 }
+

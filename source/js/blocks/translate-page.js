@@ -1,5 +1,7 @@
+import { updatePaginationPosition } from './swiper-hero';
+
 function loadTranslations(lang) {
-  fetch('translations.json')// Загружаем JSON файл с переводами
+  fetch('translations.json')
     .then((response) => response.json())
     .then((translations) => {
       const metaDescription = document.querySelector('meta[name="description"]');
@@ -9,10 +11,7 @@ function loadTranslations(lang) {
 
       document.querySelectorAll('[data-translate]').forEach((element) => {
         const key = element.getAttribute('data-translate');
-        // Обновляем видимый текст
         element.textContent = translations[lang][key];
-
-        // Обновляем скрытый текст для скринридеров
         const hiddenText = element.querySelector('.visually-hidden');
         if (hiddenText) {
           hiddenText.textContent = translations[lang][key];
@@ -30,8 +29,18 @@ function loadTranslations(lang) {
           element.setAttribute('aria-label', translations[lang][key]);
         }
       });
+
+      // Даем браузеру время на перерасчет стилей после обновления DOM
+      setTimeout(() => {
+        if (window.heroSwiper) {
+          updatePaginationPosition(window.heroSwiper);
+          // Если требуется, можно вызвать и обновление Swiper
+          window.heroSwiper.update();
+        }
+      }, 50);
     });
 }
+
 
 export function toggleLanguage() {
   const newLang = document.documentElement.lang === 'ru' ? 'en' : 'ru';
