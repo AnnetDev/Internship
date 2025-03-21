@@ -494,13 +494,81 @@
   align-items: center;
   justify-content: center;
 
-
   @media (min-width: $tablet-width) {
     left: 45px;
   }
 
   @media (min-width: $desktop-width) {
     left: 100px;
+  }
+}
+
+.hero__header-translate {
+  position: absolute;
+  bottom: 0;
+  left: 75px;
+  width: 35px;
+  height: 35px;
+  background-color: $primary-blue;
+  display: flex;
+  border-radius: 11px;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  gap: 5px;
+  transition: all 0.3s ease;
+
+
+  @media (min-width: $tablet-width) {
+    left: 105px;
+    // width: 40px;
+    // height: 40px;
+  }
+
+  @media (min-width: $desktop-width) {
+    left: 160px;
+  }
+
+  &:focus,
+  &:focus-visible,
+  &:focus-within {
+    outline: none;
+    border: none;
+    opacity: 70%;
+  }
+  &:active {
+    opacity: 50%;
+  }
+}
+
+.hero__header-translate-lang {
+  display: flex;
+  text-transform: uppercase;
+  color: $primary-white;
+  font-size: 10px;
+  font-weight: 600;
+    transition: all 0.3s ease;
+
+}
+
+.hero__header-translate-logo {
+  mask: url("/__spritemap#sprite-translate-view") no-repeat center;
+  background-color: $primary-white;
+  width: 35px;
+  height: 35px;
+  width: 40px;
+  height: 40px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  &:hover,
+  &:focus,
+  &:focus-visible,
+  &:focus-within {
+    opacity: 70%;
+    outline: none;
+    border: none;
   }
 }
 
