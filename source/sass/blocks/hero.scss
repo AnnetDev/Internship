@@ -528,6 +528,8 @@
 
   @media (min-width: $desktop-width) {
     left: 160px;
+    width: 32px;
+    height: 32px;
   }
 
   &:focus,
@@ -556,7 +558,12 @@
 
   @media (min-width: $tablet-width) {
     width: 20px;
-  height: 20px;
+    height: 20px;
+  }
+
+  @media (min-width: $desktop-width) {
+    width: 25px;
+    height: 25px;
   }
 
   &:hover,
@@ -571,7 +578,6 @@
 
 .hero__header-translate-logo--opened {
   background-color: #234d89;
-
 }
 
 .hero__header-logo--opened {
