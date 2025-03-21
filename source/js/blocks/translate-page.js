@@ -1,4 +1,4 @@
-export function loadTranslations(lang) {
+function loadTranslations(lang) {
   fetch('translations.json')// Загружаем JSON файл с переводами
     .then((response) => response.json())
     .then((translations) => {

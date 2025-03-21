@@ -7,7 +7,7 @@ import { initializeReviewsSwiper } from './blocks/swiper-reviews';
 import { formValidator } from './blocks/form';
 import { toggleFormDropdown } from './blocks/form';
 import { initializeNewsSwiper, toggleTabs } from './blocks/swiper-news';
-import { loadTranslations, toggleLanguage, setInitialLanguage } from './blocks/translate-page';
+import { toggleLanguage, setInitialLanguage } from './blocks/translate-page';
 
 toggleMenu();
 initializeHeroSwiper();
@@ -37,12 +37,4 @@ window.addEventListener('resize', () => {
 });
 
 document.querySelector('.language-switcher').addEventListener('click', toggleLanguage);
-
-// // При загрузке страницы
-// window.addEventListener('load', function() {
-//   const savedLang = localStorage.getItem('language') || 'ru';
-//   document.documentElement.lang = savedLang;
-//   loadTranslations(savedLang);
-// });
-
 window.addEventListener('load', setInitialLanguage);
