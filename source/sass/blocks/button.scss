@@ -1,7 +1,7 @@
 .button {
   display: flex;
   margin: 0;
-  padding: 16px 21px;
+  padding: 20px 21px 16px;
   height: 44px;
   border: solid 1px $primary-blue;
   border-radius: 30px;
@@ -25,6 +25,7 @@
     height: 34px;
     background-color: $primary-blue;
     border-radius: 50%;
+    border: solid 1px transparent;
     top: 50%;
     transform: translateY(-50%);
     right: 5px;
@@ -34,9 +35,9 @@
   &::before {
     position: absolute;
     content: "";
-    width: 8px;
-    height: 8px;
-    mask-image: url("/__spritemap#sprite-arrow-view"); // Исправлено
+    width: 10px;
+    height: 10px;
+    mask-image: url("/__spritemap#sprite-arrow-view");
     mask-repeat: no-repeat;
     mask-position: center;
     background-color: $primary-white;
@@ -122,5 +123,4 @@
     opacity: 60%;
     pointer-events: none;
   }
-
 }

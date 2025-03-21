@@ -1,24 +1,13 @@
 .hero {
   position: relative;
-  // background-color: #95a7b9;
   width: 100%;
   height: fit-content;
   margin: 0 auto;
 }
 
-//картинка на всю ширину, даже больше 1440
-
 .hero__main {
   width: 100%;
   margin: 0 auto;
-
-  // @media (min-width: $tablet-width) {
-  //   width: 768px;
-  // }
-
-  // @media (min-width: $desktop-width) {
-  //   width: 1440px;
-  // }
 }
 
 .hero__swiper.swiper {
@@ -32,6 +21,7 @@
   @media (min-width: $tablet-width) {
     min-height: 1024px;
   }
+
   @media (min-width: $desktop-width) {
     min-height: 800px;
   }
@@ -47,6 +37,7 @@
   @media (min-width: $tablet-width) {
     min-height: 1024px;
   }
+
   @media (min-width: $desktop-width) {
     min-height: 800px;
   }
@@ -55,7 +46,6 @@
 .hero__swiper-image {
   display: flex;
   position: absolute;
-  content: "";
   margin: 0;
   padding: 0;
   z-index: -1;
@@ -63,28 +53,41 @@
   height: 568px;
   object-fit: cover;
   object-position: center;
+  background-color: #777f94;
 
   @media (min-width: $tablet-width) {
     height: 1024px;
   }
+
   @media (min-width: $desktop-width) {
     height: 800px;
   }
 }
 
-.hero__swiper-slide.swiper-slide {
+.hero__swiper-slide.swiper {
   display: flex;
   flex-flow: column wrap;
   justify-content: flex-end;
   height: 100%;
   min-height: 568px;
+  z-index: auto;
 
   @media (min-width: $tablet-width) {
     min-height: 1024px;
   }
+
   @media (min-width: $desktop-width) {
     min-height: 800px;
   }
+}
+
+.hero__swiper-slide.swiper-slide:not(.swiper-slide-active) {
+  pointer-events: none;
+}
+
+.hero__swiper-slide.swiper-slide-active {
+  pointer-events: auto;
+  z-index: 2;
 }
 
 .hero__swiper-slide .container {
@@ -118,7 +121,6 @@
   min-width: 80px;
   width: max-content;
   min-height: 28px;
-  // height: 100px; //попробовать увеличить размер чтобы при изменении слайда пагинация плавно смещалась
   background-color: $primary-white;
   display: flex;
   gap: 12px;
@@ -128,21 +130,7 @@
   justify-content: center;
   align-items: center;
   padding: 6px;
-  // margin: 0 auto;
-  // align-self: center;
-  transition: bottom 0.3s ease;
   left: calc(50% - (290px / 2));
-  // transform: translateX(-50%);
-  // animation: fadeOut 0.3s ease-out forwards;
-
-  // @keyframes fadeOut { //можно ли применять?
-  //   from {
-  //     opacity: 0;
-  //   }
-  //   to {
-  //     opacity: 1;
-  //   }
-  // }
 
   &::after {
     position: absolute;
@@ -152,6 +140,7 @@
     background-image: url("/__spritemap#sprite-connecter-view");
     right: -15px;
     bottom: -1px;
+
     @media (min-width: $tablet-width) {
       right: -20px;
     }
@@ -163,7 +152,6 @@
     min-width: 100px;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
-
   }
 
   @media (min-width: $desktop-width) {
@@ -216,18 +204,18 @@
   background-color: $primary-white;
   border-top-right-radius: 16px;
   border-bottom-right-radius: 16px;
-  padding: 20px 14px 16px 14px;
+  padding: 20px 14px 16px;
   position: relative;
 
   @media (min-width: $tablet-width) {
     border-top-right-radius: 30px;
     border-bottom-right-radius: 30px;
-    padding: 31px 40px 23px 40px;
-        width: 659px;
+    padding: 31px 40px 23px;
+    width: 659px;
   }
 
   @media (min-width: $desktop-width) {
-    padding: 40px 50px 30px 50px;
+    padding: 40px 50px 30px;
     width: 968px;
   }
 
@@ -240,6 +228,7 @@
     transform: rotate(90deg);
     right: 16px;
     bottom: -9px;
+
     @media (min-width: $tablet-width) {
       display: none;
     }
@@ -261,6 +250,7 @@
     font-weight: 400;
     line-height: 44px;
   }
+
   @media (min-width: $desktop-width) {
     font-size: 54px;
     font-weight: 400;
@@ -281,7 +271,7 @@
   display: flex;
   background-color: $primary-white;
   border-bottom-right-radius: 14px;
-  padding: 0 14px 15px 14px;
+  padding: 0 14px 15px;
   width: 267px;
 
   @media (min-width: $tablet-width) {
@@ -294,7 +284,6 @@
   @media (min-width: $desktop-width) {
     width: 496px;
     padding: 0 55px 35px 50px;
-
   }
 }
 
@@ -309,7 +298,6 @@
 
   @media (min-width: $desktop-width) {
     line-height: 26px;
-
   }
 }
 
@@ -326,13 +314,12 @@
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 30px;
     padding: 0 40px 10px 30px;
-    // width: 238px;
     width: 268px;
   }
+
   @media (min-width: $desktop-width) {
     width: 279px;
     padding: 11px 40px 10px 30px;
-
   }
 
   &::after {
@@ -353,76 +340,115 @@
   }
 }
 
-.hero__slide-link {
+.hero__slide-link.button,
+.swiper-slide-active .hero__slide-link.button {
   display: flex;
   margin: 0;
   padding: 16px 21px;
   width: 100%;
-  // height: 100%;
-  // border: solid 1px $primary-blue;
-  // border-radius: 30px;
-  // background-color: $primary-white;
-  // text-decoration: none;
-  // text-transform: uppercase;
-  // font-size: 12px;
-  // font-weight: 500;
-  // line-height: 12px;
-  // letter-spacing: 0.2px;
-  // text-align: center;
-  // color: $primary-blue;
-  // position: relative;
-  // align-items: center;
+  pointer-events: auto;
+  z-index: auto;
 
   @media (min-width: $tablet-width) {
-
-  &::after {
-  //   position: absolute;
-  //   content: "";
-    width: 46px;
-    height: 46px;
-    background-color: $primary-blue;
-  //   border-radius: 50%;
-  //   top: 50%;
-  //   transform: translateY(-50%);
-    right: 4px;
-  }
+    &::after {
+      width: 46px;
+      height: 46px;
+      background-color: $primary-blue;
+      right: 4px;
+    }
 
     &::before {
-    right: 23px;
+      right: 23px;
+    }
   }
-
-}
-
-  // &::before {
-  //   position: absolute;
-  //   content: "";
-  //   width: 8px;
-  //   height: 8px;
-  //   mask: url("/__spritemap#sprite-arrow-view") no-repeat center; //кривая стрелочка
-  //   background-color: $primary-white;
-  //   top: 50%;
-  //   transform: translateY(-50%);
-  //   right: 18px;
-  //   z-index: 2;
-  // }
 
   @media (min-width: $tablet-width) {
     height: 56px;
-font-size: 14px;
-font-weight: 500;
-line-height: 14px;
-letter-spacing: 0.28px;
-text-align: center;
-padding: 16px 30px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 14px;
+    letter-spacing: 0.28px;
+    text-align: center;
+    padding: 16px 30px;
   }
 
   @media (min-width: $desktop-width) {
     width: 199px;
-  };
   }
 
+  &:hover {
+    background-color: $primary-blue;
+    color: $primary-white;
+  }
 
-// РАЗОБРАТЬСЯ С ПРОЗРАЧНОСТЬЮ ТЕКСТА
+  &:hover::after {
+    background-color: $primary-white;
+  }
+
+  &:hover::before {
+    background-color: $primary-blue;
+    transform: translateY(-50%) rotate(45deg);
+  }
+
+  &:active {
+    color: #c1d3ed;
+  }
+
+  &:active::after {
+    background-color: $primary-white;
+  }
+
+  &:active::before {
+    background-color: $primary-blue;
+    opacity: 70%;
+    transform: translateY(-50%) rotate(45deg);
+  }
+
+  &:focus,
+  &:focus-visible,
+  &:focus-within {
+    border: solid 1px $primary-blue;
+    background-color: transparent;
+    color: $primary-blue;
+    outline: none;
+  }
+
+  &:focus::after,
+  &:focus-visible::after,
+  &:focus-within::after {
+    background-color: $primary-blue;
+    outline: none;
+  }
+
+  &:focus::before,
+  &:focus-visible::before,
+  &:focus-within::before {
+    outline: none;
+    background-color: $primary-white;
+    transform: translateY(-50%) rotate(45deg);
+  }
+
+  &[aria-disabled="true"],
+  &:disabled {
+    border: solid 1px #a9afb7;
+    background-color: transparent;
+    color: #a9afb7;
+    pointer-events: none;
+  }
+
+  &[aria-disabled="true"]::after,
+  &:disabled::after {
+    background-color: #a9afb7;
+    pointer-events: none;
+  }
+
+  &[aria-disabled="true"]::before,
+  &:disabled::before {
+    opacity: 60%;
+    pointer-events: none;
+  }
+}
+
 .hero__header {
   position: absolute;
   content: "";
@@ -432,7 +458,7 @@ padding: 16px 30px;
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 2;
+  z-index: 3;
 
   @media (min-width: $tablet-width) {
     width: 768px;
@@ -441,8 +467,12 @@ padding: 16px 30px;
 
   @media (min-width: $desktop-width) {
     width: 1440px;
-    // top: 60px;
   }
+}
+
+.hero__header-wrapper {
+  position: relative;
+  cursor: pointer;
 }
 
 .hero__header .container {
@@ -454,7 +484,6 @@ padding: 16px 30px;
 
 .hero__header-logo {
   position: absolute;
-  content: "";
   top: 2px;
   left: 15px;
   width: 52px;
@@ -464,7 +493,6 @@ padding: 16px 30px;
   border-radius: 50%;
   align-items: center;
   justify-content: center;
-  z-index: -1;
 
   @media (min-width: $tablet-width) {
     left: 45px;
@@ -472,6 +500,99 @@ padding: 16px 30px;
 
   @media (min-width: $desktop-width) {
     left: 100px;
+  }
+}
+
+.hero__header-translate {
+  position: absolute;
+  bottom: 0;
+  left: 75px;
+  width: 35px;
+  height: 35px;
+  background-color: $primary-blue;
+  display: flex;
+  border-radius: 11px;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  gap: 5px;
+  transition: all 0.3s ease;
+
+
+  @media (min-width: $tablet-width) {
+    left: 105px;
+    // width: 40px;
+    // height: 40px;
+  }
+
+  @media (min-width: $desktop-width) {
+    left: 160px;
+  }
+
+  &:focus,
+  &:focus-visible,
+  &:focus-within {
+    outline: none;
+    border: none;
+    opacity: 70%;
+  }
+  &:active {
+    opacity: 50%;
+  }
+}
+
+.hero__header-translate-lang {
+  display: flex;
+  text-transform: uppercase;
+  color: $primary-white;
+  font-size: 10px;
+  font-weight: 600;
+    transition: all 0.3s ease;
+
+}
+
+.hero__header-translate-logo {
+  mask: url("/__spritemap#sprite-translate-view") no-repeat center;
+  background-color: $primary-white;
+  width: 35px;
+  height: 35px;
+  width: 40px;
+  height: 40px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  &:hover,
+  &:focus,
+  &:focus-visible,
+  &:focus-within {
+    opacity: 70%;
+    outline: none;
+    border: none;
+  }
+}
+
+.hero__header-logo--opened {
+  &::after {
+    content: "";
+    position: fixed;
+    border-radius: 50%;
+
+    top: 2px;
+    left: 15px;
+    width: 52px;
+    height: 52px;
+    background: $overlay-form;
+    z-index: 0;
+
+    @media (min-width: $tablet-width) {
+      left: 45px;
+      z-index: 1;
+    }
+
+    @media (min-width: $desktop-width) {
+      left: 100px;
+    }
   }
 }
 
@@ -574,24 +695,24 @@ padding: 16px 30px;
   justify-content: space-between;
   transition: all 0.3s ease;
   width: 136px;
-  z-index: 1;
+  cursor: pointer;
   position: relative;
 
   &--opened {
     background-color: $primary-blue;
     width: 290px;
-    z-index: 1;
+
+    @media (min-width: $tablet-width) {
+      width: 286px;
+    }
   }
 
   @media (min-width: $tablet-width) {
-    width: 286x;
     padding: 4px 4px 4px 20px;
   }
 }
 
 .hero__header-nav {
-  z-index: 2;
-
   position: absolute;
   top: calc(100% + 4px);
   width: 290px;
@@ -599,7 +720,6 @@ padding: 16px 30px;
   padding: 0;
   background-color: $primary-blue;
   border-radius: 30px;
-
   opacity: 0;
   transform: translateY(-10px);
   max-height: 0;
@@ -615,7 +735,6 @@ padding: 16px 30px;
 }
 
 .hero__header-list {
-  // z-index: 3;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -634,6 +753,8 @@ padding: 16px 30px;
   display: block;
   margin: 0;
   padding: 0;
+  border: none;
+  background-color: transparent;
   text-decoration: none;
   color: $primary-white;
   text-transform: uppercase;
@@ -661,7 +782,6 @@ padding: 16px 30px;
   position: relative;
   transition: color 0.3s ease;
 
-  &::after,
   &::after {
     position: absolute;
     content: "";
@@ -673,22 +793,21 @@ padding: 16px 30px;
     left: calc(100% + 10px);
     transition: transform 0.3s ease;
   }
+
   &--opened {
     opacity: 1;
   }
 
-  &--opened::after,
   &--opened::after {
     transform: rotate(-180deg);
   }
 }
 
 .hero__header-sublist {
-  // z-index: 3;
   max-height: 0;
   opacity: 0;
   overflow: hidden;
-  transform: translateY(-10px); // Начальное положение выше
+  transform: translateY(-10px);
   transition: transform 0.3s ease, opacity 0.3s ease, max-height 0.3s ease;
 
   &--opened {

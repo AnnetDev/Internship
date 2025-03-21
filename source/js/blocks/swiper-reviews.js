@@ -15,9 +15,13 @@ export function initializeReviewsSwiper() {
 
     if (window.innerWidth >= 1440) {
       const slides = swiperWrapper.querySelectorAll('.reviews__swiper-slide.swiper-slide');
-      if (slides.length >= 2) {
-        for (let i = 0; i < 2; i++) {
-          const clone = slides[i].cloneNode(true);
+      const originalSlidesCount = slides.length;
+
+      if (originalSlidesCount > 0 && originalSlidesCount < 5) {
+        const clonesNeeded = 5 - originalSlidesCount;
+
+        for (let i = 0; i < clonesNeeded; i++) {
+          const clone = slides[i % originalSlidesCount].cloneNode(true);
           clone.classList.add('reviews__swiper-slide--cloned');
           swiperWrapper.appendChild(clone);
         }
@@ -66,7 +70,7 @@ export function initializeReviewsSwiper() {
 
   function handleResize() {
     cloneSlides();
-    swiperInstance.update(); // Обновляем Swiper после изменения DOM
+    swiperInstance.update();
   }
 
   window.addEventListener('resize', handleResize);
@@ -98,6 +102,4 @@ export function initializeReviewsSwiper() {
       }
     });
   }
-
-
 }

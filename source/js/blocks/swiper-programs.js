@@ -13,10 +13,21 @@ export function initializeProgramsSwiper() {
   function cloneSlides() {
     removeClonedSlides();
 
+    if (window.innerWidth >= 768) {
+      const slides = swiperWrapper.querySelectorAll('.programs__swiper-slide.swiper-slide');
+      if (slides.length >= 3) {
+        for (let i = 0; i < 1; i++) {
+          const clone = slides[i].cloneNode(true);
+          clone.classList.add('programs__swiper-slide--cloned');
+          swiperWrapper.appendChild(clone);
+        }
+      }
+    }
+
     if (window.innerWidth >= 1440) {
       const slides = swiperWrapper.querySelectorAll('.programs__swiper-slide.swiper-slide');
       if (slides.length >= 3) {
-        for (let i = 0; i < 3; i++) {
+        for (let i = 0; i < 4; i++) {
           const clone = slides[i].cloneNode(true);
           clone.classList.add('programs__swiper-slide--cloned');
           swiperWrapper.appendChild(clone);
@@ -66,7 +77,7 @@ export function initializeProgramsSwiper() {
 
   function handleResize() {
     cloneSlides();
-    swiperInstance.update(); // Обновляем Swiper после изменения DOM
+    swiperInstance.update();
   }
 
   window.addEventListener('resize', handleResize);

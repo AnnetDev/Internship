@@ -3,8 +3,20 @@ export function popupValidator() {
   if (!form) {
     throw new Error('Форма не найдена на странице.');
   }
-  const nameField = document.querySelector('input[name="name"]');
-  const phoneField = document.querySelector('input[name="phone"]');
+  const nameField = form.querySelector('.popup__input-name');
+  const phoneField = form.querySelector('.popup__input-phone');
+  const cityInput = form.querySelector('.popup__dropdown-button');
+  const checkbox = form.querySelector('.popup__checkbox-input');
+
+  const setError = (element, message) => {
+    element.setCustomValidity(message);
+    element.classList.add('popup__error');
+  };
+
+  const clearError = (element) => {
+    element.setCustomValidity('');
+    element.classList.remove('popup__error');
+  };
 
   nameField.addEventListener('input', () => {
     const nameValue = nameField.value.trim();
@@ -12,18 +24,15 @@ export function popupValidator() {
     const hasEnoughLetters = nameValue.replace(/\s/g, '').length >= 2;
 
     if (validCharacters && hasEnoughLetters) {
-      nameField.setCustomValidity('');
+      clearError(nameField);
     } else {
-      nameField.setCustomValidity('Имя должно содержать не менее 2 букв и только буквы и пробелы');
+      setError(nameField, 'Имя должно содержать не менее 2 букв и только буквы и пробелы');
     }
   });
 
-  // Обработчик ввода для поля "Телефон"
   phoneField.addEventListener('input', () => {
     let value = phoneField.value;
-    // Удаляем буквы (латиница и кириллица)
     value = value.replace(/[A-Za-zА-Яа-яЁё]/g, '');
-    // Если значение не начинается с "+7", принудительно добавляем его
     if (!value.startsWith('+7')) {
       value = `+7${value.replace(/^\+/, '')}`;
     }
@@ -31,9 +40,43 @@ export function popupValidator() {
 
     const digits = value.replace(/\D/g, '');
     if (value.startsWith('+7') && digits.length === 11) {
-      phoneField.setCustomValidity('');
+      clearError(phoneField);
     } else {
-      phoneField.setCustomValidity('Введите корректный номер телефона в формате +7XXXXXXXXXX');
+      setError(phoneField, 'Введите корректный номер телефона в формате +7XXXXXXXXXX');
+    }
+  });
+
+  nameField.addEventListener('invalid', () => {
+    nameField.classList.add('popup__error');
+  });
+
+  phoneField.addEventListener('invalid', () => {
+    phoneField.classList.add('popup__error');
+  });
+
+  cityInput.addEventListener('invalid', () => {
+    cityInput.classList.add('popup__error');
+  });
+
+  cityInput.addEventListener('input', () => {
+    if (cityInput.dataset.cityValue) {
+      clearError(cityInput);
+    } else {
+      setError(cityInput, 'Выберите город');
+    }
+  });
+
+  checkbox.addEventListener('invalid', () => {
+    checkbox.classList.add('checkbox-input--error');
+  });
+
+  checkbox.addEventListener('input', () => {
+    if (checkbox.checked) {
+      checkbox.setCustomValidity('');
+      checkbox.classList.remove('checkbox-input--error');
+    } else {
+      checkbox.setCustomValidity('Необходимо ваше согласие');
+      checkbox.classList.add('checkbox-input--error');
     }
   });
 
@@ -42,35 +85,42 @@ export function popupValidator() {
 
     nameField.setCustomValidity('');
     phoneField.setCustomValidity('');
+    cityInput.setCustomValidity('');
 
     const nameValue = nameField.value.trim();
     const phoneValue = phoneField.value.trim();
 
+    if (!cityInput.dataset.cityValue) {
+      cityInput.classList.add('popup__error');
+      setError(cityInput, 'Выберите город');
+      isValid = false;
+    } else {
+      clearError(cityInput);
+    }
+
     if (!/^[A-Za-zА-ЯЁа-яё\s]+$/.test(nameValue)) {
-      nameField.setCustomValidity('Имя может содержать только буквы и пробелы');
+      setError(nameField, 'Имя может содержать только буквы и пробелы');
       isValid = false;
     }
     if (nameValue.replace(/\s/g, '').length < 2) {
-      nameField.setCustomValidity('Имя должно содержать не менее 2 букв');
+      setError(nameField, 'Имя должно содержать не менее 2 букв');
       isValid = false;
     }
 
     const digits = phoneValue.replace(/\D/g, '');
     if (!phoneValue.startsWith('+7') || digits.length !== 11) {
-      phoneField.setCustomValidity('Введите корректный номер телефона в формате +7XXXXXXXXXX');
+      setError(phoneField, 'Введите корректный номер телефона в формате +7XXXXXXXXXX');
       isValid = false;
     }
 
-    // Если есть ошибки, предотвращаем отправку
     if (!isValid) {
-      // Вызываем reportValidity(), чтобы отобразить сообщение об ошибке
+      event.preventDefault();
       nameField.reportValidity();
       phoneField.reportValidity();
-      event.preventDefault();
+      cityInput.reportValidity();
     }
   });
 }
-//сброс полей?
 
 export const togglePopup = () => {
   document.addEventListener('DOMContentLoaded', () => {
@@ -79,27 +129,74 @@ export const togglePopup = () => {
     const popupCloser = document.querySelector('.popup__close');
     const body = document.querySelector('.page-body');
     const form = popup.querySelector('.popup__form');
+    const hiddenCityInput = document.getElementById('city-input');
+    const dropdownButton = document.querySelector('.dropdown__button');
+
+    const trapFocus = (container) => {
+      const focusableSelectors = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex]:not([tabindex="-1"])';
+      const focusableElements = container.querySelectorAll(focusableSelectors);
+      const firstFocusable = focusableElements[0];
+      const lastFocusable = focusableElements[focusableElements.length - 1];
+
+      container.addEventListener('keydown', (e) => {
+        if (e.key === 'Tab') {
+          if (e.shiftKey) {
+            if (document.activeElement === firstFocusable) {
+              e.preventDefault();
+              lastFocusable.focus();
+            }
+          } else {
+            if (document.activeElement === lastFocusable) {
+              e.preventDefault();
+              firstFocusable.focus();
+            }
+          }
+        }
+      });
+    };
 
     popupOpener.addEventListener('click', (event) => {
       event.stopPropagation();
       popup.classList.toggle('popup--opened');
-      body.classList.toggle('overlay-active');
-
+      body.classList.toggle('overlay-active-popup');
+      if (popup.classList.contains('popup--opened')) {
+        trapFocus(popup);
+        const firstFocusable = popup.querySelector('input, button, select, textarea, [tabindex]:not([tabindex="-1"])');
+        if (firstFocusable) {
+          firstFocusable.focus();
+        }
+      }
     });
 
     popupCloser.addEventListener('click', (event) => {
       event.stopPropagation();
       popup.classList.remove('popup--opened');
-      body.classList.remove('overlay-active');
-      form.reset();
+      body.classList.remove('overlay-active-popup');
 
+      form.reset();
+      if (dropdownButton && hiddenCityInput) {
+        dropdownButton.innerHTML = '<span class="visually-hidden">Выберите город</span>';
+        hiddenCityInput.value = '';
+      }
+    });
+
+    const cityInput = document.querySelector('.popup__dropdown-button');
+    cityInput.addEventListener('keydown', (event) => {
+      if (event.key !== 'Tab') {
+        event.preventDefault();
+      }
     });
 
     document.addEventListener('click', (event) => {
       if (!popup.contains(event.target)) {
         popup.classList.remove('popup--opened');
-        body.classList.remove('overlay-active');
+        body.classList.remove('overlay-active-popup');
+
         form.reset();
+        if (dropdownButton && hiddenCityInput) {
+          dropdownButton.innerHTML = '<span class="visually-hidden">Выберите город</span>';
+          hiddenCityInput.value = '';
+        }
       }
     });
   });
@@ -107,49 +204,112 @@ export const togglePopup = () => {
 
 export const toggleDropdown = () => {
   document.addEventListener('DOMContentLoaded', () => {
-    const form = document.querySelector('.popup__form');
     const dropdown = document.querySelector('.dropdown');
     const button = dropdown.querySelector('.dropdown__button');
     const items = dropdown.querySelectorAll('.dropdown__item');
-    const label = form.querySelector('.popup__label-dropdown');
+    const form = document.querySelector('.popup__form');
 
-    // Получаем скрытый input по id
-    const hiddenCityInput = document.getElementById('city-input');
-
-    button.innerHTML = '<span class="visually-hidden">Выберите город</span>';
-
-    button.addEventListener('click', (event) => {
+    const toggle = (event) => {
       event.stopPropagation();
       dropdown.classList.toggle('open');
       button.classList.toggle('open');
-      label.classList.toggle('open');
       button.setAttribute('aria-expanded', dropdown.classList.contains('open'));
+      if (dropdown.classList.contains('open')) {
+        const firstItem = items[0];
+        firstItem?.focus();
+      }
+    };
+
+    button.addEventListener('click', toggle);
+
+    button.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        toggle(event);
+      }
     });
 
     items.forEach((item) => {
-      item.addEventListener('click', (event) => {
+      item.setAttribute('tabindex', '0');
+
+      const setError = (element, message) => {
+        element.setCustomValidity(message);
+        element.classList.add('popup__error');
+      };
+
+      const clearError = (element) => {
+        element.setCustomValidity('');
+        element.classList.remove('popup__error');
+      };
+
+      const selectItem = (event) => {
         event.stopPropagation();
         const value = item.getAttribute('data-value');
+
         if (!value) {
-          // Если выбрана первая опция или значение отсутствует, отображаем placeholder и очищаем скрытое поле
-          button.innerHTML = '<span class="visually-hidden">Выберите город</span>';
-          hiddenCityInput.value = '';
+          button.value = '';
+          button.dataset.cityValue = '';
+          setError(button, 'Выберите город');
         } else {
-          // Отображаем текст выбранного города и сохраняем значение в скрытом поле
-          button.textContent = item.textContent;
-          hiddenCityInput.value = value;
+          button.value = item.textContent.trim();
+          button.dataset.cityValue = value;
+          clearError(button);
         }
+
         dropdown.classList.remove('open');
+        button.classList.remove('open');
         button.setAttribute('aria-expanded', 'false');
+
+        const checkbox = document.querySelector('.popup__checkbox-input');
+        setTimeout(() => {
+          if (checkbox) {
+            checkbox.focus();
+          }
+        }, 0);
+      };
+
+      item.addEventListener('click', selectItem);
+
+      item.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+          event.preventDefault();
+          selectItem(event);
+        }
       });
     });
 
     document.addEventListener('click', (e) => {
       if (!dropdown.contains(e.target)) {
         dropdown.classList.remove('open');
+        button.classList.remove('open');
         button.setAttribute('aria-expanded', 'false');
       }
     });
+
+    if (form) {
+      form.addEventListener('submit', (e) => {
+        if (!button.value || button.value.trim() === '') {
+          e.preventDefault();
+          button.focus();
+        }
+      });
+    }
   });
 };
 
+export const toggleCheckbox = () => {
+  document.addEventListener('DOMContentLoaded', () => {
+    const checkboxes = document.querySelectorAll('.popup__checkbox-input');
+
+    checkboxes.forEach((checkbox) => {
+      checkbox.setAttribute('tabindex', '0');
+
+      checkbox.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          checkbox.click();
+        }
+      });
+    });
+  });
+};
