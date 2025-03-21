@@ -512,7 +512,7 @@
   padding: 0;
   background-color: $primary-white;
   display: flex;
-  border-radius: 11px;
+  border-radius: 9px;
   align-items: center;
   justify-content: center;
   border: none;
@@ -543,14 +543,14 @@
 }
 
 .hero__header-translate--opened {
-  background-color: #234d89;
+  background-color: #9ea4ad;
 }
 
 .hero__header-translate-logo {
   mask: url("/__spritemap#sprite-translate-view") no-repeat center;
   background-color: $primary-blue;
-  width: 15px;
-  height: 15px;
+  width: 17px;
+  height: 17px;
   transition: opacity 0.3s ease;
   cursor: pointer;
 
@@ -570,7 +570,8 @@
 }
 
 .hero__header-translate-logo--opened {
-  background-color: #9ea4ad;
+  background-color: #234d89;
+
 }
 
 .hero__header-logo--opened {
