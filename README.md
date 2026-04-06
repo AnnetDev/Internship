@@ -1,51 +1,64 @@
+# Internship
+
+A landing page for the **Internship** project — a joint initiative by governments and volunteer brigades aimed at upskilling young professionals at early and mid stages of their careers. Provides information about internship, volunteering, and study abroad programs.
+
+## Tech Stack
+
+- **Vite** — build tool
+- **SCSS/Sass** — CSS preprocessor
+- **BEM** — naming methodology
+- **Vanilla JS** — no framework
+- **Swiper** — sliders
+- **PostCSS + Autoprefixer** — CSS postprocessing
+- **SVG Sprite** — icon system
+
+## Features
+
+- Fully responsive layout (mobile, tablet, desktop)
+- Burger menu with navigation and dropdowns
+- Language switcher (RU / EN) with full content translation
+- Hero section with auto-playing slider
+- Sliders for programs, reviews, and news sections
+- Tabbed news section
+- FAQ accordion
+- Popup with form validation and checkbox
+- Contact form with validation and city dropdown
+
 ## Getting Started
 
-1. Install node.js
-2. Check your Node.js version with `node --version`
-3. Supported build version: 18+
-4. Install dependencies with:
+1. Install Node.js (supported versions: `^18.18` or `^20.9`)
+2. Install dependencies:
 
 ```shell
 npm i
 ```
 
-5. Start the project with:
+3. Start the development server:
 
 ```shell
 npm run dev
 ```
 
-6. Additional commands for working with the build:
+4. Additional commands:
 
-- `npm run convert-rastr`: create WebP versions of raster images in the `source/img/`;
-- `npm run dev` starts the development server;
-- `npm run build`  builds an optimized version of the project into the `dist` folder;
-- `npm run preview` launches a server with the optimized version;
-- the sprite with icons is assembled from files in the `source/img/sprite/` folder;
-- to access the sprite from `html` use the path `href="/__spritemap#sprite-{название файла иконки}"`;
+| Command | Description |
+|---|---|
+| `npm run build` | Build optimized version to `dist` folder |
+| `npm run preview` | Preview the production build |
+| `npm run convert-rastr` | Convert raster images to WebP in `source/img/` |
 
-7. In the `index.html` file in the `source` folder, you’ll find tips on the structure of your project.
+> The SVG sprite is built from files in `source/img/sprite/`. Reference icons in HTML via `href="/__spritemap#sprite-{icon-file-name}"`
 
-## Self-checks
+## Quality Checks
 
-Pixel Perfect testing
-
-You can run Pixel Perfect testing for your project with:
-
-```shell
-npm run test 
-```
-
-The testing framework accesses  `localhost:3000`, so the server must be running via `npm run dev`.
-Run the testing command in a new terminal without closing the project’s server.
-
-The project uses a number of additional tools for self-checking. Use them during development and before submitting your project:
-
-- `npm run w3c`: checks HTML validity;
-- `npm run linthtml`: checks markup according to linthtml rules;
-- `npm run html-validate`: checks HTML;
-- `npm run lint-bem`: checks BEM compliance;
-- `npm run stylelint`: checks styles against stylelint rules;
-- `npm run lint-js`: checks scripts against eslint rules;
-- `npm run ls-lint`: checks file and folder naming;
-- `npm run editorconfig`: checks editorconfig compliance.
+| Command | Description |
+|---|---|
+| `npm run test` | Pixel Perfect testing (requires `npm run dev` running on `localhost:3000`) |
+| `npm run w3c` | W3C HTML validation |
+| `npm run linthtml` | Markup check via linthtml rules |
+| `npm run html-validate` | HTML validation |
+| `npm run lint-bem` | BEM compliance check |
+| `npm run stylelint` | Stylelint check (with autofix) |
+| `npm run lint-js` | ESLint check (with autofix) |
+| `npm run ls-lint` | File and folder naming check |
+| `npm run editorconfig` | EditorConfig compliance check |
